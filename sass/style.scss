@@ -9,11 +9,159 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
 @import "./Base/base";
 
 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.link-tag {
+    border: 1px solid $quatetnary-color;
+    border-radius: 11px;
+    margin-right: 10px;
+
+    a {
+        color: $primary-color;
+    }
+}
+
+
+// INVISIBLE LINK
+.invisible-link {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 40%;
+    height: 30px;
+    width: 182px;
+    background: #DB8876;
+    border-radius: 5px;
+
+    a {
+        color: black;
+        font-size: 18px;
+        font-weight: 700;
+        align-self: center;
+    }
+}
+
+
+//HEADER
+.main-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid $primary-color;
+    height: 100px;
+
+    h1 {
+        color: $primary-color;
+    }
+}
+
+//navigation
+.main-navigation {
+    border: 2px solid $quatetnary-color;
+    width: 553px;
+    height: 49px;
+}
+
+
+// Main
+.photographer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__card {
+        border: 2px solid $primary-color;
+        width: 20rem;
+        height: 24rem;
+        display: flex;
+        flex-flow: column nowrap;
+
+        &--link {
+            border: 2px solid $primary-color;
+            height: 18rem;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: center;
+
+            .artist-pict {
+                width: 10rem;
+                height: 10rem;
+                border: 1px solid $terciary-color;
+                border-radius: 50%;
+            }
+
+            h2 {
+                color: $secondary-color;
+            }
+        }
+
+        &--txt {
+            border: 2px solid $primary-color;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+    }
+}
+
+
+
+.artist1 {
+    background-image: url(../pictures/Mimi/Portrait_Nora.jpg);
+    background-size: cover;
+}
+
+.artist2 {
+    background-image: url(../pictures/Ellie_Rose/Architecture_Horseshoe.jpg);
+    background-size: cover;
+}
+
+.artist3 {
+    background-image: url(../pictures/Tracy/Fashion_Urban_Jungle.jpg);
+    background-size: cover;
+}
+
+.artist4 {
+    background-image: url(../pictures/Nabeel/Travel_Outdoor_Baths.jpg);
+    background-size: cover;
+}
+
+.artist5 {
+    background-image: url(../pictures/Rhode/Fashion_Melody_Red_on_Stripes.jpg);
+    background-size: cover;
+}
+
+.artist6 {
+    background-image: url(../pictures/Marcel/Travel_Tower.jpg);
+    background-size: cover;
+}
+
+// css pour lecteur d'écran
 
 .sr-only {
     position: absolute;
@@ -25,4 +173,16 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+
+@media all and (min-width: 1920px) {
+    body {
+        width: 99%;
+    }
+
+    .block_page {
+        width: 70%;
+        margin: auto;
+    }
 }

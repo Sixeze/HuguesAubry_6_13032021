@@ -11,6 +11,190 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
           box-sizing: border-box;
 }
 
+body {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.link-tag {
+  border: 1px solid #FAFAFA;
+  border-radius: 11px;
+  margin-right: 10px;
+}
+
+.link-tag a {
+  color: #901C1C;
+}
+
+.invisible-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 40%;
+  height: 30px;
+  width: 182px;
+  background: #DB8876;
+  border-radius: 5px;
+}
+
+.invisible-link a {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.main-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #901C1C;
+  height: 100px;
+}
+
+.main-banner h1 {
+  color: #901C1C;
+}
+
+.main-navigation {
+  border: 2px solid #FAFAFA;
+  width: 553px;
+  height: 49px;
+}
+
+.photographer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.photographer__card {
+  border: 2px solid #901C1C;
+  width: 20rem;
+  height: 24rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.photographer__card--link {
+  border: 2px solid #901C1C;
+  height: 18rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.photographer__card--link .artist-pict {
+  width: 10rem;
+  height: 10rem;
+  border: 1px solid #525252;
+  border-radius: 50%;
+}
+
+.photographer__card--link h2 {
+  color: #D3573C;
+}
+
+.photographer__card--txt {
+  border: 2px solid #901C1C;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.artist1 {
+  background-image: url(../pictures/Mimi/Portrait_Nora.jpg);
+  background-size: cover;
+}
+
+.artist2 {
+  background-image: url(../pictures/Ellie_Rose/Architecture_Horseshoe.jpg);
+  background-size: cover;
+}
+
+.artist3 {
+  background-image: url(../pictures/Tracy/Fashion_Urban_Jungle.jpg);
+  background-size: cover;
+}
+
+.artist4 {
+  background-image: url(../pictures/Nabeel/Travel_Outdoor_Baths.jpg);
+  background-size: cover;
+}
+
+.artist5 {
+  background-image: url(../pictures/Rhode/Fashion_Melody_Red_on_Stripes.jpg);
+  background-size: cover;
+}
+
+.artist6 {
+  background-image: url(../pictures/Marcel/Travel_Tower.jpg);
+  background-size: cover;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -21,5 +205,15 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+@media all and (min-width: 1920px) {
+  body {
+    width: 99%;
+  }
+  .block_page {
+    width: 70%;
+    margin: auto;
+  }
 }
 /*# sourceMappingURL=style.css.map */
