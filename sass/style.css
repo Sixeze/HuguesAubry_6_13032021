@@ -37,9 +37,11 @@ ul {
 }
 
 .link-tag {
-  border: 1px solid #FAFAFA;
-  border-radius: 11px;
+  border: 1px solid #525252;
+  border-radius: 20px;
   margin-right: 10px;
+  padding-right: 2px;
+  padding-left: 2px;
 }
 
 .link-tag a {
@@ -54,7 +56,7 @@ ul {
       -ms-flex-pack: center;
           justify-content: center;
   position: absolute;
-  left: 40%;
+  left: 42%;
   height: 30px;
   width: 182px;
   background: #DB8876;
@@ -82,16 +84,22 @@ ul {
           align-items: center;
   border: 2px solid #901C1C;
   height: 100px;
+  margin-bottom: 5em;
+}
+
+.main-banner .logo {
+  margin-left: 2%;
+}
+
+.main-banner .main-navigation {
+  border: 2px solid red;
+  height: 30px;
 }
 
 .main-banner h1 {
   color: #901C1C;
-}
-
-.main-navigation {
-  border: 2px solid #FAFAFA;
-  width: 553px;
-  height: 49px;
+  font-size: 2.5em;
+  margin-right: 2%;
 }
 
 .photographer {
@@ -111,9 +119,9 @@ ul {
 }
 
 .photographer__card {
-  border: 2px solid #901C1C;
-  width: 20rem;
-  height: 24rem;
+  border: 0.5px solid #901C1C;
+  width: 30%;
+  height: 30em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -121,11 +129,12 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  margin-bottom: 2em;
 }
 
 .photographer__card--link {
-  border: 2px solid #901C1C;
-  height: 18rem;
+  border: 0.5px solid #901C1C;
+  height: 25em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -133,26 +142,27 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .photographer__card--link .artist-pict {
-  width: 10rem;
-  height: 10rem;
+  width: 15em;
+  height: 15em;
   border: 1px solid #525252;
   border-radius: 50%;
 }
 
 .photographer__card--link h2 {
   color: #D3573C;
+  font-size: 2em;
 }
 
 .photographer__card--txt {
-  border: 2px solid #901C1C;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -163,6 +173,15 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.photographer__card--txt strong {
+  color: #901C1C;
+  font-size: 1em;
+}
+
+.photographer__card--txt span {
+  color: #525252;
 }
 
 .artist1 {
@@ -205,6 +224,62 @@ ul {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.main {
+  border: 1px solid #901C1C;
+  width: 99%;
+  margin: auto;
+}
+
+.photographer-presentation {
+  margin: auto;
+  width: 1240px;
+  height: 313px;
+  background: #FAFAFA;
+  border-radius: 5px;
+  margin-bottom: 60px;
+}
+
+.photographer-presentation .profil-picture {
+  width: 15em;
+  height: 15em;
+  border: 1px solid #525252;
+  border-radius: 50%;
+  background-image: url(../pictures/Mimi/Portrait_Nora.jpg);
+  background-size: cover;
+}
+
+.artist-portofolio {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+  margin: auto;
+}
+
+.artist-portofolio .show-selection {
+  border: 1px solid red;
+  width: 90%;
+}
+
+.artist-cards {
+  border: 1px solid black;
+  width: 30%;
+  height: 350px;
+  margin-bottom: 50px;
+}
+
+.artist-cards .artist-cards__picture {
+  border: 1px solid blue;
+  width: 350px;
+  height: 300px;
 }
 
 @media all and (min-width: 1920px) {
