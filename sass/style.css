@@ -4,72 +4,24 @@
 qu'aux écrans de bureau. Peu de nos utilisateurs visitent le site sur des tablettes, donc vous
 n'avez pas besoin de concevoir pour cette taille d'écran".*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.link-tag {
-  border: 1px solid #525252;
-  border-radius: 20px;
-  margin-right: 10px;
-  padding-right: 2px;
-  padding-left: 2px;
-}
-
-.link-tag a {
-  color: #901C1C;
-}
-
-.invisible-link {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  position: absolute;
-  left: 42%;
-  height: 30px;
-  width: 182px;
-  background: #DB8876;
+.btn {
+  border: none;
+  width: 170px;
+  height: 70px;
   border-radius: 5px;
+  background-color: #901C1C;
+  color: #FAFAFA;
+  font-size: 1.2em;
+  cursor: pointer;
 }
 
-.invisible-link a {
-  color: black;
-  font-size: 18px;
-  font-weight: 700;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+.btn:hover, .btn:active, .btn:focus {
+  background-color: #D3573C;
+}
+
+.main-btn {
+  background: #901C1C;
+  color: #FAFAFA;
 }
 
 .main-banner {
@@ -82,7 +34,6 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 2px solid #901C1C;
   height: 100px;
   margin-bottom: 5em;
 }
@@ -92,7 +43,6 @@ ul {
 }
 
 .main-banner .main-navigation {
-  border: 2px solid red;
   height: 30px;
 }
 
@@ -214,25 +164,13 @@ ul {
   background-size: cover;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.main {
+.photographer-page {
   border: 1px solid #901C1C;
   width: 99%;
   margin: auto;
 }
 
-.photographer-presentation {
+.ph-info {
   margin: auto;
   width: 1240px;
   height: 313px;
@@ -241,7 +179,7 @@ ul {
   margin-bottom: 60px;
 }
 
-.photographer-presentation .profil-picture {
+.ph-info .profil-picture {
   width: 15em;
   height: 15em;
   border: 1px solid #525252;
@@ -280,6 +218,107 @@ ul {
   border: 1px solid blue;
   width: 350px;
   height: 300px;
+}
+
+.fa-heart {
+  font-size: 1.2em;
+  width: 20px;
+  height: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.link-tag {
+  border: 1px solid #525252;
+  border-radius: 20px;
+  margin-right: 10px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.link-tag a {
+  color: #901C1C;
+}
+
+.invisible-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 42%;
+  height: 30px;
+  width: 182px;
+  background: #DB8876;
+  border-radius: 5px;
+}
+
+.invisible-link a {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.ph-contact {
+  border: none;
+  width: 170px;
+  height: 70px;
+  border-radius: 5px;
+  background-color: #901C1C;
+  color: #FAFAFA;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.ph-contact:hover {
+  background-color: #D3573C;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media all and (min-width: 1920px) {

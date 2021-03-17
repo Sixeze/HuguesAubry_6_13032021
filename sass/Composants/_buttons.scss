@@ -1,0 +1,24 @@
+.btn {
+    border: none;
+    width: 170px;
+    height: 70px;
+    border-radius: 5px;
+    background-color: $primary-color;
+    color: $quatetnary-color;
+    font-size: 1.2em;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $secondary-color;
+    }
+}
+
+// button contact photographer
+.ph-contact {}
+
+.main-btn {
+    background: $primary-color;
+    color: $quatetnary-color;
+}

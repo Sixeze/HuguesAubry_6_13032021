@@ -1,0 +1,53 @@
+// page photographe
+.photographer-page {
+    border: 1px solid $primary-color;
+    width: 99%;
+    margin: auto;
+}
+
+.ph-info {
+    margin: auto;
+    width: 1240px;
+    height: 313px;
+    background: $quatetnary-color;
+    border-radius: 5px;
+    margin-bottom: 60px;
+
+    .profil-picture {
+        @include artist-profil-cards;
+        @include artist-picture-1
+    }
+}
+
+.artist-portofolio {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: auto;
+
+    .show-selection {
+        border: 1px solid red;
+        width: 90%;
+    }
+}
+
+.artist-cards {
+    border: 1px solid black;
+    width: 30%;
+    height: 350px;
+    margin-bottom: 50px;
+
+    .artist-cards__picture {
+        border: 1px solid blue;
+        width: 350px;
+        height: 300px;
+    }
+}
+
+// icone coeur fontawesome
+.fa-heart {
+    font-size: 1.2em;
+    width: 20px;
+    height: 20px;
+}
