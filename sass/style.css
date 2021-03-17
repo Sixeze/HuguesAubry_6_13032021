@@ -4,6 +4,59 @@
 qu'aux écrans de bureau. Peu de nos utilisateurs visitent le site sur des tablettes, donc vous
 n'avez pas besoin de concevoir pour cette taille d'écran".*/
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.link-tag {
+  border: 1px solid #525252;
+  border-radius: 20px;
+  margin-right: 10px;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+.link-tag a {
+  color: #901C1C;
+}
+
+.link-tag:hover, .link-tag:active, .link-tag:focus {
+  border: none;
+  background-color: #901C1C;
+}
+
+.link-tag:hover a, .link-tag:active a, .link-tag:focus a {
+  color: #FAFAFA;
+}
+
 .btn {
   border: none;
   width: 170px;
@@ -165,18 +218,61 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
 }
 
 .photographer-page {
-  border: 1px solid #901C1C;
   width: 99%;
   margin: auto;
 }
 
 .ph-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: auto;
+  padding: 40px;
   width: 1240px;
   height: 313px;
   background: #FAFAFA;
   border-radius: 5px;
   margin-bottom: 60px;
+}
+
+.ph-info .ph-card {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.ph-info .ph-card__artist {
+  font-size: 4em;
+  line-height: 80px;
+  color: #D3573C;
+}
+
+.ph-info .ph-card__information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-top: 20px;
+}
+
+.ph-info .ph-card__information--city {
+  font-size: 1.5em;
+  color: #901C1C;
+  line-height: 31px;
+}
+
+.ph-info .ph-card__tag {
+  margin-top: 50px;
 }
 
 .ph-info .profil-picture {
@@ -202,12 +298,35 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
   margin: auto;
 }
 
+.artist-portofolio .sort-title {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-right: 20px;
+  line-height: 23.44px;
+}
+
 .artist-portofolio .show-selection {
   border: 1px solid red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 90%;
 }
 
 .artist-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid black;
   width: 30%;
   height: 350px;
@@ -216,58 +335,21 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
 
 .artist-cards .artist-cards__picture {
   border: 1px solid blue;
+  background-color: #C4C4C4;
   width: 350px;
   height: 300px;
+}
+
+.artist-cards .artist-cards__information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .fa-heart {
   font-size: 1.2em;
   width: 20px;
   height: 20px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-body {
-  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.link-tag {
-  border: 1px solid #525252;
-  border-radius: 20px;
-  margin-right: 10px;
-  padding-right: 2px;
-  padding-left: 2px;
-}
-
-.link-tag a {
-  color: #901C1C;
 }
 
 .invisible-link {
@@ -292,21 +374,6 @@ ul {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-}
-
-.ph-contact {
-  border: none;
-  width: 170px;
-  height: 70px;
-  border-radius: 5px;
-  background-color: #901C1C;
-  color: #FAFAFA;
-  font-size: 1.2em;
-  cursor: pointer;
-}
-
-.ph-contact:hover {
-  background-color: #D3573C;
 }
 
 .sr-only {

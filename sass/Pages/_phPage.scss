@@ -1,17 +1,46 @@
 // page photographe
 .photographer-page {
-    border: 1px solid $primary-color;
     width: 99%;
     margin: auto;
 }
 
 .ph-info {
+    display: flex;
+    justify-content: space-between;
     margin: auto;
+    padding: 40px;
     width: 1240px;
     height: 313px;
-    background: $quatetnary-color;
+    background: $quaternary-color;
     border-radius: 5px;
     margin-bottom: 60px;
+
+    .ph-card {
+        flex-flow: column nowrap;
+
+        &__artist {
+            font-size: 4em;
+            line-height: 80px;
+            color: $secondary-color;
+        }
+
+        &__information {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: 20px;
+
+            &--city {
+                font-size: 1.5em;
+                color: $primary-color;
+                line-height: 31px;
+            }
+        }
+
+        &__tag {
+            margin-top: 50px;
+        }
+    }
 
     .profil-picture {
         @include artist-profil-cards;
@@ -26,13 +55,26 @@
     width: 100%;
     margin: auto;
 
+    .sort-title {
+        font-size: 1.2em;
+        font-weight: 700;
+        margin-right: 20px;
+        line-height: 23.44px;
+
+    }
+
     .show-selection {
         border: 1px solid red;
+        display: flex;
         width: 90%;
     }
 }
 
 .artist-cards {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
     border: 1px solid black;
     width: 30%;
     height: 350px;
@@ -40,8 +82,13 @@
 
     .artist-cards__picture {
         border: 1px solid blue;
+        background-color: $bg-color;
         width: 350px;
         height: 300px;
+    }
+
+    .artist-cards__information {
+        display: flex;
     }
 }
 

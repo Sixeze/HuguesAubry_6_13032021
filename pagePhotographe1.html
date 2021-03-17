@@ -86,13 +86,13 @@ les logs de la console.-->
     <!-- ====== MAIN PHOTOGRAPHER PAGE ====== -->
     <main class="photographer-page">
       <header class="ph-info" aria-label="photographer information">
-        <section>
-          <h1>Mimi Keel</h1>
-          <p>
-            <strong>London, UK</strong>
+        <section class="ph-card">
+          <h1 class="ph-card__artist">Mimi Keel</h1>
+          <p class="ph-card__information">
+            <strong class="ph-card__information--city">London, UK</strong>
             voir le beau dans le quotidien
           </p>
-          <ul>
+          <ul class="ph-card__tag">
             <li class="link-tag"><a href="#">#portrait</a></li>
             <li class="link-tag"><a href="#">#events</a></li>
             <li class="link-tag"><a href="#">#travel</a></li>
@@ -107,13 +107,15 @@ les logs de la console.-->
           aria-label="Image representant le travail de l'artiste"
         ></div>
       </header>
+
+      <!-- ====== PORTOFOLIO ====== -->
       <article class="artist-portofolio">
         <div
           class="show-selection"
           aria-label="selection de préférence d'affichage des photos et vidéos"
         >
-          <p>Trier par</p>
-          <button>Popularité</button>
+          <p class="sort-title">Trier par</p>
+          <button class="btn" aria-haspopup="listbox">Popularité</button>
           <!-- Date Titre  boutton menu -->
         </div>
         <section class="artist-cards">
