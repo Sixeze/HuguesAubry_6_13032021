@@ -193,19 +193,73 @@ les logs de la console.-->
       </article>
       <aside>
         <i class="fas fa-heart"></i>
-        <svg
-          width="18"
-          height="19"
-          viewBox="0 0 18 19"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M9.125 18.35L7.85625 17.03C3.35 12.36 0.375 9.28 0.375 5.5C0.375 2.42 2.4925 0 5.1875 0C6.71 0 8.17125 0.81 9.125 2.09C10.0787 0.81 11.54 0 13.0625 0C15.7575 0 17.875 2.42 17.875 5.5C17.875 9.28 14.9 12.36 10.3938 17.04L9.125 18.35Z"
-            fill="black"
-          />
-        </svg>
       </aside>
+      <div class="bground">
+        <div class="content">
+          <div class="title-form">
+            <h2>Contactez-moi</h2>
+            <span>Mimi Keel</span>
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 42 42"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              id="cross-close"
+            >
+              <path
+                d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z"
+                fill="white"
+              />
+            </svg>
+          </div>
+          <form method="POST" action="traitement.php">
+            <div
+              role="group"
+              aria-labelledby="contact photographer"
+              class="form-content"
+            >
+              <label for="prenom">Prénom</label>
+              <input
+                type="text"
+                name="prenom"
+                id="prenom"
+                class="input"
+                placeholder="votre prénom"
+              />
+              <label for="nom">Nom</label>
+              <input
+                type="text"
+                name="nom"
+                id="nom"
+                class="input"
+                placeholder="votre nom"
+              />
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                class="input"
+                placeholder="votre email pour vous répondre"
+              />
+              <label for="message">Votre message</label>
+              <textarea
+                name="message"
+                id="message"
+                class="input"
+                placeholder="vos demandes et besoins"
+              ></textarea>
+              <input
+                id="submitBtn"
+                class="modal-btn btn"
+                type="submit"
+                value="envoyer"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
     </main>
     <footer></footer>
     <script src="./js/script.js"></script>

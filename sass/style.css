@@ -72,9 +72,72 @@ ul {
   background-color: #D3573C;
 }
 
-.main-btn {
-  background: #901C1C;
-  color: #FAFAFA;
+.bground {
+  background-color: #c4c4c460;
+}
+
+.bground .content {
+  margin: 5% auto;
+  background-color: #DB8876;
+  border-radius: 5px;
+  width: 670px;
+  height: 900px;
+  padding-left: 35px;
+}
+
+.bground .content .title-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bground .content .title-form h2,
+.bground .content .title-form span {
+  font-size: 4em;
+  font-weight: 400;
+}
+
+.bground .content .title-form #cross-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.bground .content .form-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.bground .content .form-content label {
+  font-size: 2em;
+}
+
+.bground .content .form-content .input {
+  margin-top: 8px;
+  width: 600px;
+  height: 70px;
+  font-size: 2em;
+  border-radius: 5px;
+}
+
+.bground .content .form-content #message {
+  width: 600px;
+  height: 170px;
+  margin-top: 10px;
+  margin-bottom: 40px;
 }
 
 .main-banner {
