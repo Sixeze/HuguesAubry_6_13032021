@@ -1,0 +1,50 @@
+.bground-lightbox {
+    display: none;
+ position: fixed;
+ z-index: 1;
+ left: 0;
+ top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: white;
+
+    .content-lightbox {
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 5% auto;
+        background-color: $quaternary-color;
+        width: 1400px;
+        height: 1000px;
+        padding-left: 35px;
+
+
+        #lightbox-cross-close {
+            position: absolute;
+            cursor: pointer;
+            top: 20px;
+            right: 20px;
+        }
+
+        .lightbox-img {
+            border: 1px solid lightblue;
+            background-color: $secondary-bg-color;
+            width: 1050px;
+            height: 900px;
+
+            &__card-title {
+                color: $primary-color;
+            }
+
+
+        }
+
+        .fa-chevron-right,
+        .fa-chevron-left {
+            color: $primary-color;
+            cursor: pointer;
+        }
+    }
+}
