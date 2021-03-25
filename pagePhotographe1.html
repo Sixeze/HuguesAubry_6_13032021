@@ -43,6 +43,7 @@ les logs de la console.-->
     <header role="banner" class="main-banner">
       <a href="./index.html" class="logo">
         <svg
+          role="img"
           aria-labelledby="title"
           width="200"
           height="50"
@@ -116,7 +117,11 @@ les logs de la console.-->
         >
           <p class="sort-title">Trier par</p>
           <button class="btn" aria-haspopup="listbox">Popularité</button>
-          <!-- Date Titre  boutton menu -->
+          <ul class="dropDown">
+            <li class="btn dropDown__list">Popularité</li>
+            <li class="btn dropDown__list">Date</li>
+            <li class="btn dropDown__list">Titre</li>
+          </ul>
         </div>
         <section class="artist-cards">
           <a href="#" id="openLightbox"
@@ -270,6 +275,7 @@ les logs de la console.-->
           <h2>Contactez-moi</h2>
           <span>Mimi Keel</span>
           <svg
+            role="button"
             width="42"
             height="42"
             viewBox="0 0 42 42"
