@@ -12,7 +12,6 @@
     width: 1240px;
     height: 313px;
     background: $quaternary-color;
-    border-radius: 5px;
     margin-bottom: 60px;
 
     .ph-card {
@@ -44,7 +43,6 @@
 
     .profil-picture {
         @include artist-profil-cards;
-        @include artist-picture-1
     }
 }
 
@@ -55,18 +53,18 @@
     width: 100%;
     margin: auto;
 
-    .sort-title {
-        font-size: 1.2em;
-        font-weight: 700;
-        margin-right: 20px;
-        line-height: 23.44px;
-
-    }
-
     .show-selection {
-        border: 1px solid red;
         display: flex;
-        width: 90%;
+        width: 86%;
+        margin-bottom: 50px;
+
+        .sort-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-right: 20px;
+            line-height: 23.44px;
+
+        }
     }
 }
 
@@ -75,12 +73,12 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     width: 30%;
     height: 350px;
     margin-bottom: 50px;
 
-    .artist-cards__picture {
+    .artist-cards__picture,
+    .artist-cards__video {
         border: 1px solid blue;
         background-color: $secondary-bg-color;
         width: 350px;
@@ -89,12 +87,57 @@
 
     .artist-cards__information {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 350px;
+
+        .card-title {
+            color: $primary-color;
+        }
+
+        .card-price {
+            font-weight: 600;
+
+            .fa-heart {
+                margin-left: 5px;
+
+            }
+        }
+
     }
 }
 
+
+// aside counter of like
+.counter {
+    position: fixed;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0px;
+    right: 40px;
+    z-index: 1;
+    width: 375px;
+    height: 50px;
+    background-color: $primary-bg-color;
+
+    .like-compt,
+    .ratePerDay {
+        font-size: 1.5em;
+    }
+}
+
+
 // icone coeur fontawesome
 .fa-heart {
+    cursor: pointer;
     font-size: 1.2em;
     width: 20px;
     height: 20px;
+    color: $primary-color;
+}
+
+.blackHeart {
+    color: black;
+    cursor: none;
 }

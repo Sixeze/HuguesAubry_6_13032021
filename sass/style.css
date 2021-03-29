@@ -9,6 +9,7 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  border-radius: 5px;
 }
 
 body {
@@ -61,7 +62,6 @@ ul {
   border: none;
   width: 170px;
   height: 70px;
-  border-radius: 5px;
   background-color: #901C1C;
   color: #FAFAFA;
   font-size: 1.2em;
@@ -72,8 +72,44 @@ ul {
   background-color: #D3573C;
 }
 
-.bground {
+.dropDown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.dropDown__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2em;
+}
+
+.dropDown__list:nth-child(2) {
+  border-top: 1px dashed #fff;
+  border-bottom: 1px dashed #fff;
+}
+
+.dropDown__list:nth-child(2), .dropDown__list:nth-child(3) {
   display: none;
+}
+
+.dropDown__list:hover__list:nth-child(2), .dropDown__list:hover__list:nth-child(3) {
+  display: block;
+}
+
+.bground {
+  display: block;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -87,7 +123,6 @@ ul {
 .bground .content {
   margin: 5% auto;
   background-color: #DB8876;
-  border-radius: 5px;
   width: 670px;
   height: 900px;
   padding-left: 35px;
@@ -139,7 +174,6 @@ ul {
   width: 600px;
   height: 70px;
   font-size: 2em;
-  border-radius: 5px;
 }
 
 .bground .content .form-content #message {
@@ -147,6 +181,59 @@ ul {
   height: 170px;
   margin-top: 10px;
   margin-bottom: 40px;
+}
+
+.bground-lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: white;
+}
+
+.bground-lightbox .content-lightbox {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5% auto;
+  background-color: #FAFAFA;
+  width: 1400px;
+  height: 1000px;
+  padding-left: 35px;
+}
+
+.bground-lightbox .content-lightbox #lightbox-cross-close {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 20px;
+}
+
+.bground-lightbox .content-lightbox .lightbox-img {
+  border: 1px solid lightblue;
+  background-color: #C4C4C4;
+  width: 1050px;
+  height: 900px;
+}
+
+.bground-lightbox .content-lightbox .lightbox-img__card-title {
+  color: #901C1C;
+}
+
+.bground-lightbox .content-lightbox .fa-chevron-right,
+.bground-lightbox .content-lightbox .fa-chevron-left {
+  color: #901C1C;
+  cursor: pointer;
 }
 
 .main-banner {
@@ -177,7 +264,7 @@ ul {
   margin-right: 2%;
 }
 
-.photographer {
+.photograph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -193,7 +280,7 @@ ul {
           align-items: center;
 }
 
-.photographer__card {
+.photograph__card {
   border: 0.5px solid #901C1C;
   width: 30%;
   height: 30em;
@@ -207,7 +294,7 @@ ul {
   margin-bottom: 2em;
 }
 
-.photographer__card--link {
+.photograph__card--link {
   border: 0.5px solid #901C1C;
   height: 25em;
   display: -webkit-box;
@@ -225,19 +312,21 @@ ul {
           align-items: center;
 }
 
-.photographer__card--link .artist-pict {
+.photograph__card--link .artist-pict {
   width: 15em;
   height: 15em;
   border: 1px solid #525252;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.photographer__card--link h2 {
+.photograph__card--link h2 {
   color: #D3573C;
   font-size: 2em;
 }
 
-.photographer__card--txt {
+.photograph__card--txt {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -250,43 +339,13 @@ ul {
           align-items: center;
 }
 
-.photographer__card--txt strong {
+.photograph__card--txt strong {
   color: #901C1C;
   font-size: 1em;
 }
 
-.photographer__card--txt span {
+.photograph__card--txt span {
   color: #525252;
-}
-
-.artist1 {
-  background-image: url(../pictures/Mimi/Portrait_Nora.jpg);
-  background-size: cover;
-}
-
-.artist2 {
-  background-image: url(../pictures/Ellie_Rose/Architecture_Horseshoe.jpg);
-  background-size: cover;
-}
-
-.artist3 {
-  background-image: url(../pictures/Tracy/Fashion_Urban_Jungle.jpg);
-  background-size: cover;
-}
-
-.artist4 {
-  background-image: url(../pictures/Nabeel/Travel_Outdoor_Baths.jpg);
-  background-size: cover;
-}
-
-.artist5 {
-  background-image: url(../pictures/Rhode/Fashion_Melody_Red_on_Stripes.jpg);
-  background-size: cover;
-}
-
-.artist6 {
-  background-image: url(../pictures/Marcel/Travel_Tower.jpg);
-  background-size: cover;
 }
 
 .photographer-page {
@@ -306,7 +365,6 @@ ul {
   width: 1240px;
   height: 313px;
   background: #FAFAFA;
-  border-radius: 5px;
   margin-bottom: 60px;
 }
 
@@ -352,8 +410,8 @@ ul {
   height: 15em;
   border: 1px solid #525252;
   border-radius: 50%;
-  background-image: url(../pictures/Mimi/Portrait_Nora.jpg);
-  background-size: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .artist-portofolio {
@@ -370,19 +428,19 @@ ul {
   margin: auto;
 }
 
-.artist-portofolio .sort-title {
+.artist-portofolio .show-selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 86%;
+  margin-bottom: 50px;
+}
+
+.artist-portofolio .show-selection .sort-title {
   font-size: 1.2em;
   font-weight: 700;
   margin-right: 20px;
   line-height: 23.44px;
-}
-
-.artist-portofolio .show-selection {
-  border: 1px solid red;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 90%;
 }
 
 .artist-cards {
@@ -399,13 +457,13 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: 1px solid black;
   width: 30%;
   height: 350px;
   margin-bottom: 50px;
 }
 
-.artist-cards .artist-cards__picture {
+.artist-cards .artist-cards__picture,
+.artist-cards .artist-cards__video {
   border: 1px solid blue;
   background-color: #C4C4C4;
   width: 350px;
@@ -416,12 +474,61 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 350px;
+}
+
+.artist-cards .artist-cards__information .card-title {
+  color: #901C1C;
+}
+
+.artist-cards .artist-cards__information .card-price {
+  font-weight: 600;
+}
+
+.artist-cards .artist-cards__information .card-price .fa-heart {
+  margin-left: 5px;
+}
+
+.counter {
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  bottom: 0px;
+  right: 40px;
+  z-index: 1;
+  width: 375px;
+  height: 50px;
+  background-color: #DB8876;
+}
+
+.counter .like-compt,
+.counter .ratePerDay {
+  font-size: 1.5em;
 }
 
 .fa-heart {
+  cursor: pointer;
   font-size: 1.2em;
   width: 20px;
   height: 20px;
+  color: #901C1C;
+}
+
+.blackHeart {
+  color: black;
+  cursor: none;
 }
 
 .invisible-link {
@@ -436,7 +543,6 @@ ul {
   height: 30px;
   width: 182px;
   background: #DB8876;
-  border-radius: 5px;
 }
 
 .invisible-link a {

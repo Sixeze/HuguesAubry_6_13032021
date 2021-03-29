@@ -2,7 +2,6 @@
     border: none;
     width: 170px;
     height: 70px;
-    border-radius: 5px;
     background-color: $primary-color;
     color: $quaternary-color;
     font-size: 1.2em;
@@ -15,4 +14,34 @@
     }
 }
 
-// button contact photographer
+// dropdown menu
+.dropDown {
+    display: flex;
+    flex-flow: column nowrap;
+
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2em;
+
+    }
+
+    &__list:nth-child(2) {
+        border-top: 1px dashed #fff;
+        border-bottom: 1px dashed #fff;
+    }
+
+    &__list:nth-child(2),
+    &__list:nth-child(3) {
+        display: none;
+    }
+
+    &__list:hover {
+
+        &__list:nth-child(2),
+        &__list:nth-child(3) {
+            display: block;
+        }
+    }
+}
