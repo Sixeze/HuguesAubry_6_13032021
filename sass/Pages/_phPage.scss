@@ -43,7 +43,6 @@
 
     .profil-picture {
         @include artist-profil-cards;
-        @include artist-picture-1
     }
 }
 
@@ -93,8 +92,8 @@
         width: 350px;
 
         .card-title {
-    color: $primary-color;
-}
+            color: $primary-color;
+        }
 
         .card-price {
             font-weight: 600;

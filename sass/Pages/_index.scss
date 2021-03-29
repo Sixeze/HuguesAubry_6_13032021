@@ -22,7 +22,7 @@
 }
 
 // Main
-.photographer {
+.photograph {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
@@ -71,28 +71,4 @@
 
         }
     }
-}
-
-.artist1 {
-    @include artist-picture-1;
-}
-
-.artist2 {
-    @include artist-picture-2;
-}
-
-.artist3 {
-    @include artist-picture-3;
-}
-
-.artist4 {
-    @include artist-picture-4;
-}
-
-.artist5 {
-    @include artist-picture-5;
-}
-
-.artist6 {
-    @include artist-picture-6;
 }

@@ -3,35 +3,5 @@
     height: 15em;
     border: 1px solid $terciary-color;
     border-radius: 50%;
-}
-
-@mixin artist-picture-1 {
-    background-image: url(../pictures/Mimi/Portrait_Nora.jpg);
-
-    background-size: cover;
-}
-
-@mixin artist-picture-2 {
-    background-image: url(../pictures/Ellie_Rose/Architecture_Horseshoe.jpg);
-    background-size: cover;
-}
-
-@mixin artist-picture-3 {
-    background-image: url(../pictures/Tracy/Fashion_Urban_Jungle.jpg);
-    background-size: cover;
-}
-
-@mixin artist-picture-4 {
-    background-image: url(../pictures/Nabeel/Travel_Outdoor_Baths.jpg);
-    background-size: cover;
-}
-
-@mixin artist-picture-5 {
-    background-image: url(../pictures/Rhode/Fashion_Melody_Red_on_Stripes.jpg);
-    background-size: cover;
-}
-
-@mixin artist-picture-6 {
-    background-image: url(../pictures/Marcel/Travel_Tower.jpg);
-    background-size: cover;
+    object-fit: cover;
 }
