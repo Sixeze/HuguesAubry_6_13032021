@@ -7,6 +7,8 @@
     border-radius: 5px;
 }
 
+
+
 body {
     font-family: 'DM Sans', Arial, Helvetica, sans-serif;
 }
@@ -25,6 +27,8 @@ ul {
 }
 
 // #TAG CONFIG
+
+
 .link-tag {
     border: 1px solid $terciary-color;
     border-radius: 20px;
@@ -46,5 +50,9 @@ ul {
             color: $quaternary-color;
         }
     }
+}
 
+.tagBox {
+    border: 1px solid red;
+    height: 30px;
 }

@@ -58,6 +58,11 @@ ul {
   color: #FAFAFA;
 }
 
+.tagBox {
+  border: 1px solid red;
+  height: 30px;
+}
+
 .btn {
   border: none;
   width: 170px;

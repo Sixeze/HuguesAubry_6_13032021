@@ -9,6 +9,7 @@
 // import { data } from "./photographData";
 
 // new article + element
+
 function newArticleElt(
   articleClassData,
   aHrefData,
@@ -22,23 +23,20 @@ function newArticleElt(
   tagline,
   price
 ) {
-  let newArticle = document.createElement("article");
-  let main = document.getElementsByTagName("main");
-  let aLinkElt = document.createElement("a");
-  let imgElt = document.createElement("img");
-  let titleNameElt = document.createElement("h2");
-  let asideElt = document.createElement("aside");
-  let strongElt = document.createElement("strong");
-  let pElt = document.createElement("p");
-  let spanElt = document.createElement("span");
-  let ulElt = document.createElement("ul");
-  let liElt = document.createElement("li");
+  const newArticle = document.createElement("article");
+  const main = document.getElementsByTagName("main");
+  const aLinkElt = document.createElement("a");
+  const imgElt = document.createElement("img");
+  const titleNameElt = document.createElement("h2");
+  const asideElt = document.createElement("aside");
+  const strongElt = document.createElement("strong");
+  const pElt = document.createElement("p");
+  const spanElt = document.createElement("span");
 
   main[0].appendChild(newArticle);
 
   newArticle.appendChild(aLinkElt);
   newArticle.appendChild(asideElt);
-  newArticle.appendChild(ulElt);
 
   aLinkElt.appendChild(imgElt);
   aLinkElt.appendChild(titleNameElt);
@@ -46,8 +44,6 @@ function newArticleElt(
   asideElt.appendChild(strongElt);
   asideElt.appendChild(pElt);
   asideElt.appendChild(spanElt);
-
-  ulElt.appendChild(liElt);
 
   newArticle.setAttribute("class", articleClassData);
 
@@ -65,6 +61,26 @@ function newArticleElt(
   strongElt.textContent = cityAndCountry;
   pElt.textContent = tagline;
   spanElt.textContent = price;
+}
+
+for (let i = 0; i < data.photographers.length; i += 1) {
+  const ulTag = document.createElement("ul");
+  ulTag.setAttribute("class", "tagBox");
+  console.log(ulTag);
+  const tagsData = data.photographers[i].tags;
+  for (let t = 0; t < tagsData.length; t += 1) {
+    const liTagElt = document.createElement("li");
+    ulTag.appendChild(liTagElt);
+    liTagElt.setAttribute("class", "link-tag");
+    const aTagElt = document.createElement("a");
+    liTagElt.appendChild(aTagElt);
+    aTagElt.setAttribute("href", "#");
+    aTagElt.setAttribute("title", tagsData[t]);
+    aTagElt.textContent = "#" + tagsData[t];
+
+    console.log(liTagElt);
+    console.log(aTagElt);
+  }
 }
 
 const articlePh1 = newArticleElt(
@@ -175,3 +191,12 @@ const articlePh6 = newArticleElt(
 //   "Portrait représentant Elie-Rose Wilkens"
 // );
 // console.log(creatDivERWilkens);
+
+// const tagUlCard = document.createElement("ul");
+// const liElt = document.createElement("li");
+// ulElt.appendChild(liElt);
+// liElt.setAttribute("class", "link-tag");
+// function tagsData(i) {
+//   let linkTags = data.photographers[i].tags;
+//   for (let i = 0; i < linkTags.length; i += 1) {}
+// }
