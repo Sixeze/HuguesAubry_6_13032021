@@ -30,14 +30,17 @@ ul {
 
 
 .link-tag {
+    display: flex;
     border: 1px solid $terciary-color;
+    height: 22px;
     border-radius: 20px;
     margin-right: 10px;
-    padding-right: 2px;
-    padding-left: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
 
     a {
         color: $primary-color;
+        font-size: 16px;
     }
 
     &:hover,
@@ -53,6 +56,5 @@ ul {
 }
 
 .tagBox {
-    border: 1px solid red;
     height: 30px;
 }

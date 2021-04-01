@@ -30,15 +30,17 @@
             margin-top: 20px;
 
             &--city {
-                font-size: 1.5em;
+                font-size: 0.5em;
                 color: $primary-color;
                 line-height: 31px;
             }
+
+            &--tagline {
+                font-size: 1.2rem;
+                color: $terciary-color;
+            }
         }
 
-        &__tag {
-            margin-top: 50px;
-        }
     }
 
     .profil-picture {
@@ -69,6 +71,7 @@
 }
 
 .artist-cards {
+    border: 1px solid $primary-color;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -83,6 +86,7 @@
         background-color: $secondary-bg-color;
         width: 350px;
         height: 300px;
+
     }
 
     .artist-cards__information {
@@ -97,9 +101,16 @@
 
         .card-price {
             font-weight: 600;
+            color: $primary-color;
+            font-size: 1.2em;
+
+            .card-likeNumbers {
+                margin-left: 10px;
+                font-size: .9em;
+            }
 
             .fa-heart {
-                margin-left: 5px;
+                margin-left: 2px;
 
             }
         }
