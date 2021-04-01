@@ -38,15 +38,20 @@ ul {
 }
 
 .link-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   border: 1px solid #525252;
+  height: 22px;
   border-radius: 20px;
   margin-right: 10px;
-  padding-right: 2px;
-  padding-left: 2px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .link-tag a {
   color: #901C1C;
+  font-size: 16px;
 }
 
 .link-tag:hover, .link-tag:active, .link-tag:focus {
@@ -56,6 +61,10 @@ ul {
 
 .link-tag:hover a, .link-tag:active a, .link-tag:focus a {
   color: #FAFAFA;
+}
+
+.tagBox {
+  height: 30px;
 }
 
 .btn {
@@ -109,7 +118,7 @@ ul {
 }
 
 .bground {
-  display: block;
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -281,7 +290,6 @@ ul {
 }
 
 .photograph__card {
-  border: 0.5px solid #901C1C;
   width: 30%;
   height: 30em;
   display: -webkit-box;
@@ -295,7 +303,6 @@ ul {
 }
 
 .photograph__card--link {
-  border: 0.5px solid #901C1C;
   height: 25em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -396,13 +403,14 @@ ul {
 }
 
 .ph-info .ph-card__information--city {
-  font-size: 1.5em;
+  font-size: 0.5em;
   color: #901C1C;
   line-height: 31px;
 }
 
-.ph-info .ph-card__tag {
-  margin-top: 50px;
+.ph-info .ph-card__information--tagline {
+  font-size: 1.2rem;
+  color: #525252;
 }
 
 .ph-info .profil-picture {
@@ -444,6 +452,7 @@ ul {
 }
 
 .artist-cards {
+  border: 1px solid #901C1C;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -489,10 +498,17 @@ ul {
 
 .artist-cards .artist-cards__information .card-price {
   font-weight: 600;
+  color: #901C1C;
+  font-size: 1.2em;
+}
+
+.artist-cards .artist-cards__information .card-price .card-likeNumbers {
+  margin-left: 10px;
+  font-size: .9em;
 }
 
 .artist-cards .artist-cards__information .card-price .fa-heart {
-  margin-left: 5px;
+  margin-left: 2px;
 }
 
 .counter {

@@ -29,7 +29,6 @@
     align-items: center;
 
     &__card {
-        border: .5px solid $primary-color;
         width: 30%;
         height: 30em;
         display: flex;
@@ -37,7 +36,6 @@
         margin-bottom: 2em;
 
         &--link {
-            border: 0.5px solid $primary-color;
             height: 25em;
             display: flex;
             flex-flow: column nowrap;

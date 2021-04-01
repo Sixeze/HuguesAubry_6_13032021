@@ -4,9 +4,9 @@ const btnModal = document.getElementsByClassName("ph-contact btn")[0];
 const closeModal = document.getElementById("cross-close");
 
 // When the user clicks the button, open the modal
-btnModal.onclick = function () {
-  bgModal.style.display = "block";
-};
+// btnModal.onclick = function () {
+//   bgModal.style.display = "block";
+// };
 
 // When the user clicks on <svg> (x), close the modal
 closeModal.onclick = function () {
