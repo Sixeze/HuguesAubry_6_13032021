@@ -403,7 +403,7 @@ ul {
 }
 
 .ph-info .ph-card__information--city {
-  font-size: 0.5em;
+  font-size: 1.2em;
   color: #901C1C;
   line-height: 31px;
 }
@@ -452,7 +452,6 @@ ul {
 }
 
 .artist-cards {
-  border: 1px solid #901C1C;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -473,7 +472,8 @@ ul {
 
 .artist-cards .artist-cards__picture,
 .artist-cards .artist-cards__video {
-  border: 1px solid blue;
+  -o-object-fit: contain;
+     object-fit: contain;
   background-color: #C4C4C4;
   width: 350px;
   height: 300px;
@@ -493,6 +493,7 @@ ul {
 }
 
 .artist-cards .artist-cards__information .card-title {
+  font-size: 1.1em;
   color: #901C1C;
 }
 
