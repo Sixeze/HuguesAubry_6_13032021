@@ -81,40 +81,67 @@ ul {
   background-color: #D3573C;
 }
 
-.dropDown {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column nowrap;
-          flex-flow: column nowrap;
+.sort-menu {
+  position: relative;
 }
 
-.dropDown__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.2em;
-}
-
-.dropDown__list:nth-child(2) {
-  border-top: 1px dashed #fff;
-  border-bottom: 1px dashed #fff;
-}
-
-.dropDown__list:nth-child(2), .dropDown__list:nth-child(3) {
+.sort-menu select {
   display: none;
 }
 
-.dropDown__list:hover__list:nth-child(2), .dropDown__list:hover__list:nth-child(3) {
-  display: block;
+.sort-select,
+.dropdown-menu div {
+  color: #FAFAFA;
+  padding: 20px 20px;
+  border: 1px solid #fff;
+  border-color: transparent transparent #fff transparent;
+  font-size: 1.2em;
+  background-color: #901C1C;
+  width: 170px;
+  height: 70px;
+  cursor: pointer;
+}
+
+.sort-select:after {
+  position: absolute;
+  content: "";
+  top: 28px;
+  left: 135px;
+  width: 16px;
+  height: 10px;
+  background-image: url(../../media/logo/arrowDown.png);
+  background-size: no-repeat;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.sort-select.arrow:after {
+  background-image: url(../../media/logo/arrowUp.png);
+}
+
+/* Style items (options): */
+.dropdown-menu {
+  position: absolute;
+  background-color: #901C1C;
+  top: 100%;
+  width: 170px;
+  height: auto;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+/* Hide the items when the select box is closed: */
+.dropdown-hide {
+  display: none;
+}
+
+.dropdown-menu div:hover,
+.same-Sort-selected {
+  background-color: #a58181c5;
+}
+
+.same-Sort-selected {
+  display: none;
 }
 
 .bground {
@@ -436,19 +463,17 @@ ul {
   margin: auto;
 }
 
-.artist-portofolio .show-selection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 86%;
-  margin-bottom: 50px;
-}
-
-.artist-portofolio .show-selection .sort-title {
+.artist-portofolio .sort-title {
+  height: 70px;
   font-size: 1.2em;
   font-weight: 700;
-  margin-right: 20px;
+  margin-left: 90px;
   line-height: 23.44px;
+}
+
+.artist-portofolio .sort-menu {
+  width: 86%;
+  margin-bottom: 50px;
 }
 
 .artist-cards {

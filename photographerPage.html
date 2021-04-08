@@ -91,20 +91,19 @@ les logs de la console.-->
 
         <!-- ====== PORTOFOLIO ====== -->
         <article class="artist-portofolio">
+          <p class="sort-title">Trier par</p>
           <div
-            class="show-selection"
+            class="sort-menu"
             aria-label="selection de préférence d'affichage des photos et vidéos"
           >
-            <p class="sort-title">Trier par</p>
-            <button class="btn" aria-haspopup="listbox">Popularité</button>
-            <button class="btn" aria-haspopup="listbox">Date</button>
-            <button class="btn" aria-haspopup="listbox">titre</button>
-            <!-- <ul class="dropDown">
-            <li class="btn dropDown__list">Popularité</li>
-            <li class="btn dropDown__list">Date</li>
-            <li class="btn dropDown__list">Titre</li>
-          </ul> -->
+            <select>
+              <option value="0">popularité</option>
+              <option value="1">popularité</option>
+              <option value="2">date</option>
+              <option value="3">likes</option>
+            </select>
           </div>
+
           <!-- javascipt artist-cards  -->
         </article>
         <aside class="counter">

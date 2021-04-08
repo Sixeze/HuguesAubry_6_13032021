@@ -55,18 +55,19 @@
     width: 100%;
     margin: auto;
 
-    .show-selection {
-        display: flex;
+    .sort-title {
+        height: 70px;
+        font-size: 1.2em;
+        font-weight: 700;
+        margin-left: 90px;
+        line-height: 23.44px;
+
+    }
+
+    .sort-menu {
         width: 86%;
         margin-bottom: 50px;
 
-        .sort-title {
-            font-size: 1.2em;
-            font-weight: 700;
-            margin-right: 20px;
-            line-height: 23.44px;
-
-        }
     }
 }
 
