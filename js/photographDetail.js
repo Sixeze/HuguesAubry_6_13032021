@@ -1,10 +1,50 @@
+// URL Params
+
+// const x = location.search;
+// console.log(x);
+
+// let params = new URL(document.location).searchParams;
+// console.log(params);
+// let name1 = params.get("dataph");
+// console.log(name1);
+
+// const params = new URLSearchParams(location.search);
+// console.log(params);
+
 // fetch json file
-fetch("./js/data.json")
-  .then((response) => response.json())
-  .then((phData) => {
-    console.table(phData.photographers);
-    console.table(phData.media);
-  });
+// fetch("./js/data.json")
+//   .then((response) => response.json())
+//   .then((phData) => {
+//     console.table(phData.photographers);
+//     let params = new URL(document.location).searchParams;
+//     let urlIdNumber = params.get("dataph");
+//     let idPh = phData.photographers[0].id;
+//     console.log(idPh);
+//     console.log(urlIdNumber);
+//     if (urlIdNumber == idPh) {
+//       console.log("youpi");
+//     } else {
+//       console.log("badMove");
+//     }
+//   });
+
+// fetch("./js/data.json")
+//   .then((response) => response.json())
+//   .then((phData) => {
+//     for (let i = 0; i < phData.photographers.length; i += 1) {
+//       let url = `http://127.0.0.1:5501/photographerPage.html?dataph=${value}`;
+//       console.log(`voici : ${this.value}`);
+//       if (url.value == phData.photographers[i].id) {
+//       }
+
+//       console.log(phData.photographers[i]);
+//       console.log(phData.photographers[i].id);
+//     }
+//     console.log(phData);
+//     console.log(phData.photographers);
+//     // ./photographerPage.html?dataph=${phData.photographers[i].id}
+//   });
+// // photographerPage.html?dataph=243
 
 // tag main Dom
 const mainPHPage = document.getElementsByTagName("main");
@@ -38,7 +78,8 @@ function creatHeaderProfil() {
         liTagElt.setAttribute("class", "link-tag");
         liTagElt.innerHTML = `<a href="#" tittle="${tagsData[t]}" >#${tagsData[t]}</a> `;
       }
-    });
+    })
+    .catch((error) => console.log("Erreur : " + error));
 }
 
 // create portofolio
@@ -72,25 +113,63 @@ function creatPictureCard() {
     });
 }
 
-// dataOfJson.media;
-// console.log(dataOfJson.media);
+// create seclect custom-select box (dropdown menu)
+const sortMenu = document.getElementsByClassName("sort-menu");
+let s;
+for (s = 0; s < sortMenu.length; s++) {
+  const selectElt = sortMenu[s].getElementsByTagName("select")[0];
+  const lenghOfSelectElt = selectElt.length;
 
-// function showGoodPict() {
-//   let t;
-//   for (t = 0; t < dataOfJson.photographers.length; t += 1) {
-//     const pHId = dataOfJson.photographers[t].id;
-//     pHId;
-//     console.log(dataOfJson.photographers[t].id);
-//   }
+  // for each elt create a DIV with the same comportement of selected elt
+  const divElt = document.createElement("DIV");
+  const nameOption = selectElt.options[selectElt.selectedIndex].innerHTML;
+  divElt.setAttribute("class", "sort-select");
+  divElt.setAttribute("aria-hidden", nameOption);
+  divElt.setAttribute("tabindex", "0");
+  divElt.innerHTML = nameOption;
+  sortMenu[s].appendChild(divElt);
 
-//   let i;
-//   for (i = 0; i < dataOfJson.media.length; i += 1) {
-//     const dataId = dataOfJson.media[i].photographerId;
-//     dataId;
-//     console.log(dataId);
-//   }
-// }
-// console.log(showGoodPict());
+  // create a new div with option list for elts
+  const divElt2 = document.createElement("DIV");
+  divElt2.setAttribute("class", "dropdown-menu dropdown-hide");
+  for (let t = 1; t < lenghOfSelectElt; t++) {
+    const divElt3 = document.createElement("DIV");
+    divElt3.innerHTML = selectElt.options[t].innerHTML;
+
+    divElt3.addEventListener("click", function () {
+      //  When an item is selected, update <sort-select> box and selected item
+      const parentElt = this.parentNode.parentNode.getElementsByTagName(
+        "select"
+      )[0];
+      const sortSelectElt = this.parentNode.previousSibling;
+      for (let u = 0; u < parentElt.length; u++) {
+        if (parentElt.options[u].innerHTML == this.innerHTML) {
+          parentElt.selectedIndex = u;
+          sortSelectElt.innerHTML = this.innerHTML;
+          const sameSortElt = this.parentNode.getElementsByClassName(
+            "same-Sort-selected"
+          );
+          for (let v = 0; v < sameSortElt.length; v++) {
+            sameSortElt[v].removeAttribute("class");
+          }
+          this.setAttribute("class", "same-Sort-selected");
+          break;
+        }
+      }
+      sortSelectElt.click();
+    });
+    divElt2.appendChild(divElt3);
+  }
+  sortMenu[s].appendChild(divElt2);
+  divElt.addEventListener("click", function (e) {
+    /* When the select box is clicked, close any other select boxes,
+    and open/close the current select box: */
+    e.stopPropagation();
+    // closeDropdown(this);
+    this.nextSibling.classList.toggle("dropdown-hide");
+    this.classList.toggle("arrow");
+  });
+}
 
 window.onload = () => {
   creatHeaderProfil();
