@@ -22,6 +22,8 @@
 
 }
 
+
+// arrow comportement
 .sort-select {
     &:after {
         position: absolute;
@@ -35,13 +37,12 @@
     }
 }
 
-/* Point the arrow upwards when the select box is open (active): */
 .sort-select.arrow:after {
     background-image: url(../../media/logo/arrowUp.png);
 
 }
 
-/* Style items (options): */
+
 .dropdown-menu {
     position: absolute;
     background-color: $primary-color;
@@ -53,7 +54,7 @@
     z-index: 1;
 }
 
-/* Hide the items when the select box is closed: */
+// hide dropdown
 .dropdown-hide {
     display: none;
 }

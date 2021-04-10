@@ -1,65 +1,35 @@
 // URL Params
 
-// const x = location.search;
-// console.log(x);
+console.table(window.location);
+console.log(
+  "l'ID de la page est : " +
+    new URL(window.location.href).searchParams.get("dataph")
+);
+console.log("======================================================");
 
-// let params = new URL(document.location).searchParams;
-// console.log(params);
-// let name1 = params.get("dataph");
-// console.log(name1);
-
-// const params = new URLSearchParams(location.search);
-// console.log(params);
-
-// fetch json file
-// fetch("./js/data.json")
-//   .then((response) => response.json())
-//   .then((phData) => {
-//     console.table(phData.photographers);
-//     let params = new URL(document.location).searchParams;
-//     let urlIdNumber = params.get("dataph");
-//     let idPh = phData.photographers[0].id;
-//     console.log(idPh);
-//     console.log(urlIdNumber);
-//     if (urlIdNumber == idPh) {
-//       console.log("youpi");
-//     } else {
-//       console.log("badMove");
-//     }
-//   });
-
-// fetch("./js/data.json")
-//   .then((response) => response.json())
-//   .then((phData) => {
-//     for (let i = 0; i < phData.photographers.length; i += 1) {
-//       let url = `http://127.0.0.1:5501/photographerPage.html?dataph=${value}`;
-//       console.log(`voici : ${this.value}`);
-//       if (url.value == phData.photographers[i].id) {
-//       }
-
-//       console.log(phData.photographers[i]);
-//       console.log(phData.photographers[i].id);
-//     }
-//     console.log(phData);
-//     console.log(phData.photographers);
-//     // ./photographerPage.html?dataph=${phData.photographers[i].id}
-//   });
-// // photographerPage.html?dataph=243
-
-// tag main Dom
+// element tag to Dom
 const mainPHPage = document.getElementsByTagName("main");
+const articlePhPage = document.getElementsByTagName("article");
 
 // creat header profil photograph
 function creatHeaderProfil() {
   fetch("./js/data.json")
     .then((response) => response.json())
     .then((phData) => {
-      const dataForPh = phData.photographers[0];
-      const newHeader = document.createElement("header");
-      mainPHPage[0].prepend(newHeader);
-      newHeader.setAttribute("class", "ph-info");
-      newHeader.setAttribute("aria-label", "photographer information");
-      newHeader.innerHTML = `<section class="ph-card">
+      const params = new URL(document.location).searchParams;
+      const urlIdNumber = params.get("dataph");
+      // console.log(`l'id de la page est : ${urlIdNumber} `);
+      for (let i = 0; i < phData.photographers.length; i += 1) {
+        const idPh = phData.photographers[i].id;
+        // console.log(`l'id du photographe est ${idPh}`);
+        if (urlIdNumber == idPh) {
+          const dataForPh = phData.photographers[i];
+          console.table(dataForPh);
+          const newHeader = document.createElement("header");
+          mainPHPage[0].prepend(newHeader);
+          newHeader.setAttribute("class", "ph-info");
+          newHeader.setAttribute("aria-label", "photographer information");
+          newHeader.innerHTML = `<section class="ph-card">
                                   <h1 class="ph-card__artist">${dataForPh.name}</h1>
                                   <aside class="ph-card__information">
                                   <p class="ph-card__information--city">${dataForPh.city}/${dataForPh.country}</p>
@@ -70,47 +40,76 @@ function creatHeaderProfil() {
                                       alt="Portrait représentant ${dataForPh.portrait}"
                                         class="profil-picture">`;
 
-      const tagsData = phData.photographers[0].tags;
-      for (let t = 0; t < tagsData.length; t += 1) {
-        const ulTagBox = document.getElementsByClassName("tagBox");
-        const liTagElt = document.createElement("li");
-        ulTagBox[0].appendChild(liTagElt);
-        liTagElt.setAttribute("class", "link-tag");
-        liTagElt.innerHTML = `<a href="#" tittle="${tagsData[t]}" >#${tagsData[t]}</a> `;
+          const tagsData = phData.photographers[0].tags;
+          for (let t = 0; t < tagsData.length; t += 1) {
+            const ulTagBox = document.getElementsByClassName("tagBox");
+            const liTagElt = document.createElement("li");
+            ulTagBox[0].appendChild(liTagElt);
+            liTagElt.setAttribute("class", "link-tag");
+            liTagElt.innerHTML = `<a href="#" tittle="${tagsData[t]}" >#${tagsData[t]}</a> `;
+          }
+        } else {
+          // console.log(`l'id ${idPh} du photographe est differente de ${urlIdNumber} l'id de l'url
+          // ============================================================`);
+        }
       }
     })
     .catch((error) => console.log("Erreur : " + error));
 }
 
 // create portofolio
-const articlePhPage = document.getElementsByTagName("article");
 
 function creatPictureCard() {
   fetch("./js/data.json")
     .then((response) => response.json())
     .then((phData) => {
-      const dataForMedia = phData.media;
-      let m;
-      for (m = 0; m < dataForMedia.length; m += 1) {
-        const newSection = document.createElement("section");
-        articlePhPage[0].appendChild(newSection);
-        newSection.setAttribute("class", "artist-cards");
-        newSection.innerHTML = `<a href="#" id="openLightbox">
-                                  <img src="media/artistsPictures/${dataForMedia[m].image}"
-                                   id="${dataForMedia[m].id}"
-                                   alt="${dataForMedia[m].alt}"
-                                   tag="${dataForMedia[m].tags}"
-                                   date="${dataForMedia[m].date}"
-                                   class="artist-cards__picture">
-                                  </a>
-                                  <aside class="artist-cards__information">
-                                  <h2 class="card-title">${dataForMedia[m].alt}</h2>
-                                  <p class="card-price">${dataForMedia[m].price}€
-                                  <span class="card-likeNumbers">${dataForMedia[m].likes}</span>
-                                  <i class="fas fa-heart" aria-label="like" role="button" tabindex="0"></i></p></aside>`;
+      const params = new URL(document.location).searchParams;
+      const urlIdNumber = params.get("dataph");
+      for (let m = 0; m < phData.media.length; m += 1) {
+        const media = phData.media[m];
+        const idForMedia = media.photographerId;
+        // console.log(`l'id du media est : ${idForMedia} `);
+        const srcImage = media.image;
+        if (urlIdNumber == idForMedia) {
+          const newSection = document.createElement("section");
+          articlePhPage[0].appendChild(newSection);
+          newSection.setAttribute("class", "artist-cards");
+
+          if (srcImage) {
+            newSection.innerHTML = `<a href="#" id="openLightbox">
+                                      <img src="media/artistsPictures/${media.image}"
+                                      id="${media.id}"
+                                      alt="${media.alt}"
+                                      tag="${media.tags}"
+                                      date="${media.date}"
+                                      class="artist-cards__picture">
+                                    </a>
+                                    <aside class="artist-cards__information">
+                                    <h2 class="card-title">${media.alt}</h2>
+                                    <p class="card-price">${media.price}€
+                                    <span class="card-likeNumbers">${media.likes}</span>
+                                    <i class="fas fa-heart" aria-label="like" role="button" tabindex="0"></i></p></aside>`;
+          } else {
+            newSection.innerHTML = `<a href="#" id="openLightbox">
+                                      <video controls class="artist-cards__video">
+                                            <source src="media/artistsVideos/${media.video}"
+                                            id="${media.id}"
+                                            date="${media.date}"
+                                            tag="${media.tags}"
+                                            alt="${media.alt}"
+                                            >
+                                        </video>
+                                    </a>
+                                    <aside class="artist-cards__information">
+                                    <h2 class="card-title">${media.alt}</h2>
+                                    <p class="card-price">${media.price}€
+                                    <span class="card-likeNumbers">${media.likes}</span>
+                                    <i class="fas fa-heart" aria-label="like" role="button" tabindex="0"></i></p></aside>`;
+          }
+        }
       }
-      // <embed src="media/artistsVideos/${dataForMedia[m].video}"></embed>
-    });
+    })
+    .catch((error) => console.log("Erreur : " + error));
 }
 
 // create seclect custom-select box (dropdown menu)

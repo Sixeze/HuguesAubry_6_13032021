@@ -113,12 +113,10 @@ ul {
   background-size: no-repeat;
 }
 
-/* Point the arrow upwards when the select box is open (active): */
 .sort-select.arrow:after {
   background-image: url(../../media/logo/arrowUp.png);
 }
 
-/* Style items (options): */
 .dropdown-menu {
   position: absolute;
   background-color: #901C1C;
@@ -130,7 +128,6 @@ ul {
   z-index: 1;
 }
 
-/* Hide the items when the select box is closed: */
 .dropdown-hide {
   display: none;
 }
