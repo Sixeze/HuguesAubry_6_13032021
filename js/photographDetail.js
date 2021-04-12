@@ -57,7 +57,7 @@ fetch("./js/data.json")
       }
     }
 
-    // dropdown menu
+    // create seclect custom-select box (dropdown menu)
     const sortMenu = document.getElementsByClassName("sort-menu");
     let s;
     for (s = 0; s < sortMenu.length; s++) {
@@ -155,20 +155,22 @@ fetch("./js/data.json")
                                     <span id="${media.id}" class="card-likeNumbers">${media.likes}</span>
                                     <i class="fas fa-heart red-heart" aria-label="like" role="button" tabindex="0"></i></p></aside>`;
         }
+        // counter for like cards
+        const likeCount = document.getElementById(`${media.id}`);
+        console.log(likeCount);
+        const redHeartButton = document.querySelectorAll(".red-heart");
+
+        redHeartButton.forEach((heart) =>
+          heart.addEventListener("click", function () {
+            likeCount.textContent = ++media.likes;
+          })
+        );
       }
-
-      // counter for like cards
-      const likeCount = document.getElementById(`${media.id}`);
-      const redHeartButton = document.querySelectorAll(".red-heart");
-
-      redHeartButton.forEach((heart) =>
-        heart.addEventListener("click", function () {
-          likeCount.textContent = media.likes++;
-        })
-      );
     }
 
-    const totalLikes = document.getElementsByClassName(".like-compt")[0];
-    console.log(totalLikes);
+    // const totalLikes = document.getElementsByClassName(".like-compt")[0];
+    // console.log(totalLikes);
+    // const spanNumber = document.getElementsByClassName("card-likeNumbers")[0];
+    // console.log(spanNumber);
   })
   .catch((error) => console.log("Erreur : " + error));

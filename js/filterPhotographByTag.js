@@ -1,31 +1,32 @@
+// HTML element get for construct
+const navBar = document.getElementsByTagName("nav")[0];
+
 fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
-    for (let i = 0; i < phData.length; i++) {
-      console.log(`id de ${phData[i].name} :${phData[i].id}`);
+    const artistData = phData.photographers;
 
-      // for (let m = 0; m < phData.media.length; m++) {
-      //   const mediaId = phData.media[i].photographerId;
-      //   let numOfId = phId;
-      //   if (mediaId == numOfId) {
-      //     const mediaCard = phData.media[i];
-      //     // console.log(mediaCard);
+    const tags = [];
+    artistData.forEach((photographer) => {
+      photographer.tags.forEach((tag) => {
+        tags.push(tag);
+      });
+    });
 
-      //     const likes = mediaCard.likes;
-      //     console.log("nombre de likes par media de " + phName + " : " + likes);
-      //   }
-      // }
+    const ulTagElt = document.createElement("ul");
+    navBar.appendChild(ulTagElt);
+
+    const arrayTag = new Set(tags);
+    const tagsArray = Array.from(arrayTag);
+    for (let t = 0; t < tagsArray.length; t += 1) {
+      console.log(tagsArray[t]);
+
+      const liTagElt = document.createElement("li");
+      ulTagElt.appendChild(liTagElt);
+      liTagElt.setAttribute("class", "link-tag");
+      liTagElt.innerHTML = `<a href="#" tittle="${tagsArray[t]}" >#${tagsArray[t]}</a> `;
     }
-  });
 
-// like
-
-//   const arrayForLikes = new Array();
-//   const totalForLikes = arrayForLikes.push(likes);
-//   console.log("voici le total de likes : " + totalForLikes);
-
-// const params = new URLSearchParams(window.location.search);
-// const sortedData = mediaData.filter(
-//   (newArray) => newArray.photographerId == params.get("id")
-// );
-// console.log("tableau filtré :", sortedData);
+    console.log(arrayTag.size);
+  })
+  .catch((error) => console.log("Erreur : " + error));
