@@ -33,8 +33,8 @@ fetch("./js/data.json")
         const ulTagBox = document.getElementsByClassName("tagBox");
         const liTagElt = document.createElement("li");
         ulTagBox[i].appendChild(liTagElt);
-        liTagElt.setAttribute("class", "link-tag");
-        liTagElt.innerHTML = `<a href="#" tittle="${tagsData[t]}" >#${tagsData[t]}</a> `;
+        liTagElt.setAttribute("class", "tag-linked");
+        liTagElt.innerHTML = `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a> `;
       }
     }
   });

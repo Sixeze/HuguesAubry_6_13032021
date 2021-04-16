@@ -29,7 +29,8 @@ ul {
 // #TAG CONFIG
 
 
-.link-tag {
+.link-tag,
+.tag-linked {
     display: flex;
     border: 1px solid $terciary-color;
     height: 22px;
