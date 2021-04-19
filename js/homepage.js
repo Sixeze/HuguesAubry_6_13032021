@@ -9,14 +9,15 @@ const mainSection = document.getElementsByTagName("main");
 fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
-    let i;
-    for (i = 0; i < phData.photographers.length; i += 1) {
-      const newArticle = document.createElement("article");
-      mainSection[0].appendChild(newArticle);
+    const newCards = () => {
+      let i;
+      for (i = 0; i < phData.photographers.length; i += 1) {
+        const newArticle = document.createElement("article");
+        mainSection[0].appendChild(newArticle);
 
-      newArticle.setAttribute("class", "photograph__card");
-      newArticle.setAttribute("id", "photographer");
-      newArticle.innerHTML = `<a href="./photographerPage.html?dataph=${phData.photographers[i].id}"
+        newArticle.setAttribute("class", "photograph__card");
+        newArticle.setAttribute("id", "photographer");
+        newArticle.innerHTML = `<a href="./photographerPage.html?dataph=${phData.photographers[i].id}"
                                     class="photograph__card--link">
                                     <img src="media/PhotographersIDPhotos/${phData.photographers[i].portrait}"
                                     alt="Portrait représentant:  ${phData.photographers[i].name}"
@@ -28,13 +29,15 @@ fetch("./js/data.json")
                                     <span>${phData.photographers[i].price}€/jour</span>
                                     <ul class="tagBox"></ul></aside>`;
 
-      const tagsData = phData.photographers[i].tags;
-      for (let t = 0; t < tagsData.length; t += 1) {
-        const ulTagBox = document.getElementsByClassName("tagBox");
-        const liTagElt = document.createElement("li");
-        ulTagBox[i].appendChild(liTagElt);
-        liTagElt.setAttribute("class", "tag-linked");
-        liTagElt.innerHTML = `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a> `;
+        const tagsData = phData.photographers[i].tags;
+        for (let t = 0; t < tagsData.length; t += 1) {
+          const ulTagBox = document.getElementsByClassName("tagBox");
+          const liTagElt = document.createElement("li");
+          ulTagBox[i].appendChild(liTagElt);
+          liTagElt.setAttribute("class", "tag-linked");
+          liTagElt.innerHTML = `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a> `;
+        }
       }
-    }
+    };
+    newCards();
   });

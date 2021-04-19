@@ -1,9 +1,7 @@
 class lightbox {
   static init() {
     const links = document
-      .querySelectorAll(
-        "a[href$='.jpg'], a[href$='.jpeg'], a[href$='.png'], a[href$='.mp4']"
-      )
+      .querySelectorAll("a[href$='.jpg'], a[href$='.mp4']")
       .forEach((link) =>
         link.addEventListener("click", (evt) => {
           evt.preventDefault();
