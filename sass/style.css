@@ -377,6 +377,21 @@ ul {
           align-items: center;
 }
 
+.tags-selected {
+  display: none;
+  position: absolute;
+  border: 1px solid green;
+  background-color: #fff;
+  width: 100%;
+  height: 120vh;
+  z-index: 2;
+  top: 180px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 .photograph__card {
   border: 1px solid red;
   width: 30%;

@@ -1,10 +1,4 @@
-// fetch json file
-// fetch("./js/data.json")
-//   .then((response) => response.json())
-//   .then((phData) => console.table(phData.photographers));
-
 // Javascript index of photograph
-const mainSection = document.getElementsByTagName("main");
 
 fetch("./js/data.json")
   .then((response) => response.json())
@@ -13,6 +7,7 @@ fetch("./js/data.json")
       let i;
       for (i = 0; i < phData.photographers.length; i += 1) {
         const newArticle = document.createElement("article");
+        const mainSection = document.getElementsByTagName("main");
         mainSection[0].appendChild(newArticle);
 
         newArticle.setAttribute("class", "photograph__card");
