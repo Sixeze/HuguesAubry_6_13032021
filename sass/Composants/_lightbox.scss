@@ -1,50 +1,96 @@
-.bground-lightbox {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
+.lightbox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0px;
+    left: 0px;
     height: 100%;
     width: 100%;
-    overflow: auto;
-    background-color: white;
+    background-color: rgba(131, 125, 125, 0.9);
+    z-index: 10;
+    animation: lightboxStart .5s;
 
-    .content-lightbox {
+
+
+    &__container {
         position: relative;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        margin: 5% auto;
-        background-color: $quaternary-color;
-        width: 1400px;
-        height: 1000px;
-        padding-left: 35px;
+        max-width: 100%;
+        min-width: 800px;
+        height: 95vh;
+
+        img {
+            object-fit: contain;
+            max-width: 80%;
+            min-width: 600px;
+            height: 100vh;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            animation: lightboxStart .5s;
+
+        }
 
 
-        #lightbox-cross-close {
+        &--left,
+        &--right {
             position: absolute;
-            cursor: pointer;
-            top: 20px;
-            right: 20px;
+            border: none;
+            background: url(../../media/logo/arrowleft.svg) center center / 30px 48px no-repeat;
+            top: 0;
+            right: 0px;
+            margin-top: 24px;
+            height: 100%;
+            width: 50px;
+            z-index: 11;
+
         }
 
-        .lightbox-img {
-            border: 1px solid lightblue;
-            background-color: $secondary-bg-color;
-            width: 1050px;
-            height: 900px;
+        &--left {
+            right: auto;
+            left: 0px;
+            transform: rotate(180deg);
+        }
 
-            &__card-title {
-                color: $primary-color;
+
+
+        &--close {
+            position: absolute;
+            border: none;
+            width: 42px;
+            height: 42px;
+            background: url(../../media/logo/crossClose.svg) center center / 100% 100% no-repeat transparent;
+            z-index: 12;
+            top: 10px;
+            right: 10px;
+
+        }
+
+        button {
+            opacity: .5;
+            cursor: pointer;
+            transition: opacity .3s;
+            text-indent: -30000px;
+
+            &:hover {
+                opacity: 1;
             }
-
-
         }
 
-        .fa-chevron-right,
-        .fa-chevron-left {
-            color: $primary-color;
-            cursor: pointer;
-        }
+
+
+    }
+}
+
+
+@keyframes lightboxStart {
+    from {
+        opacity: .5;
+    }
+
+    to {
+        opacity: 1;
     }
 }

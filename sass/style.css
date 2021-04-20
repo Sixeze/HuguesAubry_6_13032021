@@ -27,8 +27,8 @@ ul {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -37,7 +37,8 @@ ul {
           align-items: center;
 }
 
-.link-tag {
+.link-tag,
+.tag-linked {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,17 +50,24 @@ ul {
   padding-left: 5px;
 }
 
-.link-tag a {
+.link-tag a,
+.tag-linked a {
   color: #901C1C;
   font-size: 16px;
 }
 
-.link-tag:hover, .link-tag:active, .link-tag:focus {
+.link-tag:hover, .link-tag:active, .link-tag:focus,
+.tag-linked:hover,
+.tag-linked:active,
+.tag-linked:focus {
   border: none;
   background-color: #901C1C;
 }
 
-.link-tag:hover a, .link-tag:active a, .link-tag:focus a {
+.link-tag:hover a, .link-tag:active a, .link-tag:focus a,
+.tag-linked:hover a,
+.tag-linked:active a,
+.tag-linked:focus a {
   color: #FAFAFA;
 }
 
@@ -216,57 +224,113 @@ ul {
   margin-bottom: 40px;
 }
 
-.bground-lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: white;
-}
-
-.bground-lightbox .content-lightbox {
+.lightbox {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 5% auto;
-  background-color: #FAFAFA;
-  width: 1400px;
-  height: 1000px;
-  padding-left: 35px;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(131, 125, 125, 0.9);
+  z-index: 10;
+  -webkit-animation: lightboxStart .5s;
+          animation: lightboxStart .5s;
 }
 
-.bground-lightbox .content-lightbox #lightbox-cross-close {
+.lightbox__container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 100%;
+  min-width: 800px;
+  height: 95vh;
+}
+
+.lightbox__container img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 80%;
+  min-width: 600px;
+  height: 100vh;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  -webkit-animation: lightboxStart .5s;
+          animation: lightboxStart .5s;
+}
+
+.lightbox__container--left, .lightbox__container--right {
   position: absolute;
+  border: none;
+  background: url(../../media/logo/arrowleft.svg) center center/30px 48px no-repeat;
+  top: 0;
+  right: 0px;
+  margin-top: 24px;
+  height: 100%;
+  width: 50px;
+  z-index: 11;
+}
+
+.lightbox__container--left {
+  right: auto;
+  left: 0px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.lightbox__container--close {
+  position: absolute;
+  border: none;
+  width: 42px;
+  height: 42px;
+  background: url(../../media/logo/crossClose.svg) center center/100% 100% no-repeat transparent;
+  z-index: 12;
+  top: 10px;
+  right: 10px;
+}
+
+.lightbox__container button {
+  opacity: .5;
   cursor: pointer;
-  top: 20px;
-  right: 20px;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+  text-indent: -30000px;
 }
 
-.bground-lightbox .content-lightbox .lightbox-img {
-  border: 1px solid lightblue;
-  background-color: #C4C4C4;
-  width: 1050px;
-  height: 900px;
+.lightbox__container button:hover {
+  opacity: 1;
 }
 
-.bground-lightbox .content-lightbox .lightbox-img__card-title {
-  color: #901C1C;
+@-webkit-keyframes lightboxStart {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.bground-lightbox .content-lightbox .fa-chevron-right,
-.bground-lightbox .content-lightbox .fa-chevron-left {
-  color: #901C1C;
-  cursor: pointer;
+@keyframes lightboxStart {
+  from {
+    opacity: .5;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .main-banner {
@@ -313,7 +377,23 @@ ul {
           align-items: center;
 }
 
+.tags-selected {
+  display: none;
+  position: absolute;
+  border: 1px solid green;
+  background-color: #fff;
+  width: 100%;
+  height: 120vh;
+  z-index: 2;
+  top: 180px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
 .photograph__card {
+  border: 1px solid red;
   width: 30%;
   height: 30em;
   display: -webkit-box;

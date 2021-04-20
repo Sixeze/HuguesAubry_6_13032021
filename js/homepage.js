@@ -1,18 +1,13 @@
-// fetch json file
+// Javascript index of photograph
+
 fetch("./js/data.json")
   .then((response) => response.json())
-  .then((phData) => console.table(phData.photographers));
-
-// Javascript index of photograph
-const mainSection = document.getElementsByTagName("main");
-
-function creatArticleCard() {
-  fetch("./js/data.json")
-    .then((response) => response.json())
-    .then((phData) => {
+  .then((phData) => {
+    const newCards = () => {
       let i;
       for (i = 0; i < phData.photographers.length; i += 1) {
         const newArticle = document.createElement("article");
+        const mainSection = document.getElementsByTagName("main");
         mainSection[0].appendChild(newArticle);
 
         newArticle.setAttribute("class", "photograph__card");
@@ -34,13 +29,10 @@ function creatArticleCard() {
           const ulTagBox = document.getElementsByClassName("tagBox");
           const liTagElt = document.createElement("li");
           ulTagBox[i].appendChild(liTagElt);
-          liTagElt.setAttribute("class", "link-tag");
-          liTagElt.innerHTML = `<a href="#" tittle="${tagsData[t]}" >#${tagsData[t]}</a> `;
+          liTagElt.setAttribute("class", "tag-linked");
+          liTagElt.innerHTML = `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a> `;
         }
       }
-    });
-}
-
-window.onload = () => {
-  creatArticleCard();
-};
+    };
+    newCards();
+  });
