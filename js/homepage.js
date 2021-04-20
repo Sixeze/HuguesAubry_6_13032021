@@ -4,8 +4,7 @@ fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
     const newCards = () => {
-      let i;
-      for (i = 0; i < phData.photographers.length; i += 1) {
+      for (let i = 0; i < phData.photographers.length; i += 1) {
         const newArticle = document.createElement("article");
         const mainSection = document.getElementsByTagName("main");
         mainSection[0].appendChild(newArticle);

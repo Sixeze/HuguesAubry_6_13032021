@@ -1,42 +1,6 @@
 // HTML element get for construct
 const navBar = document.getElementsByTagName("nav")[0];
-const sectionTags = document.getElementsByClassName("tags-selected")[0];
-// fetch("./js/data.json")
-//   .then((response) => response.json())
-//   .then((phData) => {
-//     const newCards = () => {
-//       let i;
-//       for (i = 0; i < phData.photographers.length; i += 1) {
-//         const newArticle = document.createElement("article");
-
-//         sectionTags.appendChild(newArticle);
-
-//         newArticle.setAttribute("class", "photograph__card");
-//         newArticle.setAttribute("id", "photographer");
-//         newArticle.innerHTML = `<a href="./photographerPage.html?dataph=${phData.photographers[i].id}"
-//                                     class="photograph__card--link">
-//                                     <img src="media/PhotographersIDPhotos/${phData.photographers[i].portrait}"
-//                                     alt="Portrait représentant:  ${phData.photographers[i].name}"
-//                                     class="artist-pict">
-//                                     <h2>${phData.photographers[i].name}</h2></a>
-//                                     <aside class="photograph__card--txt">
-//                                     <strong>${phData.photographers[i].city}/${phData.photographers[i].country}</strong>
-//                                     <p>${phData.photographers[i].tagline}</p>
-//                                     <span>${phData.photographers[i].price}€/jour</span>
-//                                     <ul class="tagBox"></ul></aside>`;
-
-//         const tagsData = phData.photographers[i].tags;
-//         for (let t = 0; t < tagsData.length; t += 1) {
-//           const ulTagBox = document.getElementsByClassName("tagBox");
-//           const liTagElt = document.createElement("li");
-//           ulTagBox[i].appendChild(liTagElt);
-//           liTagElt.setAttribute("class", "tag-linked");
-//           liTagElt.innerHTML = `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a> `;
-//         }
-//       }
-//     };
-//     newCards();
-//   });
+const sectionTags = document.getElementsByClassName("tags-selected");
 
 fetch("./js/data.json")
   .then((response) => response.json())
@@ -52,7 +16,7 @@ fetch("./js/data.json")
         mediaTags.push(tag);
       });
     });
-    // console.log(mediaTags);
+    console.log(mediaTags);
 
     // create html collection <ul> with id
     const ulTagElt = document.createElement("ul");
@@ -63,7 +27,7 @@ fetch("./js/data.json")
     const arrayTag = new Set(mediaTags);
     // console.log(arrayTag);
     const tagsArray = Array.from(arrayTag);
-    // console.log(tagsArray);
+    console.log(tagsArray);
     for (let t = 0; t < tagsArray.length; t += 1) {
       // console.table(tagsArray[t]);
 
@@ -74,26 +38,53 @@ fetch("./js/data.json")
 
       // when <li> are clicked select tags
       liTagElt.addEventListener("click", function () {
-        sectionTags.style.display = "block";
+        // sectionTags.style.display = "block";
 
         // create a New array with only tag clicked
         const newMediaTags = mediaTags.filter((elt) => {
-          if (elt == `${tagsArray[t]}`) {
-            return true;
+          for (let i = 0; i < phData.photographers.length; i += 1) {
+            const tagsData = phData.photographers[i].tags;
+
+            for (let o = 0; o < tagsData.length; o += 1) {
+              if (elt == `${tagsArray[t]}` && elt == `${tagsData[o]}`) {
+                sectionTags[0].innerHTML = `<a href="./photographerPage.html?dataph=${phData.photographers[i].id}"
+                                              class="photograph__card--link">
+                                              <img src="media/PhotographersIDPhotos/${phData.photographers[i].portrait}"
+                                              alt="Portrait représentant:  ${phData.photographers[i].name}"
+                                              class="artist-pict">
+                                              <h2>${phData.photographers[i].name}</h2></a>
+                                              <aside class="photograph__card--txt">
+                                              <strong>${phData.photographers[i].city}/${phData.photographers[i].country}</strong>
+                                              <p>${phData.photographers[i].tagline}</p>
+                                              <span>${phData.photographers[i].price}€/jour</span>
+                                              <ul class="tagBox"></ul></aside>`;
+                // const ulTagBox = document.getElementsByClassName("tagBox");
+                // const liTagElt = document.createElement("li");
+                // ulTagBox[i].appendChild(liTagElt);
+                // liTagElt.setAttribute("class", "tag-linked");
+                // liTagElt.innerHTML = `<a href="#" title="${tagsData[o]}" >#${tagsData[o]}</a> `;
+              }
+            }
           }
+          // if (elt == `${tagsArray[t]}`) {
+          //   console.log(tagsArray[t]);
+          //   // sectionTags.innerHTML = `${tagsArray[t]}`;
+          //   return true;
+          // }
         });
-        console.log("les tags selectionnés sont : " + newMediaTags);
-        sectionTags.innerHTML = `${newMediaTags}`;
 
-        for (let i = 0; i < phData.photographers.length; i += 1) {
-          const tagsData = phData.photographers[i].tags;
+        // console.log("les tags selectionnés sont : " + newMediaTags);
+        // sectionTags.innerHTML = `${newMediaTags}`;
 
-          if (newMediaTags == tagsData) {
-          }
-          console.log(newMediaTags);
-          console.log(tagsData);
-        }
+        // for (let tag of newMediaTags) {
+        //   console.log(tag);
+        // }
       });
+
+      // for (let i = 0; i < phData.photographers.length; i += 1) {
+      //   const tagsData = phData.photographers[i].tags;
+      //   console.log(tagsData);
+      // }
     }
   });
 // .catch((error) => console.log("Erreur : " + error))
@@ -132,3 +123,40 @@ fetch("./js/data.json")
 //     return true;
 //   }
 // });
+
+// fetch("./js/data.json")
+//   .then((response) => response.json())
+//   .then((phData) => {
+//     const newCards = () => {
+//       let i;
+//       for (i = 0; i < phData.photographers.length; i += 1) {
+//         const newArticle = document.createElement("article");
+
+//         sectionTags.appendChild(newArticle);
+
+//         newArticle.setAttribute("class", "photograph__card");
+//         newArticle.setAttribute("id", "photographer");
+//         newArticle.innerHTML = `<a href="./photographerPage.html?dataph=${phData.photographers[i].id}"
+//                                     class="photograph__card--link">
+//                                     <img src="media/PhotographersIDPhotos/${phData.photographers[i].portrait}"
+//                                     alt="Portrait représentant:  ${phData.photographers[i].name}"
+//                                     class="artist-pict">
+//                                     <h2>${phData.photographers[i].name}</h2></a>
+//                                     <aside class="photograph__card--txt">
+//                                     <strong>${phData.photographers[i].city}/${phData.photographers[i].country}</strong>
+//                                     <p>${phData.photographers[i].tagline}</p>
+//                                     <span>${phData.photographers[i].price}€/jour</span>
+//                                     <ul class="tagBox"></ul></aside>`;
+
+//         const tagsData = phData.photographers[i].tags;
+//         for (let t = 0; t < tagsData.length; t += 1) {
+//           const ulTagBox = document.getElementsByClassName("tagBox");
+//           const liTagElt = document.createElement("li");
+//           ulTagBox[i].appendChild(liTagElt);
+//           liTagElt.setAttribute("class", "tag-linked");
+//           liTagElt.innerHTML = `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a> `;
+//         }
+//       }
+//     };
+//     newCards();
+//   });
