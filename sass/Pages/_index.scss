@@ -33,20 +33,16 @@
 //section show card with tags selected in nav bar
 #cards-select {
     display: none;
-    border: 1px solid green;
-    background-color: #fff;
-    width: 100%;
 
-    z-index: 10;
-    top: 180px;
-
-
-    flex-direction: row;
-
+    .container {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
 }
 
 .photograph__card {
-    border: 1px solid red;
     width: 30%;
     height: 30em;
     display: flex;
