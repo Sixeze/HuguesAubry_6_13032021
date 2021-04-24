@@ -58,6 +58,7 @@ fetch("./js/data.json")
 
         let text = target.textContent || target.innerText;
         console.log(text);
+
         for (let u in uniqueTags) {
           if (text == uniqueTags[u]) {
             e.preventDefault();
