@@ -56,18 +56,24 @@ ul {
   font-size: 16px;
 }
 
-.link-tag:hover, .link-tag:active, .link-tag:focus,
+.link-tag:hover, .link-tag:focus,
 .tag-linked:hover,
-.tag-linked:active,
 .tag-linked:focus {
   border: none;
   background-color: #901C1C;
 }
 
-.link-tag:hover a, .link-tag:active a, .link-tag:focus a,
+.link-tag:hover a, .link-tag:focus a,
 .tag-linked:hover a,
-.tag-linked:active a,
 .tag-linked:focus a {
+  color: #FAFAFA;
+}
+
+.active {
+  background-color: #901C1C;
+}
+
+.active a {
   color: #FAFAFA;
 }
 
