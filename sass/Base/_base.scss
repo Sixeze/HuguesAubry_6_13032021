@@ -45,7 +45,6 @@ ul {
     }
 
     &:hover,
-    &:active,
     &:focus {
         border: none;
         background-color: $primary-color;
@@ -53,6 +52,14 @@ ul {
         a {
             color: $quaternary-color;
         }
+    }
+}
+
+.active {
+    background-color: $primary-color;
+
+    a {
+        color: $quaternary-color;
     }
 }
 
