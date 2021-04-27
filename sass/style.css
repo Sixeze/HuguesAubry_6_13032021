@@ -367,7 +367,11 @@ ul {
   margin-right: 2%;
 }
 
-.photograph {
+.main {
+  display: block;
+}
+
+.main .photograph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
