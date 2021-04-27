@@ -4,13 +4,17 @@ fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
     const artistData = phData.photographers;
-    console.log(artistData);
+    // console.log(artistData);
 
     const createPhotographerCards = () => {
+      const mainSection = document.getElementsByTagName("main");
+      const mainContainerCards = document.createElement("div");
+      mainContainerCards.classList.add("photograph");
+      mainSection[0].appendChild(mainContainerCards);
       for (let i in artistData) {
         const newArticle = document.createElement("article");
-        const mainSection = document.getElementsByTagName("main");
-        mainSection[0].appendChild(newArticle);
+
+        mainContainerCards.appendChild(newArticle);
 
         newArticle.classList.add("photograph__card");
         newArticle.setAttribute("id", "photographer");
@@ -32,6 +36,7 @@ fetch("./js/data.json")
           const liTagElt = document.createElement("li");
           ulTagBox[i].appendChild(liTagElt);
           liTagElt.classList.add("tag-linked");
+          liTagElt.classList.remove("active");
           liTagElt.innerHTML += `<a href="#" title="${tagsData[t]}" >#${tagsData[t]}</a>
                                 <span class="sr-only">${tagsData[t]}</span>`;
         }
@@ -53,7 +58,7 @@ fetch("./js/data.json")
           mediaTags.push(artistData[p].tags[t]);
         }
       }
-      console.log("console log de mediaTags " + mediaTags);
+      // console.log("console log de mediaTags " + mediaTags);
 
       //create new array with only one off choise for create li.link-tag
       let uniqueTags = mediaTags.filter(
@@ -77,44 +82,38 @@ fetch("./js/data.json")
       const mainSection = document.querySelector("main.main");
       const containerCards = document.createElement("div");
 
-      // console.log(aTagElts);
+      let tagsArraySelected = [];
+
       aTagElts.forEach((aTagElt) => {
-        aTagElt.addEventListener("click", function () {
+        aTagElt.addEventListener("click", function (e) {
+          e.preventDefault();
           mainSection.style.display = "none";
           sectionTags.style.display = "block";
 
-          aTagElts.forEach((otherATagElt) =>
-            otherATagElt.parentElement.classList.remove("active")
-          );
-          aTagElt.parentElement.classList.add("active");
-
           // recover element string on event
-
-          const tagTarget = window.event.target;
-          console.log(window.event);
-          console.log(window.event.target);
-
-          let tagSelected = tagTarget.textContent || tagTarget.innerText;
+          let tagSelected =
+            window.event.target.textContent || window.event.target.innerText;
           console.log(tagSelected);
+          if (tagsArraySelected.includes(tagSelected)) {
+            tagsArraySelected = tagsArraySelected.filter(
+              (item) => item != tagSelected
+            );
+            aTagElt.parentElement.classList.remove("active");
+          } else {
+            tagsArraySelected.push(tagSelected);
 
-          // create a new array for each tagSelected, with only artists then tag
-          const newArtistDatas = [];
-          for (let artist in artistData) {
-            for (let tagList in artistData[artist].tags) {
-              if (artistData[artist].tags[tagList] == tagSelected) {
-                newArtistDatas.push(artistData[artist]);
-              }
-            }
+            aTagElt.parentElement.classList.add("active");
           }
-          // console.log(newArtistData);
+
+          // if (tagsData[t] == tagSelected) {
+          //   liTagElt.classList.add("active");
+          // }
+
+          console.log(tagsArraySelected);
 
           const newPhotographerCards = () => {
             containerCards.classList.add("container");
             sectionTags.appendChild(containerCards);
-
-            while (containerCards.firstChild) {
-              containerCards.removeChild(containerCards.firstChild);
-            }
 
             for (let i in newArtistDatas) {
               const newArticle = document.createElement("article");
@@ -141,7 +140,7 @@ fetch("./js/data.json")
                 const ulTagBox = document.getElementsByClassName("tagBox");
                 const liTagElt = document.createElement("li");
                 ulTagBox[i].appendChild(liTagElt);
-                liTagElt.setAttribute("class", "tag-linked");
+                liTagElt.classList.add("tag-linked");
                 if (tagsData[t] == tagSelected) {
                   liTagElt.classList.add("active");
                 }
@@ -149,8 +148,61 @@ fetch("./js/data.json")
               }
             }
           };
+
+          // create a new array for each tagSelected, with only artists then tag
+          let newArtistDatas = [];
+
+          //if no tagSelected show artistData = main.createPhotographerCards
+          if (tagsArraySelected.length == 0) {
+            newArtistDatas = artistData;
+          } else {
+            // if tagSelected show NewArtistData = section.newPhotographerCards()
+            for (let artist in artistData) {
+              for (let tagList in artistData[artist].tags) {
+                if (
+                  tagsArraySelected.includes(artistData[artist].tags[tagList])
+                ) {
+                  if (!newArtistDatas.includes(artistData[artist]))
+                    newArtistDatas.push(artistData[artist]);
+
+                  console.log(artistData[artist]);
+                }
+              }
+            }
+          }
+          while (containerCards.firstChild) {
+            containerCards.removeChild(containerCards.firstChild);
+          }
           newPhotographerCards();
+          // create a new Photographer Cards for show tagSelected
+
+          // if (mainSection.style.display == "block") {
+          //   mainSection.style.display = "none";
+          //   sectionTags.style.display = "block";
+
+          //   newPhotographerCards();
+          // } else if (sectionTags.style.display == "block") {
+          //   mainSection.style.display = "none";
+          //   while (containerCards.firstChild) {
+          //     containerCards.removeChild(containerCards.firstChild);
+          //   }
+          //   newPhotographerCards();
+          // } else {
+          //   mainSection.style.display = "block";
+          //   sectionTags.style.display = "none";
+
+          //   aTagElt.parentElement.classList.remove("active");
+          // }
         });
+        // aTagElt.addEventListener("dblclick", function () {
+        //   sectionTags.style.display = "none";
+        //   mainSection.style.display = "block";
+
+        //   // aTagElts.forEach((otherATagElt) =>
+        //   //   otherATagElt.parentElement.classList.remove("active")
+        //   // );
+        //   aTagElt.parentElement.classList.remove("active");
+        // });
       });
     };
 
