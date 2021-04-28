@@ -40,7 +40,6 @@ fetch("./js/data.json")
 
     ulTagElt.innerHTML = htmlLiTagElts;
 
-    const linkTags = document.querySelectorAll("li.link-tag");
     const aTagElts = document.querySelectorAll("a.a-link");
     console.log(aTagElts);
     for (let aTagElt of aTagElts) {
