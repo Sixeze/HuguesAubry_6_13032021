@@ -74,41 +74,44 @@
 .artist-cards {
     display: flex;
     flex-flow: column nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 30%;
-    height: 350px;
+    height: 400px;
     margin-bottom: 50px;
 
     .artist-cards__picture,
     .artist-cards__video {
         object-fit: contain;
         background-color: $secondary-bg-color;
-        width: 350px;
-        height: 300px;
+        width: 400px;
+        height: 360px;
 
     }
 
     .artist-cards__information {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        width: 350px;
+        width: 400px;
+        color: $primary-color;
 
-        .card-title {
+        p {
             font-size: 1.1em;
-            color: $primary-color;
+            font-weight: 600;
+
         }
 
-        .card-price {
-            font-weight: 600;
-            color: $primary-color;
-            font-size: 1.2em;
+        .card-title {
+            width: 320px;
 
-            .card-likeNumbers {
-                margin-left: 10px;
-                font-size: .9em;
-            }
+        }
+
+
+
+        .card-likeNumbers {
+            margin-left: 10px;
+            font-size: .9em;
+            display: flex;
 
             .fa-heart {
                 margin-left: 2px;
