@@ -1,6 +1,8 @@
 fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
+    const mediaSort = phData.media;
+    // console.log(mediaSort);
     // create seclect custom-select box (dropdown menu)
     const sortMenu = document.getElementsByClassName("sort-menu");
     let s;
@@ -10,21 +12,24 @@ fetch("./js/data.json")
 
       // for each elt create a DIV with the same comportement of selected elt
       const divElt = document.createElement("DIV");
-      const nameOption = selectElt.options[selectElt.selectedIndex].innerHTML;
+      // const nameOption = selectElt.options[selectElt.selectedIndex].innerHTML;
+      // console.log(nameOption);
       divElt.setAttribute("class", "sort-select");
-      divElt.setAttribute("aria-hidden", nameOption);
+      // divElt.setAttribute("aria-hidden", nameOption);
       divElt.setAttribute("tabindex", "0");
-      divElt.innerHTML = nameOption;
+      divElt.innerHTML = "trier par";
       sortMenu[s].appendChild(divElt);
 
       // create a new div with option list for elts
-      const divElt2 = document.createElement("DIV");
-      divElt2.setAttribute("class", "dropdown-menu dropdown-hide");
+      const containerDiv = document.createElement("DIV");
+      // console.log(containerDiv);
+      containerDiv.setAttribute("class", "dropdown-menu dropdown-hide");
       for (let t = 1; t < lenghOfSelectElt; t++) {
-        const divElt3 = document.createElement("DIV");
-        divElt3.innerHTML = selectElt.options[t].innerHTML;
+        const optionDiv = document.createElement("DIV");
+        // console.log(optionDiv);
+        optionDiv.innerHTML = selectElt.options[t].innerHTML;
 
-        divElt3.addEventListener("click", function () {
+        optionDiv.addEventListener("click", function () {
           //  When an item is selected, update <sort-select> box and selected item
           const parentElt = this.parentNode.parentNode.getElementsByTagName(
             "select"
@@ -46,9 +51,9 @@ fetch("./js/data.json")
           }
           sortSelectElt.click();
         });
-        divElt2.appendChild(divElt3);
+        containerDiv.appendChild(optionDiv);
       }
-      sortMenu[s].appendChild(divElt2);
+      sortMenu[s].appendChild(containerDiv);
       divElt.addEventListener("click", function (e) {
         /* When the select box is clicked, close any other select boxes,
           and open/close the current select box: */
@@ -67,4 +72,34 @@ fetch("./js/data.json")
 // console.log(dataMedia);
 // sort date
 
-// media.sort((a, b) => a.photographerId - b.photogra
+//  /*Tri des medias*/
+// const selectForSort = document.getElementsByTagName("select")[0];
+// selectForSort.addEventListener("change", function () {
+//   let sortResult = null;
+//   switch (this.value) {
+//     case "popularite":
+//       sortResult = mediaFilterArray.sort((a, b) => b.likes - a.likes);
+//       break;
+//     case "date":
+//       sortResult = mediaFilterArray.sort(
+//         (a, b) => Date.parse(b.date) - Date.parse(a.date)
+//       );
+//       break;
+//     case "titre":
+
+//       sortResult = mediaFilterArray.sort((a, b) =>
+//         a.image.localeCompare(b.image)
+//       );
+//       break;
+//     default:
+//       break;
+//   }
+//   showMedia(mediaFilterArray);
+// });
+
+// const params = new URL(document.location).searchParams;
+// const urlIdNumber = params.get("dataph");
+// // filter Array
+// const mediaFilterArray = phData.media.filter(
+//   (media) => media.photographerId == urlIdNumber
+// );
