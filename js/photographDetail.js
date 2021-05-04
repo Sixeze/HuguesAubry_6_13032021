@@ -81,43 +81,113 @@ fetch("./js/data.json")
                                     <aside class="artist-cards__information">
                                     <h2 class="card-title">${media.alt}</h2>
                                     <p class="card-price">${media.price}€</p>
-                                    <span class="card-likeNumbers">
-                                    <p id="${media.id}">${media.likes}</p>
-                                    <i class="fas fa-heart red-heart" aria-label="like" role="button" tabindex="0"></i></span>
+                                    <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
+                                    <p class="like">${media.likes}</p>
+                                    <i class="fas fa-heart red-heart"></i></span>
                                     </aside>`;
+
           // ${title.replace(".jpg","").replace(/_/g," ").replace(".mp4","")}       ${media.alt}
+
+          // let spanHeartLike = document.querySelector(".card-likeNumbers p");
+          // console.log(spanHeartLike);
+          // const spanHeartButton = document.querySelectorAll(
+          //   ".card-likeNumbers"
+          // );
+          // spanHeartButton.forEach((span) =>
+          //   span.addEventListener("click", function () {
+          //     const likeCount = document.querySelector(".like");
+
+          //     likeCount.textContent = media.likes++;
+          //   })
+          // );
+          // const redHeartButton = document.querySelectorAll(".red-heart");
+          // redHeartButton.forEach((heart) =>
+          //   heart.addEventListener("click", function (l) {
+          //     const likeCounts = document.getElementsByClassName("like");
+          //     for (let l in likeCounts) {
+          //       l.preventDefault;
+          //       likeCounts[l].textContent = media.likes++;
+          //     }
+          //   })
+          // );
+          // const redHeartButton = document.querySelector(".red-heart");
+          // redHeartButton.addEventListener("click", function () {
+          //   const likeCount = document.querySelector(".like");
+
+          //   likeCount.textContent = media.likes++;
+          // });
         }
-        let liked = mediaFilterArray.likes;
 
-        const likeCount = () => {
-          liked++;
-          document.querySelector(`#${media.id}`).textContent = liked;
-          console.log(document.querySelector(`#${media.id}`));
-        };
-        document.querySelector(".fas").addEventListener("click", likeCount);
+        // spanHeartLikes.forEach((heartLike) => console.log(heartLike));
       }
+      // let spanHeartLikes = document.querySelectorAll(".card-likeNumbers");
+      // console.log(spanHeartLikes);
+      // spanHeartLikes.forEach((heartLike) => console.log(heartLike));
+
+      // const pLikes = document.querySelectorAll(".card-likeNumbers p");
+      // console.log(pLikes);
+      // pLikes.forEach((like) => console.log(like));
+
+      // create a new array with Numbers of likes
+      // let totalLikesArray = [];
+      // let pEltNumbers = document.querySelectorAll(
+      //   ".card-likeNumbers p[class='like']"
+      // );
+      // console.log(pEltNumbers);
+      // pEltNumbers.forEach((EltNumber) => {
+      //   let number = parseInt(EltNumber.innerText);
+      //   totalLikesArray.push(number);
+      // });
+
+      // console.log(totalLikesArray.reduce((total, likes) => total + likes));
+
+      // let totalIncremente = totalLikesArray.reduce(
+      //   (total, likes) => total + likes
+      // );
+
+      // console.log(plopChiffre);
+
+      let totalLikes = mediaFilterArray
+        .map((media) => media.likes)
+        .reduce((total, likes) => total + likes);
+      console.log(totalLikes);
+      console.log(photographer.price);
+
+      const totalLikesBox = document.querySelector("aside[class='counter']");
+      const spanLikesBox = document.createElement("span");
+      const spanPriceBox = document.createElement("span");
+
+      spanLikesBox.classList.add("like-compt");
+      spanLikesBox.innerHTML = `${totalLikes} <i class="fas fa-heart fa-1x blackHeart" aria-label="like"></i>`;
+      spanPriceBox.classList.add("ratePerDay");
+      spanPriceBox.innerHTML = `${photographer.price}€ / jour`;
+      totalLikesBox.appendChild(spanLikesBox);
+      totalLikesBox.appendChild(spanPriceBox);
+      console.log(totalLikesBox);
+
+      let spanHeartLikes = document.querySelectorAll(".card-likeNumbers");
+      spanHeartLikes.forEach((heartLike) =>
+        heartLike.addEventListener("click", function () {
+          // count like for each string Number
+          const pLikes = heartLike.querySelector(
+            ".card-likeNumbers p[class='like']"
+          );
+          console.log(pLikes);
+          let pStringNumber = pLikes.innerText;
+          // console.log(pStringNumber);
+          let number = parseInt(pStringNumber);
+          // console.log(number);
+          pLikes.textContent = ++number;
+
+          // count like for total string Number
+          const spanLikes = document.querySelector(".like-compt");
+          // console.log(spanLikes);
+          let spanNumber = parseInt(spanLikes.innerText);
+          // console.log(spanNumber);
+          spanLikes.textContent = ++spanNumber;
+        })
+      );
     };
-
-    //     // counter for like cards
-    //   }
-    // }
-    // console.log(likeCount);
-    // const likeCount = document.getElementById(`${media.id}`);
-    // console.log(likeCount);
-    // const redHeartButton = document.querySelectorAll(".red-heart");
-    // redHeartButton.forEach((heart) =>
-    //   heart.addEventListener("click", function () {
-    //     const likeCount = document.getElementById(`${media.id}`);
-    //     console.log(likeCount);
-
-    //     likeCount.textContent = media.likes++;
-    //     console.log(media.like++);
-    //   })
-    // );
-    // const totalLikes = document.getElementsByClassName(".like-compt")[0];
-    // console.log(totalLikes);
-    // const spanNumber = document.getElementsByClassName("card-likeNumbers")[0];
-    // console.log(spanNumber);
 
     showMedia(mediaFilterArray);
   })

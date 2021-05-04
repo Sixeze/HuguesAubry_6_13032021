@@ -22,11 +22,11 @@ fetch("./js/data.json")
 
       // create a new div with option list for elts
       const containerDiv = document.createElement("DIV");
-      console.log(containerDiv);
+      // console.log(containerDiv);
       containerDiv.setAttribute("class", "dropdown-menu dropdown-hide");
       for (let t = 1; t < lenghOfSelectElt; t++) {
         const optionDiv = document.createElement("DIV");
-        console.log(optionDiv);
+        // console.log(optionDiv);
         optionDiv.innerHTML = selectElt.options[t].innerHTML;
 
         optionDiv.addEventListener("click", function () {
