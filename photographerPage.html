@@ -63,93 +63,44 @@
         <!-- Javascript Header photograph -->
 
         <!-- ====== PORTOFOLIO ====== -->
-
-        <article class="artist-portofolio">
-          <p class="sort-title">Trier par</p>
-          <div
-            class="sort-menu"
-            aria-label="selection de préférence d'affichage des photos et vidéos"
-          >
-            <select>
-              <option value="0">Popularité</option>
-              <option value="1">Popularité</option>
-              <option value="2">Date</option>
-              <option value="3">Titre</option>
-            </select>
-          </div>
-
-          <!-- javascipt artist-cards  -->
-        </article>
-        <!-- counter like on Js-->
-        <aside class="counter"></aside>
-      </main>
-      <section class="bground">
-        <div class="content">
-          <div class="title-form">
-            <h2>Contactez-moi</h2>
-            <span>Mimi Keel</span>
-            <svg
-              role="button"
-              width="42"
-              height="42"
-              viewBox="0 0 42 42"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              id="cross-close"
-            >
-              <path
-                d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z"
-                fill="white"
-              />
-            </svg>
-          </div>
-          <form method="POST" action="traitement.php">
+        <section class="artist-portofolio">
+          <nav aria-label="sort by" id="sortby">
+            <label for="select-option">Trier par :</label>
             <div
-              role="group"
-              aria-labelledby="contact photographer"
-              class="form-content"
+              class="sort-menu"
+              aria-label="selection de préférence d'affichage des photos et vidéos"
             >
-              <label for="prenom">Prénom</label>
-              <input
-                type="text"
-                name="prenom"
-                id="prenom"
-                class="input"
-                placeholder="votre prénom"
-              />
-              <label for="nom">Nom</label>
-              <input
-                type="text"
-                name="nom"
-                id="nom"
-                class="input"
-                placeholder="votre nom"
-              />
-              <label for="email">Email</label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                class="input"
-                placeholder="votre email pour vous répondre"
-              />
-              <label for="message">Votre message</label>
-              <textarea
-                name="message"
-                id="message"
-                class="input"
-                placeholder="vos demandes et besoins"
-              ></textarea>
-              <input
-                id="submitBtn"
-                class="modal-btn btn"
-                type="submit"
-                value="envoyer"
-              />
+              <select name="sort by" id="select-option">
+                <option value="0">Popularité</option>
+                <option value="1">Date</option>
+                <option value="2">Titre</option>
+              </select>
             </div>
-          </form>
-        </div>
-      </section>
+          </nav>
+          <section alt="photos section" id="show-media">
+            <!-- javascipt artist-cards  -->
+          </section>
+        </section>
+
+        <!-- ====== ASIDE FIXED ELEMENT ====== -->
+        <aside class="counter">
+          <!-- counter like on Js-->
+        </aside>
+      </main>
+
+      <!-- ====== CONTACT FORM ====== -->
+      <div
+        role="dialog"
+        aria-labelledby="dialog-title"
+        aria-describedby="dialog-desc"
+        aria-modal="true"
+        aria-hidden="true"
+        class="form-bground"
+        tabindex="-1"
+      >
+        <!--dynamic form on javascript -->
+      </div>
+
       <!-- <section class="lightbox" aria-label="lightbox gallery">
         <div class="lightbox__container">
           <button class="lightbox__container--close">fermer</button>
@@ -162,22 +113,19 @@
         </div>
       </section> -->
     </div>
-    <script src="./js/photographDetail.js" type="module"></script>
+    <!-- <script src="./js/sortMedia.js"></script> -->
+    <script src="./js/photographDetail.js"></script>
     <!-- <script src="./js/filterPhotographByTag.js" type="module"></script> -->
     <!-- <script src="./js/lightbox.js" type="module"></script> -->
-    <!-- <script src="./js/FormContactPhotograph.js"></script> -->
-    <script src="./js/sortMedia.js" type="module"></script>
+    <script src="./js/FormContactPhotograph.js"></script>
   </body>
-  <!--(une pour chaque photographe échantillon) :
-○ Affiche une galerie des travaux du photographe.
-○ Les photographes peuvent montrer à la fois des photos et des vidéos.
-■ Dans le cas des vidéos, montrer une image miniature dans la galerie.
-○ Chaque média comprend le titre, la date, le prix et le nombre de clichés.
-■ Lorsque l'utilisateur clique sur l'icône "Like", ça incrémente le nombre
-de likes affiché.
-■ Le nombre total de clichés doit être compté et ajouté au total du profil
-du photographe.
-○ Les médias peuvent être triés par popularité, date ou titre.
+  <!--
+
+
+
+
+
+
 ○ Lorsque l'utilisateur clique sur un média, celui-ci doit s’ouvrir dans une
 lightbox :
 ■ Lorsque la lightbox est affichée, il y a une croix dans le coin pour
@@ -187,7 +135,7 @@ fermer la fenêtre.
 naviguer).
 ■ Les touches fléchées permettent également de naviguer entre les
 médias.
-○ Afficher un bouton pour contacter le photographe.
+
 ■ Le formulaire de contact est une modale qui s'affiche par-dessus le
 reste.
 ■ Il comprend des champs pour les noms, l'adresse électronique et le

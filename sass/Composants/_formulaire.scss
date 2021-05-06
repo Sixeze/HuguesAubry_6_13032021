@@ -1,13 +1,14 @@
-.bground {
+.form-bground {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow-y: scroll;
     background-color: $opacity-bg-color;
+    transition: .2 s;
 
     .content {
         margin: 5% auto;
@@ -61,5 +62,10 @@
             }
         }
 
+    }
+
+    .content[aria-hidden="true"] {
+        visibility: hidden;
+        opacity: 0;
     }
 }
