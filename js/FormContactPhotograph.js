@@ -12,8 +12,9 @@ fetch("./js/data.json")
     // get dom Elments
     const formBground = document.querySelector("div[class='form-bground']");
 
-    formBground.innerHTML = `<div role="document" class="content">
-                              <div class="title-form">
+    formBground.innerHTML = `<div role="dialog" aria-hidden="false" aria-labelledby="dialog-title"
+                                  class="content" aria-modal="true">
+                              <div class="title-form" role="document">
                                 <h2 id="dialog-title">Contactez-moi</h2>
                                 <span>${photographer.name}</span>
                                 <svg
@@ -36,7 +37,7 @@ fetch("./js/data.json")
                                   />
                                 </svg>
                               </div>
-                              <form method="POST" action="traitement.php">
+                              <form method="POST" action="traitement.php" role="document">
                                 <div
                                   role="group"
                                   aria-labelledby="contact photographer"
@@ -84,57 +85,44 @@ fetch("./js/data.json")
                             </div>`;
 
     // ====== open and close form ======
+    const contentDialogForm = document.querySelector("div[class='content']");
+    console.log(contentDialogForm);
     const firstNameInput = document.getElementById("prenom");
     const btnModal = document.getElementsByClassName("ph-contact btn")[0];
     const closeModal = document.getElementById("cross-close");
-
+    const sendBtn = document.querySelector("input[id='submitBtn']");
+    const focusOnBtnContact = document.querySelector(
+      "button[aria-haspopup='dialog']"
+    );
+    // console.log(focusOnBtnContact);
     // When the user clicks the button, open the modal
-    btnModal.addEventListener("click", function () {
+    btnModal.addEventListener("click", () => {
       formBground.style.display = "block";
       // window.style.position = "fixed";
       formBground.setAttribute("aria-hidden", "false");
 
       firstNameInput.focus();
+
       console.log("la modal s'ouvre !");
     });
 
-    // document.addEventListener("DOMContentLoaded", () => {
-    // const triggers = document.querySelectorAll("[aria-haspopup='dialog']");
-    // console.log(triggers);
-    // const doc = document.querySelector(".photographer-page");
-
-    // const open = function (dialog) {
-    //   dialog.setAttribute("aria-hidden", "false");
-    //   doc.setAttribute("aria-hidden", "true");
-    // };
-
-    // triggers.forEach((trigger) => {
-    //   const dialog = document.getElementById(
-    //     trigger.getAttribute("aria-controls")
-    //   );
-
-    // open dialog
-    //   trigger.addEventListener("click", (event) => {
-    //     event.preventDefault();
-
-    //     open(dialog);
-    //   });
-    // });
-    // });
-
     // When the user clicks on <svg> (x), close the modal
-    closeModal.addEventListener("click", function () {
+    closeModal.addEventListener("click", () => {
       formBground.style.display = "none";
       formBground.setAttribute("aria-hidden", "true");
+      focusOnBtnContact.focus();
       console.log("la modal se ferme !");
     });
 
-    // when the user clicks everywhere out of the modal
-    // window.onclick = function (close) {
-    //   if (close.target == formBground) {
-    //     formBground.style.display = "none";
-    //   }
-    // };
+    document.addEventListener("keydown", (event) => {
+      let nomTouche = event.key;
+      if (nomTouche === "Escape") {
+        formBground.style.display = "none";
+        formBground.setAttribute("aria-hidden", "true");
+        focusOnBtnContact.focus();
+        console.log("la modal se ferme !");
+      }
+    });
 
     // error input value
     const newEltError = document.createElement("p");
@@ -178,6 +166,7 @@ fetch("./js/data.json")
       if (value !== "" && value.length >= 3 && nameRegex.test(value)) {
         return true;
       } else {
+        // console.log(false);
         return false;
       }
     }
@@ -193,9 +182,11 @@ fetch("./js/data.json")
 
     function displayError(nameCheck, error, errorMessages, input) {
       if (nameCheck === true) {
+        console.log(nameCheck);
         error.textContent = "";
         input.style.border = "4px solid green";
       } else {
+        console.log(nameCheck);
         error.textContent = errorMessages;
         error.style.color = "red";
         error.style.fontSize = "1.2em";
@@ -229,8 +220,6 @@ fetch("./js/data.json")
     });
 
     //validate and send
-    // si tous les inputs sont valide envoi en cliquant sur le bouton envoyé sinon n'envoi pas le formulaire.
-    const sendBtn = document.querySelector("input[id='submitBtn']");
     sendBtn.addEventListener("click", function (e) {
       e.preventDefault();
       console.log(
@@ -240,5 +229,5 @@ fetch("./js/data.json")
         la demande du clients est : ${textArea.value}`
       );
     });
-  })
-  .catch((error) => console.log("Erreur : " + error));
+  });
+// .catch((error) => console.log("Erreur : " + error));
