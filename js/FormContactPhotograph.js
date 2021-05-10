@@ -7,7 +7,7 @@ fetch("./js/data.json")
 
     // analyse if URL parameter is same of photograph.id parameter
     const photographer = phData.photographers.find((p) => p.id == urlIdNumber);
-    console.log(photographer);
+    // console.log(photographer);
 
     // get dom Elments
     const formBground = document.querySelector("div[class='form-bground']");
@@ -86,9 +86,13 @@ fetch("./js/data.json")
 
     // ====== open and close form ======
     const contentDialogForm = document.querySelector("div[class='content']");
-    console.log(contentDialogForm);
+    // console.log(contentDialogForm);
     const firstNameInput = document.getElementById("prenom");
     const btnModal = document.getElementsByClassName("ph-contact btn")[0];
+    // const btnModal2 = document.querySelector("[aria-haspopup='dialog']");
+    // console.log(btnModal2);
+    // console.log(btnModal);
+
     const closeModal = document.getElementById("cross-close");
     const sendBtn = document.querySelector("input[id='submitBtn']");
     const focusOnBtnContact = document.querySelector(
@@ -96,7 +100,8 @@ fetch("./js/data.json")
     );
     // console.log(focusOnBtnContact);
     // When the user clicks the button, open the modal
-    btnModal.addEventListener("click", () => {
+    btnModal.addEventListener("click", (e) => {
+      e.preventDefault();
       formBground.style.display = "block";
       // window.style.position = "fixed";
       formBground.setAttribute("aria-hidden", "false");
@@ -104,6 +109,16 @@ fetch("./js/data.json")
       firstNameInput.focus();
 
       console.log("la modal s'ouvre !");
+    });
+
+    contentDialogForm.addEventListener("keydown", (e) => {
+      if (document.activeElement === closeModal) {
+        e.preventDefault();
+        sendBtn.focus();
+      } else if (document.activeElement === sendBtn) {
+        e.preventDefault;
+        closeModal.focus();
+      }
     });
 
     // When the user clicks on <svg> (x), close the modal

@@ -1,10 +1,8 @@
 .lightbox {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0px;
-    left: 0px;
+
+    // position: fixed;
+    // top: 0px;
+    // left: 0px;
     height: 100%;
     width: 100%;
     background-color: rgba(131, 125, 125, 0.9);
@@ -22,14 +20,23 @@
         min-width: 800px;
         height: 95vh;
 
-        img {
-            object-fit: contain;
-            max-width: 80%;
-            min-width: 600px;
-            height: 100vh;
+        &--img {
+            border: 1px solid red;
+
+
             margin-top: 50px;
             margin-bottom: 50px;
             animation: lightboxStart .5s;
+
+            img {
+                object-fit: contain;
+                max-width: 1000px;
+                max-height: 950px;
+            }
+
+            h2 {
+                border: 1px solid red;
+            }
 
         }
 

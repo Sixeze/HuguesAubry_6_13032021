@@ -11,7 +11,7 @@ fetch("./js/data.json")
 
     // analyse if URL parameter is same of photograph.id parameter
     const photographer = phData.photographers.find((p) => p.id == urlIdNumber);
-    console.log(photographer);
+    // console.log(photographer);
 
     // filter Array
     const mediaFilterArray = phData.media.filter(
@@ -32,7 +32,7 @@ fetch("./js/data.json")
                                 <ul class="tagBox"></ul>
                               </aside>
                             </article>
-                            <button type="button" aria-haspopup="dialog" aria-controls="dialog" class="ph-contact btn" title="contactez-moi">contactez-moi</button>
+                            <button type="button" id="openForm" aria-haspopup="dialog" aria-controls="dialog" class="ph-contact btn" title="contactez-moi">contactez-moi</button>
                             <img src="media/PhotographersIDPhotos/${photographer.portrait}"
                                 alt="Portrait représentant ${photographer.portrait}"
                                 class="profil-picture">`;
@@ -43,7 +43,7 @@ fetch("./js/data.json")
       const liTagElt = document.createElement("li");
       ulTagBox[0].appendChild(liTagElt);
       liTagElt.setAttribute("class", "link-tag");
-      liTagElt.innerHTML = `<a href="#" tittle="${photographer.tags[t]}" >#${photographer.tags[t]}</a> `;
+      liTagElt.innerHTML = `<a href="#" title="${photographer.tags[t]}" >#${photographer.tags[t]}</a> `;
     }
 
     // Section for show media
@@ -77,19 +77,12 @@ fetch("./js/data.json")
                                             </video>`;
         }
         showMediaSection.innerHTML += `<article class="artist-cards">
-                                            <a href="${srcFolder}" id="openLightbox">${videoOrImage}</a>
+                                            <a href="${srcFolder}" class="openLightbox">${videoOrImage}</a>
                                             <aside class="artist-cards__information">
-                                                  <h2 class="card-title">${title
-                                                    .replace(".jpg", "")
-                                                    .replace(/_/g, " ")
-                                                    .replace(".mp4", "")}</h2>
-                                                  <p class="card-price">${
-                                                    media.price
-                                                  }€</p>
+                                                  <h2 class="card-title">${media.alt}</h2>
+                                                  <p class="card-price">${media.price}€</p>
                                                   <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
-                                                      <p class="like">${
-                                                        media.likes
-                                                      }</p>
+                                                      <p class="like">${media.likes}</p>
                                                       <i class="fas fa-heart red-heart"></i>
                                                   </span>
                                             </aside>
@@ -124,8 +117,8 @@ fetch("./js/data.json")
       let totalLikes = mediaFilterArray
         .map((media) => media.likes)
         .reduce((total, likes) => total + likes);
-      console.log(totalLikes);
-      console.log(photographer.price);
+      // console.log(totalLikes);
+      // console.log(photographer.price);
 
       const totalLikesBox = document.querySelector("aside[class='counter']");
 
