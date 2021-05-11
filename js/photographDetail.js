@@ -77,12 +77,19 @@ fetch("./js/data.json")
                                             </video>`;
         }
         showMediaSection.innerHTML += `<article class="artist-cards">
-                                            <a href="${srcFolder}" class="openLightbox">${videoOrImage}</a>
+                                            <a href="${srcFolder}">${videoOrImage}</a>
                                             <aside class="artist-cards__information">
-                                                  <h2 class="card-title">${media.alt}</h2>
-                                                  <p class="card-price">${media.price}€</p>
+                                                  <h2 class="card-title">${title
+                                                    .replace(".jpg", "")
+                                                    .replace(/_/g, " ")
+                                                    .replace(".mp4", "")}</h2>
+                                                  <p class="card-price">${
+                                                    media.price
+                                                  }€</p>
                                                   <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
-                                                      <p class="like">${media.likes}</p>
+                                                      <p class="like">${
+                                                        media.likes
+                                                      }</p>
                                                       <i class="fas fa-heart red-heart"></i>
                                                   </span>
                                             </aside>

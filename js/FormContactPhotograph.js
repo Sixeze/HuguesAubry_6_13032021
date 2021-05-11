@@ -129,13 +129,13 @@ fetch("./js/data.json")
       console.log("la modal se ferme !");
     });
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", function (event) {
       let nomTouche = event.key;
       if (nomTouche === "Escape") {
         formBground.style.display = "none";
         formBground.setAttribute("aria-hidden", "true");
         focusOnBtnContact.focus();
-        console.log("la modal se ferme !");
+        // console.log("la modal se ferme !");
       }
     });
 
