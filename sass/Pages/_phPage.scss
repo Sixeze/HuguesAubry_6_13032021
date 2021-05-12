@@ -103,10 +103,10 @@
 
         .artist-cards__picture,
         .artist-cards__video {
-            object-fit: contain;
+            object-fit: cover;
             background-color: $secondary-bg-color;
-            width: 400px;
-            height: 360px;
+            width: 420px;
+            height: 380px;
 
         }
 
