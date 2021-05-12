@@ -265,25 +265,25 @@ ul {
   height: 100vh;
 }
 
-.lightbox__container--img {
+.lightbox__container--media {
   margin-top: 50px;
   margin-bottom: 50px;
   -webkit-animation: lightboxStart .5s;
           animation: lightboxStart .5s;
 }
 
-.lightbox__container--img img {
+.lightbox__container--media img {
   -o-object-fit: contain;
      object-fit: contain;
   max-width: 1100px;
   max-height: 1050px;
 }
 
-.lightbox__container--img h2 {
+.lightbox__container--media h2 {
   color: #901C1C;
 }
 
-.lightbox__container--left, .lightbox__container--right {
+.lightbox__container--prev, .lightbox__container--next {
   position: absolute;
   border: none;
   background: url(../../media/logo/arrowleft.svg) center center/30px 48px no-repeat;
@@ -295,7 +295,7 @@ ul {
   z-index: 11;
 }
 
-.lightbox__container--left {
+.lightbox__container--prev {
   right: auto;
   left: 0px;
   -webkit-transform: rotate(180deg);
@@ -597,11 +597,11 @@ ul {
 
 #show-media .artist-cards .artist-cards__picture,
 #show-media .artist-cards .artist-cards__video {
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   background-color: #C4C4C4;
-  width: 400px;
-  height: 360px;
+  width: 420px;
+  height: 380px;
 }
 
 #show-media .artist-cards .artist-cards__information {

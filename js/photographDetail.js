@@ -60,7 +60,7 @@ fetch("./js/data.json")
         if (srcImage) {
           title = media.image;
           srcFolder = `media/artistsPictures/${title}`;
-          videoOrImage = `<img src="media/artistsPictures/${media.image}"
+          videoOrImage = `<img src="${srcFolder}"
                                           alt="${media.alt}"
                                           tag="${media.tags}"
                                           date="${media.date}"
@@ -69,7 +69,7 @@ fetch("./js/data.json")
           title = media.video;
           srcFolder = `media/artistsVideos/${title}`;
           videoOrImage = `<video class="artist-cards__video" preload="metadata">
-                                                <source src="media/artistsVideos/${media.video}"
+                                                <source src="${srcFolder}"
                                                 date="${media.date}"
                                                 tag="${media.tags}"
                                                 alt="${media.alt}"

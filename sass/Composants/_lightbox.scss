@@ -20,7 +20,7 @@
         min-width: 800px;
         height: 100vh;
 
-        &--img {
+        &--media {
             margin-top: 50px;
             margin-bottom: 50px;
             animation: lightboxStart .5s;
@@ -38,8 +38,8 @@
         }
 
 
-        &--left,
-        &--right {
+        &--prev,
+        &--next {
             position: absolute;
             border: none;
             background: url(../../media/logo/arrowleft.svg) center center / 30px 48px no-repeat;
@@ -52,7 +52,7 @@
 
         }
 
-        &--left {
+        &--prev {
             right: auto;
             left: 0px;
             transform: rotate(180deg);
