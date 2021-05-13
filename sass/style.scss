@@ -13,20 +13,25 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
 @import "./Pages/phPage";
 
 // INVISIBLE LINK
-.invisible-link {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    left: 42%;
-    height: 30px;
-    width: 182px;
-    background: #DB8876;
+#goToTop {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 1%;
 
-    a {
-        color: black;
-        font-size: 18px;
-        font-weight: 700;
-        align-self: center;
+    .invisible-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 28px;
+        width: 182px;
+        background: #DB8876;
+
+        a {
+            color: black;
+            font-size: 18px;
+            font-weight: 700;
+        }
     }
 }
 

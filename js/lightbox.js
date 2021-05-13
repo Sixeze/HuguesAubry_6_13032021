@@ -13,7 +13,7 @@ fetch("./js/data.json")
 
     /**
      * @property {HTMLElement} element // <section class="lightbox" aria-label="lightbox gallery"> <== sectionLightBox ==>
-     * @property {string[]} medias = galleryForLightBox path to lightBox media
+     * @property {string[]} listMedia = galleryForLightBox path to lightBox media
      * @property {string} url media href active
      */
     class Lightbox {
@@ -34,24 +34,25 @@ fetch("./js/data.json")
 
             new Lightbox(
               e.currentTarget.getAttribute("href"), // param url
-              galleryForLightBox // param medias
+
+              galleryForLightBox // param listMedia
             );
             // console.log(e.currentTarget);
-            // console.log(e.currentTarget.getAttribute("href"));
+            console.log(e.currentTarget.getAttribute("href"));
             document.removeEventListener("click", this.e);
           })
         );
       }
 
       /**
-       * @param {string[]} medias = galleryForLightBox path to lightBox media
+       * @param {string[]} listMedia = galleryForLightBox path to lightBox media
        * @param {string} url href of media open
        */
-      constructor(url, medias) {
+      constructor(url, listMedia) {
         this.element = this.buildDom(url);
         this.showMediaLoaded(url);
-        this.medias = medias;
-        console.log(this.medias);
+        this.listMedia = listMedia;
+        console.log(this.listMedia);
         this.onKeyDown = this.onKeyDown.bind(this);
         divBlockPage.appendChild(this.element);
         document.addEventListener("keydown", this.onKeyDown);
@@ -64,6 +65,7 @@ fetch("./js/data.json")
       showMediaLoaded(url) {
         this.url = null;
         const media = new Image();
+        console.log(media);
         const h2 = this.element.querySelector(".card-title");
         const container = this.element.querySelector(
           ".lightbox__container--media"
@@ -130,11 +132,11 @@ fetch("./js/data.json")
        */
       prev(e) {
         e.preventDefault();
-        let m = this.medias.findIndex((media) => media === this.url);
+        let m = this.listMedia.findIndex((media) => media === this.url);
         if (m == 0) {
-          m = this.medias.length;
+          m = this.listMedia.length;
         }
-        this.showMediaLoaded(this.medias[m - 1]);
+        this.showMediaLoaded(this.listMedia[m - 1]);
         // debugger;
       }
 
@@ -144,13 +146,13 @@ fetch("./js/data.json")
        */
       next(e) {
         e.preventDefault();
-        let m = this.medias.findIndex((media) => media === this.url);
-        if (m == this.medias.length - 1) {
+        let m = this.listMedia.findIndex((media) => media === this.url);
+        if (m == this.listMedia.length - 1) {
           m = -1;
         }
         // console.log([m]);
-        // console.log(this.medias.length - 1);
-        this.showMediaLoaded(this.medias[m + 1]);
+        // console.log(this.listMedia.length - 1);
+        this.showMediaLoaded(this.listMedia[m + 1]);
         // debugger;
       }
 

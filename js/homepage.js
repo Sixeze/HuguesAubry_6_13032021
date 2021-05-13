@@ -6,8 +6,26 @@ fetch("./js/data.json")
     const artistData = phData.photographers;
 
     // Recover DOM elements
+    const divToGoingTop = document.querySelector("#goToTop");
     const mainSection = document.getElementsByTagName("main");
     const mainContainerCards = document.createElement("div");
+
+    // appear element to return top when scroll page
+    const gotoTopAppearElement = () => {
+      divToGoingTop.innerHTML = `<div class="invisible-link">
+                                  <a href="#main">Passer au contenu</a>
+                                </div>;`;
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          divToGoingTop.style.display = "block";
+          divToGoingTop.setAttribute("aria-hidden", "false");
+        } else {
+          divToGoingTop.style.display = "none";
+          divToGoingTop.setAttribute("aria-hidden", "true");
+        }
+      });
+    };
 
     // create a prototype array for include or remove tagSelected when is clicked
     let arrayWithOnlyTagsSelected = [];
@@ -78,7 +96,7 @@ fetch("./js/data.json")
 
       // show content <li>
       for (let u in uniqueTags) {
-        let htmlLiTagElts = `<li class="link-tag">#<a class="a-link" href="#" title="${uniqueTags[u]}" >${uniqueTags[u]}</a>
+        let htmlLiTagElts = `<li class="link-tag"><a class="a-link" href="#" title="${uniqueTags[u]}" >#${uniqueTags[u]}</a>
                               <span class="sr-only">${uniqueTags[u]}</span>
                           </li>`;
         ulTagElt.innerHTML += htmlLiTagElts;
@@ -92,7 +110,8 @@ fetch("./js/data.json")
 
           // recover element string on event
           let tagSelected =
-            window.event.target.textContent || window.event.target.innerText;
+            window.event.target.textContent.replace("#", "") ||
+            window.event.target.innerText.replace("#", "");
           console.log(tagSelected);
 
           // if not include "tag", push it prototype array, else remove same element
@@ -138,6 +157,7 @@ fetch("./js/data.json")
         });
       });
     };
+    gotoTopAppearElement();
     showNavTagsElt();
     refreshPhotographerCards(...artistData);
   });
