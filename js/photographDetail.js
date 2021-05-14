@@ -167,8 +167,10 @@ fetch("./js/data.json")
           break;
       }
       showMedia(...sortResult);
+      Lightbox.init();
     });
     createNewHeader();
     showMedia(...mediaFilterArray);
+    Lightbox.init();
   })
   .catch((error) => console.log("Erreur : " + error));
