@@ -25,10 +25,11 @@
             margin-bottom: 50px;
             animation: lightboxStart .5s;
 
+            video,
             img {
                 object-fit: contain;
-                max-width: 1100px;
-                max-height: 1050px;
+                max-width: 1200px;
+                max-height: 900px;
             }
 
             h2 {

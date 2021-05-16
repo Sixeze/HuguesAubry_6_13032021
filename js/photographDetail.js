@@ -20,11 +20,12 @@ fetch("./js/data.json")
     // console.log(mediaFilterArray);
 
     // create HTML elements
-    const newHeader = document.createElement("header");
-    mainPHPage[0].prepend(newHeader);
-    newHeader.setAttribute("class", "ph-info");
-    newHeader.setAttribute("aria-label", "photographer information");
-    newHeader.innerHTML = `<article class="ph-card">
+    const createNewHeader = () => {
+      const newHeader = document.createElement("header");
+      mainPHPage[0].prepend(newHeader);
+      newHeader.setAttribute("class", "ph-info");
+      newHeader.setAttribute("aria-label", "photographer information");
+      newHeader.innerHTML = `<article class="ph-card">
                               <h1 class="ph-card__artist">${photographer.name}</h1>
                               <aside class="ph-card__information">
                                 <p class="ph-card__information--city">${photographer.city}/${photographer.country}</p>
@@ -37,14 +38,15 @@ fetch("./js/data.json")
                                 alt="Portrait représentant ${photographer.portrait}"
                                 class="profil-picture">`;
 
-    // Tags Elements
-    for (let t in photographer.tags) {
-      const ulTagBox = document.getElementsByClassName("tagBox");
-      const liTagElt = document.createElement("li");
-      ulTagBox[0].appendChild(liTagElt);
-      liTagElt.setAttribute("class", "link-tag");
-      liTagElt.innerHTML = `<a href="#" title="${photographer.tags[t]}" >#${photographer.tags[t]}</a> `;
-    }
+      // Tags Elements
+      for (let t in photographer.tags) {
+        const ulTagBox = document.getElementsByClassName("tagBox");
+        const liTagElt = document.createElement("li");
+        ulTagBox[0].appendChild(liTagElt);
+        liTagElt.setAttribute("class", "link-tag");
+        liTagElt.innerHTML = `<a href="#" title="${photographer.tags[t]}" >#${photographer.tags[t]}</a> `;
+      }
+    };
 
     // Section for show media
     const showMedia = (...mediaFilterArray) => {
@@ -140,6 +142,10 @@ fetch("./js/data.json")
     const selectForSort = document.getElementsByTagName("select")[0];
     selectForSort.addEventListener("change", function () {
       let sortResult = null;
+      const mediaSortResult = mediaFilterArray.filter(
+        (media) => media.sortResult
+      );
+      console.log(mediaSortResult);
 
       switch (this.value) {
         case "0":
@@ -149,16 +155,22 @@ fetch("./js/data.json")
           sortResult = mediaFilterArray.sort(
             (a, b) => Date.parse(b.date) - Date.parse(a.date)
           );
+          console.log(mediaFilterArray);
+          console.log(sortResult.url);
+
           break;
         case "2":
           sortResult = mediaFilterArray.sort((a, b) =>
             a.alt.localeCompare(b.alt)
           );
+          console.log(mediaFilterArray);
           break;
       }
       showMedia(...sortResult);
+      Lightbox.init();
     });
-
+    createNewHeader();
     showMedia(...mediaFilterArray);
+    Lightbox.init();
   })
   .catch((error) => console.log("Erreur : " + error));

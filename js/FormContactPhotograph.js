@@ -89,8 +89,6 @@ fetch("./js/data.json")
     // console.log(contentDialogForm);
     const firstNameInput = document.getElementById("prenom");
     const btnModal = document.getElementsByClassName("ph-contact btn")[0];
-    // const btnModal2 = document.querySelector("[aria-haspopup='dialog']");
-    // console.log(btnModal2);
     // console.log(btnModal);
 
     const closeModal = document.getElementById("cross-close");
@@ -103,12 +101,11 @@ fetch("./js/data.json")
     btnModal.addEventListener("click", (e) => {
       e.preventDefault();
       formBground.style.display = "block";
-      // window.style.position = "fixed";
+      formBground.style.position = "fixed";
       formBground.setAttribute("aria-hidden", "false");
-
       firstNameInput.focus();
-
-      console.log("la modal s'ouvre !");
+      // console.log("la modal s'ouvre !");
+      // debugger;
     });
 
     contentDialogForm.addEventListener("keydown", (e) => {
@@ -126,7 +123,7 @@ fetch("./js/data.json")
       formBground.style.display = "none";
       formBground.setAttribute("aria-hidden", "true");
       focusOnBtnContact.focus();
-      console.log("la modal se ferme !");
+      // console.log("la modal se ferme !");
     });
 
     document.addEventListener("keydown", function (event) {
@@ -187,7 +184,8 @@ fetch("./js/data.json")
     }
 
     function checkMail(value) {
-      let emailRegex = /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
+      let emailRegex =
+        /^(([^<>()[]\.,;:s@]+(.[^<>()[]\.,;:s@]+)*)|(.+))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/;
       if (emailRegex.test(value)) {
         return true;
       } else {
@@ -244,5 +242,5 @@ fetch("./js/data.json")
         la demande du clients est : ${textArea.value}`
       );
     });
-  });
-// .catch((error) => console.log("Erreur : " + error));
+  })
+  .catch((error) => console.log("Erreur : " + error));
