@@ -14,7 +14,7 @@ fetch("./js/data.json")
     const gotoTopAppearElement = () => {
       divToGoingTop.innerHTML = `<div class="invisible-link">
                                   <a href="#main">Passer au contenu</a>
-                                </div>;`;
+                                </div>`;
 
       window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {

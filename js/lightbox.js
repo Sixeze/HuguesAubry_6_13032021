@@ -28,7 +28,7 @@ class Lightbox {
           galleryForLightBox // param listMedia
         );
         // console.log(e.currentTarget);
-        console.log(e.currentTarget.getAttribute("href"));
+        // console.log(e.currentTarget.getAttribute("href"));
         document.removeEventListener("click", this.e);
       })
     );
@@ -42,7 +42,7 @@ class Lightbox {
     this.element = this.buildDom(url);
     this.showMediaLoaded(url);
     this.listMedia = listMedia;
-    console.log(this.listMedia);
+    // console.log(this.listMedia);
     this.onKeyDown = this.onKeyDown.bind(this);
     divBlockPage.appendChild(this.element);
     document.addEventListener("keydown", this.onKeyDown);
@@ -54,38 +54,37 @@ class Lightbox {
    */
   showMediaLoaded(url) {
     this.url = null;
-    const media = new Image();
-    console.log(media);
     const h2 = this.element.querySelector(".card-title");
     const container = this.element.querySelector(".lightbox__container--media");
     container.innerHTML = "";
-    media.onload = () => {
-      // let media = new Factory;
 
-      container.prepend(media);
-      media.setAttribute(
-        "alt",
-        `${url
-          .replace(".jpg", "")
-          .replace(/_/g, " ")
-          .replace(".mp4", "")
-          .replace("media/artistsVideos/", "")
-          .replace("media/artistsPictures/", "")}`
-      );
-      h2.textContent = `${url
-        .replace(".jpg", "")
-        .replace(/_/g, " ")
-        .replace(".mp4", "")
-        .replace("media/artistsVideos/", "")
-        .replace("media/artistsPictures/", "")}`;
-      container.appendChild(h2);
+    const newMedia = new MediaFactory(url);
+    container.prepend(newMedia);
 
-      this.url = url;
-      // console.log(media);
-    };
-    media.src = url;
+    // newMedia.onload = () => {
+    //   container.prepend(newMedia);
+    //   // media.setAttribute(
+    //   //   "alt",
+    //   //   `${url
+    //   //     .replace(".jpg", "")
+    //   //     .replace(/_/g, " ")
+    //   //     .replace(".mp4", "")
+    //   //     .replace("media/artistsVideos/", "")
+    //   //     .replace("media/artistsPictures/", "")}`
+    //   // );
+    //   h2.textContent = `${url
+    //     .replace(".jpg", "")
+    //     .replace(/_/g, " ")
+    //     .replace(".mp4", "")
+    //     .replace("media/artistsVideos/", "")
+    //     .replace("media/artistsPictures/", "")}`;
+    //   container.appendChild(h2);
 
-    // <img src="${url}" alt=""/>
+    //   this.url = url;
+    //   // console.log(media);
+    // };
+    console.log(newMedia);
+    newMedia.src = url;
   }
 
   /**
@@ -175,5 +174,55 @@ class Lightbox {
       .addEventListener("click", this.next.bind(this));
 
     return sectionLightBox;
+  }
+}
+
+class ImageFactory {
+  constructor(url) {
+    this.url = url;
+  }
+
+  createImage(url) {
+    const imageElt = document.createElement("img");
+    imageElt.setAttribute("src", `${url}`);
+    imageElt.setAttribute(
+      "alt",
+      `${url
+        .replace(".jpg", "")
+        .replace(/_/g, " ")
+        .replace(".mp4", "")
+        .replace("media/artistsVideos/", "")
+        .replace("media/artistsPictures/", "")}`
+    );
+
+    return imageElt;
+  }
+}
+
+class VideoFactory {
+  constructor(url) {
+    this.url = url;
+  }
+
+  createVideo(url) {
+    const videoElt = document.createElement("video");
+    // videoElt.setAttribute("preload", "metadata");
+    videoElt.setAttribute("controls", "controls");
+    videoElt.innerHTML = `<source src="${url}"
+                                  alt=${url
+                                    .replace(".jpg", "")
+                                    .replace(/_/g, " ")
+                                    .replace(".mp4", "")
+                                    .replace("media/artistsVideos/", "")
+                                    .replace("media/artistsPictures/", "")}>`;
+
+    return videoElt;
+  }
+}
+
+class MediaFactory {
+  constructor(url) {
+    if (/artistsPictures/.test(url)) return new ImageFactory(url);
+    if (/artistsVideos/.test(url)) return new VideoFactory(url);
   }
 }

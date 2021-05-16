@@ -272,6 +272,7 @@ ul {
           animation: lightboxStart .5s;
 }
 
+.lightbox__container--media video,
 .lightbox__container--media img {
   -o-object-fit: contain;
      object-fit: contain;
@@ -591,7 +592,7 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   width: 30%;
-  height: 400px;
+  height: 450px;
   margin-bottom: 50px;
 }
 

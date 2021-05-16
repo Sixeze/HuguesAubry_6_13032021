@@ -1,48 +1,87 @@
-fetch("./js/data.json")
-  .then((response) => response.json())
-  .then((phData) => {
-    const params = new URL(document.location).searchParams;
-    const urlIdNumber = params.get("dataph");
-    const mediaFilterArray = phData.media.filter(
-      (media) => media.photographerId == urlIdNumber
-    );
-    console.log(mediaFilterArray);
+// class ImageFactory {
+//   constructor(media) {
+//     this.src = media.src;
+//     this.alt = media.alt;
+//     this.tags = media.tags;
+//     this.date = media.date;
+//     this.type = "image";
+//   }
 
-    class MediaFactory {}
-    new MediaFactory();
-  })
-  .catch((error) => console.log("Erreur : " + error));
+//   createImage(media) {
+//     const imageElt = document.createElement("img");
+//     imageElt.innerHTML = `src="media/artistsPictures/${media.src}"
+//                           alt="${media.alt}"
+//                           tag="${media.tags}"
+//                           date="${media.date}"
+//                           class="artist-cards__picture">`;
+//     return imageElt;
+//   }
+// }
+
+// class VideoFactory {
+//   constructor(media) {
+//     this.src = media.src;
+//     this.alt = media.alt;
+//     this.tags = media.tags;
+//     this.date = media.date;
+//     this.type = "video";
+//   }
+
+//   createVideo(media) {
+//     const videoElt = document.createElement("video");
+//     videoElt.innerHTML = `<source src="media/artistsVideos/${media.src}"
+//                                   date="${media.date}"
+//                                   tag="${media.tags}"
+//                                   alt="${media.alt}">`;
+//   }
+// }
+// console.log(ImageFactory);
+// class MediaFactory {
+//   constructor(type) {
+//     if (type === "image") return new ImageFactory();
+//     if (type === "video") return new VideoFactory();
+//   }
+// }
+// new MediaFactory();
 
 // function Factory() {
-//   this.createEmployee = function (type) {
-//     var employee;
+//   this.displayMedia = function (type) {
+//     let videoOrImage;
 
-//     if (type === "fulltime") {
-//       employee = new FullTime();
-//     } else if (type === "parttime") {
-//       employee = new PartTime();
-//     } else if (type === "temporary") {
-//       employee = new Temporary();
-//     } else if (type === "contractor") {
-//       employee = new Contractor();
+//     if (type === "image") {
+//       videoOrImage = new Image();
+//     } else if (type === "video") {
+//       videoOrImagee = new Video();
 //     }
 
-//     employee.type = type;
-
-//     employee.say = function () {
-//       log.add(this.type + ": rate " + this.hourly + "/hour");
-//     };
-
-//     return employee;
+//     return videoOrImage;
 //   };
 // }
 
-// var FullTime = function () {
-//   this.hourly = "$12";
-// };
+//  class ImageFactory {
+//    constructor() {
+//      this.src =
+//    }
+//  } function (media) {
+//    this.videoOrImage = `<img src="${srcFolder}"
+//                                           alt="${media.alt}"
+//                                           tag="${media.tags}"
+//                                           date="${media.date}"
+//                                           class="artist-cards__picture"></img>`;
+// // };
 
-// var PartTime = function () {
-//   this.hourly = "$11";
+// //  class Video {
+//    constructor() {
+
+//    }
+//  } = function () {
+//    this.videoOrImage = `<video class="artist-cards__video" preload="metadata">
+//                                                 <source src="${srcFolder}"
+//                                                 date="${media.date}"
+//                                                 tag="${media.tags}"
+//                                                 alt="${media.alt}"
+//                                                 >
+//                                             </video>`;
 // };
 
 // var Temporary = function () {
