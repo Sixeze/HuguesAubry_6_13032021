@@ -54,37 +54,27 @@ class Lightbox {
    */
   showMediaLoaded(url) {
     this.url = null;
-    const h2 = this.element.querySelector(".card-title");
     const container = this.element.querySelector(".lightbox__container--media");
     container.innerHTML = "";
 
-    const newMedia = new MediaFactory(url);
-    container.prepend(newMedia);
-
-    // newMedia.onload = () => {
-    //   container.prepend(newMedia);
-    //   // media.setAttribute(
-    //   //   "alt",
-    //   //   `${url
-    //   //     .replace(".jpg", "")
-    //   //     .replace(/_/g, " ")
-    //   //     .replace(".mp4", "")
-    //   //     .replace("media/artistsVideos/", "")
-    //   //     .replace("media/artistsPictures/", "")}`
-    //   // );
-    //   h2.textContent = `${url
-    //     .replace(".jpg", "")
-    //     .replace(/_/g, " ")
-    //     .replace(".mp4", "")
-    //     .replace("media/artistsVideos/", "")
-    //     .replace("media/artistsPictures/", "")}`;
-    //   container.appendChild(h2);
-
+    // let mediaElement = null;
+    // const title = url
+    //   .replace(".jpg", "")
+    //   .replace(/_/g, " ")
+    //   .replace(".mp4", "")
+    //   .replace("media/artistsVideos/", "")
+    //   .replace("media/artistsPictures/", "");
+    // if (/artistsPictures/.test(url)) {
+    //   mediaElement = `<img src="${url}" alt="${title}"><h2 class="card-title">${title}</h2>`;
     //   this.url = url;
-    //   // console.log(media);
-    // };
-    console.log(newMedia);
-    newMedia.src = url;
+    // }
+    // if (/artistsVideos/.test(url)) {
+    //   mediaElement = `<video preload="metadata" controls autoplay loop title="${title}">
+    //                       <source src="${url}" type="video/mp4" alt=""></video>
+    //                   <h2 class="card-title">${title}</h2>`;
+    //   this.url = url;
+    // }
+    container.innerHTML = new MediaFactory(url);
   }
 
   /**
@@ -180,20 +170,23 @@ class Lightbox {
 class ImageFactory {
   constructor(url) {
     this.url = url;
+    this.media = this.createImage(url);
   }
 
   createImage(url) {
     const imageElt = document.createElement("img");
-    imageElt.setAttribute("src", `${url}`);
-    imageElt.setAttribute(
-      "alt",
-      `${url
-        .replace(".jpg", "")
-        .replace(/_/g, " ")
-        .replace(".mp4", "")
-        .replace("media/artistsVideos/", "")
-        .replace("media/artistsPictures/", "")}`
-    );
+    imageElt.innerHTML = `${url}`;
+    // imageElt.setAttribute("src", `${url}`);
+    // imageElt.setAttribute(
+    //   "alt",
+    //   `${url
+    //     .replace(".jpg", "")
+    //     .replace(/_/g, " ")
+    //     .replace(".mp4", "")
+    //     .replace("media/artistsVideos/", "")
+    //     .replace("media/artistsPictures/", "")}`
+    // );
+    console.log(imageElt);
 
     return imageElt;
   }
@@ -202,6 +195,7 @@ class ImageFactory {
 class VideoFactory {
   constructor(url) {
     this.url = url;
+    this.media = this.createVideo(url);
   }
 
   createVideo(url) {
@@ -215,6 +209,7 @@ class VideoFactory {
                                     .replace(".mp4", "")
                                     .replace("media/artistsVideos/", "")
                                     .replace("media/artistsPictures/", "")}>`;
+    console.log(videoElt);
 
     return videoElt;
   }
