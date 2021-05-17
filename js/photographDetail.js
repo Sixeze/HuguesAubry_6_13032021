@@ -66,7 +66,8 @@ fetch("./js/data.json")
                                           alt="${media.alt}"
                                           tag="${media.tags}"
                                           date="${media.date}"
-                                          class="artist-cards__picture"></img>`;
+                                          class="artist-cards__picture">
+                                          </img>`;
         } else {
           title = media.video;
           srcFolder = `media/artistsVideos/${title}`;
