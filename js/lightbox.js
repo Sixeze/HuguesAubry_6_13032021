@@ -57,24 +57,24 @@ class Lightbox {
     const container = this.element.querySelector(".lightbox__container--media");
     container.innerHTML = "";
 
-    // let mediaElement = null;
-    // const title = url
-    //   .replace(".jpg", "")
-    //   .replace(/_/g, " ")
-    //   .replace(".mp4", "")
-    //   .replace("media/artistsVideos/", "")
-    //   .replace("media/artistsPictures/", "");
-    // if (/artistsPictures/.test(url)) {
-    //   mediaElement = `<img src="${url}" alt="${title}"><h2 class="card-title">${title}</h2>`;
-    //   this.url = url;
-    // }
-    // if (/artistsVideos/.test(url)) {
-    //   mediaElement = `<video preload="metadata" controls autoplay loop title="${title}">
-    //                       <source src="${url}" type="video/mp4" alt=""></video>
-    //                   <h2 class="card-title">${title}</h2>`;
-    //   this.url = url;
-    // }
-    container.innerHTML = new MediaFactory(url);
+    let mediaElement = null;
+    const title = url
+      .replace(".jpg", "")
+      .replace(/_/g, " ")
+      .replace(".mp4", "")
+      .replace("media/artistsVideos/", "")
+      .replace("media/artistsPictures/", "");
+    if (/artistsPictures/.test(url)) {
+      mediaElement = `<img src="${url}" alt="${title}"><h2 class="card-title">${title}</h2>`;
+      this.url = url;
+    }
+    if (/artistsVideos/.test(url)) {
+      mediaElement = `<video preload="metadata" controls autoplay loop title="${title}">
+                          <source src="${url}" type="video/mp4" alt=""></video>
+                      <h2 class="card-title">${title}</h2>`;
+      this.url = url;
+    }
+    container.innerHTML = mediaElement; // new MediaFactory(url)
   }
 
   /**
@@ -175,17 +175,16 @@ class ImageFactory {
 
   createImage(url) {
     const imageElt = document.createElement("img");
-    imageElt.innerHTML = `${url}`;
-    // imageElt.setAttribute("src", `${url}`);
-    // imageElt.setAttribute(
-    //   "alt",
-    //   `${url
-    //     .replace(".jpg", "")
-    //     .replace(/_/g, " ")
-    //     .replace(".mp4", "")
-    //     .replace("media/artistsVideos/", "")
-    //     .replace("media/artistsPictures/", "")}`
-    // );
+    imageElt.setAttribute("src", `${url}`);
+    imageElt.setAttribute(
+      "alt",
+      `${url
+        .replace(".jpg", "")
+        .replace(/_/g, " ")
+        .replace(".mp4", "")
+        .replace("media/artistsVideos/", "")
+        .replace("media/artistsPictures/", "")}`
+    );
     console.log(imageElt);
 
     return imageElt;
