@@ -13,3 +13,35 @@
         background-color: $secondary-color;
     }
 }
+
+// button for contact form 
+.ph-contact {
+    position: fixed;
+    bottom: 4vh;
+    right: 30vw;
+    height: 40px;
+}
+
+@media all and (min-width: 768px) {
+    .ph-contact {
+        right: 40vw;
+    }
+}
+
+@media all and (min-width: 1440px) {
+    .ph-contact {
+        position: absolute;
+        top: 40px;
+        left: 500px;
+        height: 70px;
+    }
+}
+
+// @media all and (min-width: 1440px) {
+    //     .ph-contact {
+    //         // position: absolute;
+    //         // bottom: 25vh;
+    //         // right: 40vw;
+    //         // height: 70px;
+    //     }
+    // }

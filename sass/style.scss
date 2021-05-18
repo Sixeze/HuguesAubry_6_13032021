@@ -12,28 +12,7 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
 @import "./Pages/index";
 @import "./Pages/phPage";
 
-// INVISIBLE LINK
-#goToTop {
-    display: none;
-    position: fixed;
-    left: 45%;
-    top: 1%;
 
-    .invisible-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 28px;
-        width: 182px;
-        background: #DB8876;
-
-        a {
-            color: black;
-            font-size: 18px;
-            font-weight: 700;
-        }
-    }
-}
 
 // css pour lecteur d'écran
 
@@ -47,6 +26,10 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+.block_page {
+    width: 100%;
 }
 
 @media all and (min-width: 1920px) {
