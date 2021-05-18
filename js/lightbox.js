@@ -29,6 +29,9 @@ class Lightbox {
         );
         // console.log(e.currentTarget);
         // console.log(e.currentTarget.getAttribute("href"));
+        const container = document.querySelector(".lightbox__container--media");
+        container.focus();
+        container.style.border = "1px solid red";
         document.removeEventListener("click", this.e);
       })
     );
@@ -145,7 +148,7 @@ class Lightbox {
     const sectionLightBox = document.createElement("section");
     sectionLightBox.classList.add("lightbox");
     sectionLightBox.setAttribute("aria-label", "lightbox gallery");
-    sectionLightBox.innerHTML = `<div class="lightbox__container">
+    sectionLightBox.innerHTML = `<div role="dialog" class="lightbox__container" aria-modal="true">
                         <button class="lightbox__container--close">fermer</button>
                         <button class="lightbox__container--prev">précédent</button>
                         <button class="lightbox__container--next">suivant</button>

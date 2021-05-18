@@ -80,7 +80,7 @@ fetch("./js/data.json")
                                             </video>`;
         }
         showMediaSection.innerHTML += `<article class="artist-cards">
-                                            <a href="${srcFolder}">${videoOrImage}</a>
+                                            <a href="${srcFolder}" aria-haspopup="dialog" aria-controls="dialog" role="button">${videoOrImage}</a>
                                             <aside class="artist-cards__information">
                                                   <h2 class="card-title">${title
                                                     .replace(".jpg", "")

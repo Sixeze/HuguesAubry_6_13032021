@@ -23,16 +23,16 @@ ul {
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+    width: auto;
 
 }
 
 // #TAG CONFIG
-
-
 .link-tag,
 .tag-linked {
     display: flex;
     border: 1px solid $terciary-color;
+
     height: 22px;
     border-radius: 20px;
     margin-right: 10px;
