@@ -31,7 +31,6 @@ class Lightbox {
         // console.log(e.currentTarget.getAttribute("href"));
         const container = document.querySelector(".lightbox__container--media");
         container.focus();
-        container.style.border = "1px solid red";
         document.removeEventListener("click", this.e);
       })
     );

@@ -14,7 +14,7 @@
     }
 }
 
-// button for contact form 
+// button for contact form
 .ph-contact {
     position: fixed;
     bottom: 4vh;
@@ -31,17 +31,8 @@
 @media all and (min-width: 1440px) {
     .ph-contact {
         position: absolute;
-        top: 40px;
-        left: 500px;
+        top: 30px;
+        left: 580px;
         height: 70px;
     }
 }
-
-// @media all and (min-width: 1440px) {
-    //     .ph-contact {
-    //         // position: absolute;
-    //         // bottom: 25vh;
-    //         // right: 40vw;
-    //         // height: 70px;
-    //     }
-    // }
