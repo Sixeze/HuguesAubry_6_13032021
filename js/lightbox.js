@@ -57,6 +57,7 @@ class Lightbox {
   showMediaLoaded(url) {
     this.url = null;
     const container = this.element.querySelector(".lightbox__container--media");
+    console.log(this.element);
     container.innerHTML = "";
 
     let mediaElement = null;
@@ -76,7 +77,7 @@ class Lightbox {
                       <h2 class="card-title">${title}</h2>`;
       this.url = url;
     }
-    container.innerHTML = mediaElement; // new MediaFactory(url)
+    container.innerHTML = mediaElement;
   }
 
   /**
@@ -166,59 +167,5 @@ class Lightbox {
       .addEventListener("click", this.next.bind(this));
 
     return sectionLightBox;
-  }
-}
-
-class ImageFactory {
-  constructor(url) {
-    this.url = url;
-    this.media = this.createImage(url);
-  }
-
-  createImage(url) {
-    const imageElt = document.createElement("img");
-    imageElt.setAttribute("src", `${url}`);
-    imageElt.setAttribute(
-      "alt",
-      `${url
-        .replace(".jpg", "")
-        .replace(/_/g, " ")
-        .replace(".mp4", "")
-        .replace("media/artistsVideos/", "")
-        .replace("media/artistsPictures/", "")}`
-    );
-    console.log(imageElt);
-
-    return imageElt;
-  }
-}
-
-class VideoFactory {
-  constructor(url) {
-    this.url = url;
-    this.media = this.createVideo(url);
-  }
-
-  createVideo(url) {
-    const videoElt = document.createElement("video");
-    // videoElt.setAttribute("preload", "metadata");
-    videoElt.setAttribute("controls", "controls");
-    videoElt.innerHTML = `<source src="${url}"
-                                  alt=${url
-                                    .replace(".jpg", "")
-                                    .replace(/_/g, " ")
-                                    .replace(".mp4", "")
-                                    .replace("media/artistsVideos/", "")
-                                    .replace("media/artistsPictures/", "")}>`;
-    console.log(videoElt);
-
-    return videoElt;
-  }
-}
-
-class MediaFactory {
-  constructor(url) {
-    if (/artistsPictures/.test(url)) return new ImageFactory(url);
-    if (/artistsVideos/.test(url)) return new VideoFactory(url);
   }
 }
