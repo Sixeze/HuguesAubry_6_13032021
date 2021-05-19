@@ -1,13 +1,10 @@
 // dropdown menu
-
-
 .sort-menu {
     position: relative;
 
     select {
         display: block;
     }
-
 }
 
 .sort-select,
@@ -21,7 +18,6 @@
     width: 170px;
     height: 60px;
     cursor: pointer;
-
 }
 
 
@@ -41,9 +37,7 @@
 
 .sort-select.arrow:after {
     background-image: url(../../media/logo/arrowUp.png);
-
 }
-
 
 .dropdown-menu {
     position: absolute;

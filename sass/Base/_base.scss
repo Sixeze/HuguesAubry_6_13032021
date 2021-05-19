@@ -7,8 +7,6 @@
     border-radius: 5px;
 }
 
-
-
 body {
     font-family: 'DM Sans', Arial, Helvetica, sans-serif;
 }
@@ -24,16 +22,14 @@ ul {
     justify-content: center;
     align-items: center;
     width: auto;
-
 }
 
 // #TAG CONFIG
 .link-tag,
 .tag-linked {
     display: flex;
-    border: 1px solid $terciary-color;
-
     height: 22px;
+    border: 1px solid $terciary-color;
     border-radius: 20px;
     margin-right: 10px;
     padding-right: 5px;

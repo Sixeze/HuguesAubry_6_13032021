@@ -1,3 +1,5 @@
+// import { MediaFactory } from "./mediaFactory";
+
 fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
@@ -52,53 +54,53 @@ fetch("./js/data.json")
     const showMedia = (...mediaFilterArray) => {
       const showMediaSection = document.querySelector("#show-media");
       showMediaSection.innerHTML = "";
-      for (let m in mediaFilterArray) {
-        const media = mediaFilterArray[m];
-        const srcImage = media.image;
-        let videoOrImage;
-        let title = "";
-        let srcFolder = "";
+      for (const mediaData of mediaFilterArray) {
+        let media = new MediaFactory(mediaData);
+        showMediaSection.innerHTML += media.show();
+        // const media = mediaFilterArray[m];
+        // const srcImage = media.image;
+        // let videoOrImage;
+        // let title = "";
+        // let srcFolder = "";
 
-        if (srcImage) {
-          title = media.image;
-          srcFolder = `media/artistsPictures/${title}`;
-          videoOrImage = `<img src="${srcFolder}"
-                                          alt="${media.alt}"
-                                          tag="${media.tags}"
-                                          date="${media.date}"
-                                          class="artist-cards__picture">
-                                          </img>`;
-        } else {
-          title = media.video;
-          srcFolder = `media/artistsVideos/${title}`;
-          videoOrImage = `<video class="artist-cards__video" preload="metadata">
-                                                <source src="${srcFolder}"
-                                                date="${media.date}"
-                                                tag="${media.tags}"
-                                                alt="${media.alt}"
-                                                >
-                                            </video>`;
-        }
-        showMediaSection.innerHTML += `<article class="artist-cards">
-                                            <a href="${srcFolder}" aria-haspopup="dialog" aria-controls="dialog" role="button">${videoOrImage}</a>
-                                            <aside class="artist-cards__information">
-                                                  <h2 class="card-title">${title
-                                                    .replace(".jpg", "")
-                                                    .replace(/_/g, " ")
-                                                    .replace(".mp4", "")}</h2>
-                                                  <p class="card-price">${
-                                                    media.price
-                                                  }€</p>
-                                                  <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
-                                                      <p class="like">${
-                                                        media.likes
-                                                      }</p>
-                                                      <i class="fas fa-heart red-heart"></i>
-                                                  </span>
-                                            </aside>
-                                      </article>`;
-
-        // ${title.replace(".jpg","").replace(/_/g," ").replace(".mp4","")}       ${media.alt}
+        // if (srcImage) {
+        //   title = media.image;
+        //   srcFolder = `media/artistsPictures/${title}`;
+        //   videoOrImage = `<img src="${srcFolder}"
+        //                                   alt="${media.alt}"
+        //                                   tag="${media.tags}"
+        //                                   date="${media.date}"
+        //                                   class="artist-cards__picture">
+        //                                   </img>`;
+        // } else {
+        //   title = media.video;
+        //   srcFolder = `media/artistsVideos/${title}`;
+        //   videoOrImage = `<video class="artist-cards__video" preload="metadata">
+        //                                         <source src="${srcFolder}"
+        //                                         date="${media.date}"
+        //                                         tag="${media.tags}"
+        //                                         alt="${media.alt}"
+        //                                         >
+        //                                     </video>`;
+        // }
+        // showMediaSection.innerHTML += `<article alt="medias" class="artist-cards">
+        //                                     <a href="${srcFolder}" aria-haspopup="dialog" aria-controls="dialog" role="button">${videoOrImage}</a>
+        //                                     <aside class="artist-cards__information">
+        //                                           <h2 class="card-title">${title
+        //                                             .replace(".jpg", "")
+        //                                             .replace(/_/g, " ")
+        //                                             .replace(".mp4", "")}</h2>
+        //                                           <p class="card-price">${
+        //                                             media.price
+        //                                           }€</p>
+        //                                           <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
+        //                                               <p class="like">${
+        //                                                 media.likes
+        //                                               }</p>
+        //                                               <i class="fas fa-heart red-heart"></i>
+        //                                           </span>
+        //                                     </aside>
+        //                               </article>`;
       }
 
       let spanHeartLikes = document.querySelectorAll(".card-likeNumbers");

@@ -43,8 +43,8 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid #525252;
   height: 22px;
+  border: 1px solid #525252;
   border-radius: 20px;
   margin-right: 10px;
   padding-right: 5px;
@@ -112,8 +112,8 @@ ul {
 @media all and (min-width: 1440px) {
   .ph-contact {
     position: absolute;
-    top: 40px;
-    left: 500px;
+    top: 30px;
+    left: 580px;
     height: 70px;
   }
 }
@@ -346,7 +346,7 @@ ul {
   left: 0px;
   height: 100%;
   width: 100%;
-  background-color: rgba(131, 125, 125, 0.9);
+  background-color: #C4C4C4;
   z-index: 10;
   -webkit-animation: lightboxStart .5s;
           animation: lightboxStart .5s;
@@ -363,14 +363,14 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 100%;
-  min-width: 800px;
+  width: auto;
+  min-width: auto;
   height: 100vh;
 }
 
 .lightbox__container--media {
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
   -webkit-animation: lightboxStart .5s;
           animation: lightboxStart .5s;
 }
@@ -379,23 +379,26 @@ ul {
 .lightbox__container--media img {
   -o-object-fit: contain;
      object-fit: contain;
-  max-width: 1200px;
-  max-height: 900px;
+  min-width: 200px;
+  max-width: 300px;
+  height: auto;
 }
 
 .lightbox__container--media h2 {
   color: #901C1C;
+  font-size: 1em;
+  text-align: center;
 }
 
 .lightbox__container--prev, .lightbox__container--next {
   position: absolute;
   border: none;
   background: url(../../media/logo/arrowleft.svg) center center/30px 48px no-repeat;
-  top: 0;
+  top: 0px;
   right: 0px;
-  margin-top: 24px;
+  margin-top: 0px;
   height: 100%;
-  width: 50px;
+  width: 30px;
   z-index: 11;
 }
 
@@ -409,8 +412,8 @@ ul {
 .lightbox__container--close {
   position: absolute;
   border: none;
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
   background: url(../../media/logo/crossClose.svg) center center/100% 100% no-repeat transparent;
   z-index: 12;
   top: 10px;
@@ -427,6 +430,64 @@ ul {
 
 .lightbox__container button:hover {
   opacity: 1;
+}
+
+@media all and (min-width: 768px) {
+  .lightbox__container {
+    max-width: 100%;
+    min-width: 700px;
+  }
+  .lightbox__container--media video,
+  .lightbox__container--media img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    max-width: 680px;
+    max-height: 500px;
+  }
+  .lightbox__container--media h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .lightbox__container {
+    min-width: 1000px;
+  }
+  .lightbox__container--media video,
+  .lightbox__container--media img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    max-width: 880px;
+    max-height: 650px;
+  }
+  .lightbox__container--media h2 {
+    font-size: 1.5em;
+  }
+  .lightbox__container--prev, .lightbox__container--next {
+    width: 50px;
+  }
+  .lightbox__container--close {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media all and (min-width: 1440px) {
+  .lightbox__container--media video,
+  .lightbox__container--media img {
+    max-width: 1000px;
+    max-height: 750px;
+  }
+  .lightbox__container--media h2 {
+    font-size: 2em;
+  }
+  .lightbox__container--prev, .lightbox__container--next, .lightbox__container--close {
+    top: 24px;
+    right: 350px;
+  }
+  .lightbox__container--prev {
+    left: 350px;
+  }
 }
 
 @-webkit-keyframes lightboxStart {
@@ -516,10 +577,10 @@ ul {
 
 .main h1 {
   position: absolute;
-  top: 0px;
-  right: 1%;
+  top: 5px;
+  right: .5%;
   color: #901C1C;
-  font-size: 1.8em;
+  font-size: 1.3em;
 }
 
 .main .photograph {
@@ -597,6 +658,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 15px;
 }
 
 .photograph__card--txt strong {
@@ -606,6 +668,7 @@ ul {
 
 .photograph__card--txt span {
   color: #525252;
+  margin-bottom: 10px;
 }
 
 @media all and (min-width: 768px) {
@@ -625,6 +688,7 @@ ul {
   }
   .main h1 {
     top: 10px;
+    right: 2%;
     font-size: 2em;
   }
   .main .photograph {
@@ -700,14 +764,14 @@ ul {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 98%;
-  height: 220px;
+  height: auto;
   margin: auto;
   background: #FAFAFA;
   margin-bottom: 60px;
 }
 
 .ph-info .ph-card {
-  width: auto;
+  width: 60%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -715,13 +779,14 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-flow: column nowrap;
           flex-flow: column nowrap;
+  margin-left: 10px;
 }
 
 .ph-info .ph-card__artist {
-  font-size: 2.4em;
-  line-height: 60px;
+  font-size: 2em;
+  line-height: 40px;
   color: #D3573C;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .ph-info .ph-card__information {
@@ -735,7 +800,7 @@ ul {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .ph-info .ph-card__information--city {
@@ -745,13 +810,13 @@ ul {
 }
 
 .ph-info .ph-card__information--tagline {
-  margin-top: 15px;
+  margin-top: 5px;
   font-size: 1.2rem;
   color: #525252;
 }
 
 .ph-info .ph-card__information .tagBox {
-  margin-top: 20px;
+  margin: 35px 0px 30px 0px;
 }
 
 .ph-info .profil-picture {
@@ -763,7 +828,7 @@ ul {
      object-fit: cover;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 15px;
   width: 135px;
   height: 135px;
 }
@@ -866,9 +931,6 @@ ul {
     width: 90%;
     height: 280px;
   }
-  .ph-info .ph-card {
-    margin-left: 10px;
-  }
   .ph-info .ph-card__artist {
     font-size: 3em;
     line-height: 80px;
@@ -941,6 +1003,7 @@ ul {
   }
   .ph-info .ph-card {
     margin: 20px 0px 0px 40px;
+    width: 40%;
   }
   .ph-info .ph-card__artist {
     font-size: 4em;

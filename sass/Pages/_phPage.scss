@@ -2,7 +2,6 @@
 .photographer-page {
     width: 99%;
     margin: auto;
-
 }
 
 .ph-info {
@@ -10,28 +9,29 @@
     display: flex;
     justify-content: space-between;
     width: 98%;
-    height: 220px;
+    height: auto;
     margin: auto;
     background: $quaternary-color;
     margin-bottom: 60px;
 
     .ph-card {
-        width: auto;
+        width: 60%;
         display: flex;
         flex-flow: column nowrap;
+        margin-left: 10px;
 
         &__artist {
-            font-size: 2.4em;
-            line-height: 60px;
+            font-size: 2em;
+            line-height: 40px;
             color: $secondary-color;
-            margin-top: 15px;
+            margin-top: 5px;
         }
 
         &__information {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-top: 15px;
+            margin-top: 5px;
 
             &--city {
                 font-size: 1.2em;
@@ -40,29 +40,25 @@
             }
 
             &--tagline {
-                margin-top: 15px;
+                margin-top: 5px;
                 font-size: 1.2rem;
                 color: $terciary-color;
             }
 
             .tagBox {
-                margin-top: 20px;
-
+                margin: 35px 0px 30px 0px;
             }
         }
-
     }
 
     .profil-picture {
         @include artist-profil-cards;
         position: absolute;
         top: 10px;
-        right: 10px;
+        right: 15px;
         width: 135px;
         height: 135px;
-
     }
-
 }
 
 // artist pictures
@@ -110,12 +106,10 @@
             p {
                 font-size: 1.1em;
                 font-weight: 600;
-
             }
 
             .card-title {
                 width: 320px;
-
             }
 
             .card-likeNumbers {
@@ -126,20 +120,15 @@
                 .fa-heart {
                     font-size: 16px;
                     margin-left: 5px;
-
                 }
             }
-
         }
     }
-
 }
 
 .counter {
     display: none;
 }
-
-
 
 @media all and (min-width: 700px) {
     .ph-info {
@@ -147,12 +136,10 @@
         height: 280px;
 
         .ph-card {
-            margin-left: 10px;
 
             &__artist {
                 font-size: 3em;
                 line-height: 80px;
-
             }
 
             &__information {
@@ -162,7 +149,6 @@
                     margin-top: 0px;
                 }
             }
-
         }
 
         .profil-picture {
@@ -171,7 +157,6 @@
             right: 20px;
         }
     }
-
 
     .artist-portofolio {
         #sortby {
@@ -185,7 +170,6 @@
                 font-weight: 700;
                 margin-left: 10px;
                 line-height: 23.44px;
-
             }
 
             .sort-menu {
@@ -200,18 +184,15 @@
                     font-size: 1em;
                     border: 1px solid #fff;
                     border-color: transparent transparent #fff transparent;
-
                 }
             }
         }
-
     }
 
     #show-media {
         .artist-cards {
             max-width: 425px;
             height: 390px;
-
 
             .artist-cards__picture,
             .artist-cards__video {
@@ -222,11 +203,9 @@
             .artist-cards__information {
                 justify-content: center;
                 width: 420px;
-
             }
         }
     }
-
 }
 
 @media all and (min-width: 1440px) {
@@ -235,10 +214,10 @@
 
         .ph-card {
             margin: 20px 0px 0px 40px;
+            width: 40%;
 
             &__artist {
                 font-size: 4em;
-
             }
 
 
@@ -249,12 +228,10 @@
                 &--tagline {
                     margin-top: 20px;
                     font-size: 1.4em;
-
                 }
 
                 .tagBox {
                     margin-top: 30px;
-
                 }
             }
         }
