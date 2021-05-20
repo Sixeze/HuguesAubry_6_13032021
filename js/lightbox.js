@@ -35,7 +35,6 @@ class Lightbox {
         document
           .querySelector("main[id='photographer-page']")
           .setAttribute("aria-hidden", "true");
-        console.log(document.querySelector("header[id='main-banner']"));
 
         document.removeEventListener("click", this.e);
       })

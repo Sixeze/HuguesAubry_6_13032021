@@ -30,14 +30,14 @@ fetch("./js/data.json")
       newHeader.innerHTML = `<article class="ph-card">
                               <h1 class="ph-card__artist">${photographer.name}</h1>
                               <aside class="ph-card__information">
-                                <p class="ph-card__information--city">${photographer.city}/${photographer.country}</p>
-                                <p class="ph-card__information--tagline">${photographer.tagline}</p>
+                                <h2 class="ph-card__information--city">${photographer.city}/${photographer.country}</h2>
+                                <h3 class="ph-card__information--tagline">${photographer.tagline}</h3>
                                 <ul class="tagBox"></ul>
                               </aside>
                             </article>
-                            <button type="button" id="openForm" aria-haspopup="dialog" aria-controls="dialog" class="ph-contact btn" title="contactez-moi">contactez-moi</button>
+                            <button type="button" id="openForm" aria-haspopup="dialog" aria-controls="dialog" class="ph-contact btn" >contactez-moi</button>
                             <img src="media/PhotographersIDPhotos/${photographer.portrait}"
-                                alt="Portrait représentant ${photographer.portrait}"
+                                alt="Portrait représentant : ${photographer.name}"
                                 class="profil-picture">`;
 
       // Tags Elements
@@ -57,87 +57,54 @@ fetch("./js/data.json")
       for (const mediaData of mediaFilterArray) {
         let media = new MediaFactory(mediaData);
         showMediaSection.innerHTML += media.show();
-        // const media = mediaFilterArray[m];
-        // const srcImage = media.image;
-        // let videoOrImage;
-        // let title = "";
-        // let srcFolder = "";
-
-        // if (srcImage) {
-        //   title = media.image;
-        //   srcFolder = `media/artistsPictures/${title}`;
-        //   videoOrImage = `<img src="${srcFolder}"
-        //                                   alt="${media.alt}"
-        //                                   tag="${media.tags}"
-        //                                   date="${media.date}"
-        //                                   class="artist-cards__picture">
-        //                                   </img>`;
-        // } else {
-        //   title = media.video;
-        //   srcFolder = `media/artistsVideos/${title}`;
-        //   videoOrImage = `<video class="artist-cards__video" preload="metadata">
-        //                                         <source src="${srcFolder}"
-        //                                         date="${media.date}"
-        //                                         tag="${media.tags}"
-        //                                         alt="${media.alt}"
-        //                                         >
-        //                                     </video>`;
-        // }
-        // showMediaSection.innerHTML += `<article alt="medias" class="artist-cards">
-        //                                     <a href="${srcFolder}" aria-haspopup="dialog" aria-controls="dialog" role="button">${videoOrImage}</a>
-        //                                     <aside class="artist-cards__information">
-        //                                           <h2 class="card-title">${title
-        //                                             .replace(".jpg", "")
-        //                                             .replace(/_/g, " ")
-        //                                             .replace(".mp4", "")}</h2>
-        //                                           <p class="card-price">${
-        //                                             media.price
-        //                                           }€</p>
-        //                                           <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
-        //                                               <p class="like">${
-        //                                                 media.likes
-        //                                               }</p>
-        //                                               <i class="fas fa-heart red-heart"></i>
-        //                                           </span>
-        //                                     </aside>
-        //                               </article>`;
       }
 
-      let spanHeartLikes = document.querySelectorAll(".card-likeNumbers");
-      spanHeartLikes.forEach((heartLike) =>
-        heartLike.addEventListener("click", function () {
-          // count like for each string Number
-          const pLikes = heartLike.querySelector(
-            ".card-likeNumbers p[class='like']"
-          );
-          console.log(pLikes);
-          let pStringNumber = pLikes.innerText;
-          // console.log(pStringNumber);
-          let number = parseInt(pStringNumber);
-          // console.log(number);
-          pLikes.textContent = ++number;
-
-          // count like for total string Number
-          const spanLikes = document.querySelector(".like-compt");
-          // console.log(spanLikes);
-          let spanNumber = parseInt(spanLikes.innerText);
-          // console.log(spanNumber);
-          spanLikes.textContent = ++spanNumber;
-        })
+      const likeCountSpanElts = document.querySelectorAll(
+        "span.card-likeNumbers"
       );
+      likeCountSpanElts.forEach((span) => {
+        span.addEventListener("click", counterLike);
 
-      let totalLikes = mediaFilterArray
+        span.addEventListener("keyDown", (e) => {
+          const keyCode = e.keyCode ? e.keyCode : e.which;
+          if (keyCode === "13") {
+            counterLike;
+          }
+        });
+
+        function counterLike() {
+          let pLikes = span.childNodes[1];
+          console.log(pLikes);
+
+          let spanELement = mediaFilterArray.filter((elt) => elt.id == span.id);
+          let spanLikes = document.querySelector(".like-compt");
+          let spanNumber = parseInt(spanLikes.innerText);
+
+          if (!span.change) {
+            spanELement[0].likes++;
+            spanLikes.textContent = ++spanNumber;
+            span.change = true;
+          } else {
+            spanELement[0].likes--;
+            spanLikes.textContent = --spanNumber;
+            span.change = false;
+          }
+
+          pLikes.textContent = spanELement[0].likes;
+        }
+      });
+
+      const totalLikes = mediaFilterArray
         .map((media) => media.likes)
         .reduce((total, likes) => total + likes);
-      // console.log(totalLikes);
-      // console.log(photographer.price);
 
       const totalLikesBox = document.querySelector("aside[class='counter']");
 
-      totalLikesBox.innerHTML = `<span class="like-compt">${totalLikes}
-                                    <i class="fas fa-heart fa-1x blackHeart" aria-label="like"></i>
-                                  </span>
-                                  <span class="ratePerDay">${photographer.price}€ / jour</span>`;
+      totalLikesBox.innerHTML = `<span class="like-compt" aria-label="total like">${totalLikes}</span>
+                                  <span class="sr-only">${totalLikes}</span>
+                                  <i class="fas fa-heart fa-1x blackHeart" aria-label="like"></i>
+                                  <span class="ratePerDay" aria-label="price per day">${photographer.price}€ / jour</span>
+                                  <span class="sr-only">${photographer.price}</span>`;
 
       // console.log(totalLikesBox);
     };
