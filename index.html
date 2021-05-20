@@ -13,17 +13,21 @@
         <!-- <div class="invisible-link"><a href="#">Passer au contenu</a></div> -->
       </div>
       <!--======BANNER======-->
-      <header role="banner" class="main-banner">
-        <a href="./index.html" class="logo"
+      <header role="banner" id="main-banner">
+        <a
+          href="./index.html"
+          alt="Fisheye Home page"
+          aria-label="link"
+          class="logo"
           ><svg
-            aria-labelledby="title"
+            role="img"
+            aria-label="accueil"
             width="130"
             height="40"
             viewBox="0 0 200 50"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>Logo Rouge du site FishEye</title>
             <path
               d="M24.7206 0.911377V6.51034H6.31164V17.578H21.4333V22.9166H6.31164V39.1926H0V0.911377H24.7206Z"
               fill="#911C1C"
@@ -63,7 +67,7 @@
         </nav>
       </header>
       <!--======MAIN======-->
-      <main role="main" class="main" id="main">
+      <main role="main" id="main">
         <h1>Nos photographes</h1>
         <!-- Javascript index of photograph -->
       </main>
@@ -78,14 +82,7 @@
   </body>
 </html>
 
-<!-- Liste de tous les photographes avec leur nom,
-leur slogan,
-leur localisation,
-leur prix/heure,
-leurs tags et une image miniature de leur choix. En cliquant sur une étiquette (tag) dans la barre de navigation,
-la liste des photographes est filtrée pour n'afficher que ceux qui correspondent à cette
-étiquette. Lorsque l'utilisateur clique sur la vignette d'un photographe,
-il est amené à sa page L'accessibilité est clé !
+<!--  
 
 "Il est très important que notre site soit accessible aux utilisateurs malvoyants.
 - Toutes nos photos doivent comporter des descriptions textuelles,

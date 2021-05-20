@@ -12,7 +12,7 @@ fetch("./js/data.json")
     // get dom Elments
     const formBground = document.querySelector("div[class='form-bground']");
 
-    formBground.innerHTML = `<div role="dialog" aria-hidden="false" aria-labelledby="dialog-title"
+    formBground.innerHTML = `<div role="dialog" aria-labelledby="dialog-title"
                                   class="content" aria-modal="true">
                               <div class="title-form" role="document">
                                 <h2 id="dialog-title">Contactez-moi</h2>
@@ -89,7 +89,8 @@ fetch("./js/data.json")
     // console.log(contentDialogForm);
     const firstNameInput = document.getElementById("prenom");
     const btnModal = document.getElementsByClassName("ph-contact btn")[0];
-    // console.log(btnModal);
+    const mainBanner = document.querySelector(".main-banner");
+    const mainPage = document.querySelector(".photographer-page");
 
     const closeModal = document.getElementById("cross-close");
     const sendBtn = document.querySelector("input[id='submitBtn']");
@@ -101,8 +102,10 @@ fetch("./js/data.json")
     btnModal.addEventListener("click", (e) => {
       e.preventDefault();
       formBground.style.display = "block";
-      formBground.style.position = "fixed";
+      formBground.style.display = "fixed";
       formBground.setAttribute("aria-hidden", "false");
+      mainBanner.setAttribute("aria-hidden", "true");
+      mainPage.setAttribute("aria-hidden", "true");
       firstNameInput.focus();
       // console.log("la modal s'ouvre !");
       // debugger;
@@ -119,22 +122,22 @@ fetch("./js/data.json")
     });
 
     // When the user clicks on <svg> (x), close the modal
-    closeModal.addEventListener("click", () => {
-      formBground.style.display = "none";
-      formBground.setAttribute("aria-hidden", "true");
-      focusOnBtnContact.focus();
-      // console.log("la modal se ferme !");
-    });
+    closeModal.addEventListener("click", closeModalAttr);
 
     document.addEventListener("keydown", function (event) {
       let nomTouche = event.key;
       if (nomTouche === "Escape") {
-        formBground.style.display = "none";
-        formBground.setAttribute("aria-hidden", "true");
-        focusOnBtnContact.focus();
-        // console.log("la modal se ferme !");
+        closeModalAttr();
       }
     });
+
+    function closeModalAttr() {
+      formBground.style.display = "none";
+      formBground.setAttribute("aria-hidden", "true");
+      mainBanner.setAttribute("aria-hidden", "false");
+      mainPage.setAttribute("aria-hidden", "false");
+      focusOnBtnContact.focus();
+    }
 
     // error input value
     const newEltError = document.createElement("p");

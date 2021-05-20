@@ -1,6 +1,3 @@
-// Get DOM elements
-const divBlockPage = document.querySelector("div.block_page");
-
 /**
  * @property {HTMLElement} element // <section class="lightbox" aria-label="lightbox gallery"> <== sectionLightBox ==>
  * @property {string[]} listMedia = galleryForLightBox path to lightBox media
@@ -27,10 +24,19 @@ class Lightbox {
 
           galleryForLightBox // param listMedia
         );
-        // console.log(e.currentTarget);
-        // console.log(e.currentTarget.getAttribute("href"));
-        const container = document.querySelector(".lightbox__container--media");
-        container.focus();
+
+        const btnClose = document.querySelector(
+          ".lightbox__container--close    "
+        );
+        btnClose.focus();
+        document
+          .querySelector("header[id='main-banner']")
+          .setAttribute("aria-hidden", "true");
+        document
+          .querySelector("main[id='photographer-page']")
+          .setAttribute("aria-hidden", "true");
+        console.log(document.querySelector("header[id='main-banner']"));
+
         document.removeEventListener("click", this.e);
       })
     );
@@ -41,11 +47,12 @@ class Lightbox {
    * @param {string} url href of media open
    */
   constructor(url, listMedia) {
-    this.element = this.buildDom(url);
+    this.element = this.buildDom();
     this.showMediaLoaded(url);
     this.listMedia = listMedia;
     // console.log(this.listMedia);
     this.onKeyDown = this.onKeyDown.bind(this);
+    const divBlockPage = document.querySelector("div.block_page");
     divBlockPage.appendChild(this.element);
     document.addEventListener("keydown", this.onKeyDown);
   }
@@ -57,9 +64,7 @@ class Lightbox {
   showMediaLoaded(url) {
     this.url = null;
     const container = this.element.querySelector(".lightbox__container--media");
-    console.log(this.element);
     container.innerHTML = "";
-
     let mediaElement = null;
     const title = url
       .replace(".jpg", "")
@@ -68,12 +73,16 @@ class Lightbox {
       .replace("media/artistsVideos/", "")
       .replace("media/artistsPictures/", "");
     if (/artistsPictures/.test(url)) {
-      mediaElement = `<img src="${url}" alt="${title}"><h2 class="card-title">${title}</h2>`;
+      mediaElement = `<img src="${url}" alt="${title}">
+                      <span class="sr-only">${title}</span>
+                      <h2 class="card-title">${title}</h2>`;
       this.url = url;
     }
     if (/artistsVideos/.test(url)) {
       mediaElement = `<video preload="metadata" controls autoplay loop title="${title}">
-                          <source src="${url}" type="video/mp4" alt=""></video>
+                          <source src="${url}" type="video/mp4" alt="">
+                      </video>
+                      <span class="sr-only">${title}</span>
                       <h2 class="card-title">${title}</h2>`;
       this.url = url;
     }
@@ -85,11 +94,12 @@ class Lightbox {
    * @param {keyboardEvent} e
    */
   onKeyDown(e) {
-    if (e.key == "Escape") {
+    const keyCode = e.keyCode ? e.keyCode : e.which;
+    if (keyCode == 27) {
       this.close(e);
-    } else if (e.key == "ArrowLeft") {
+    } else if (keyCode == 37) {
       this.prev(e);
-    } else if (e.key == "ArrowRight") {
+    } else if (keyCode == 39) {
       this.next(e);
     }
   }
@@ -104,6 +114,12 @@ class Lightbox {
 
     backgroundLightBox.style.display = "none";
     backgroundLightBox.setAttribute("aria-hidden", "true");
+    document
+      .querySelector("header[id='main-banner']")
+      .setAttribute("aria-hidden", "false");
+    document
+      .querySelector("main[id='photographer-page']")
+      .setAttribute("aria-hidden", "false");
     document.removeEventListener("keydown", this.onKeyDown);
     document.location.reload();
   }
@@ -143,17 +159,19 @@ class Lightbox {
    * @param {string} url href de l'image
    * @returns elementHTML  // <section class="lightbox" aria-label="lightbox gallery"> <== sectionLightBox ==>
    */
-  buildDom(url) {
+  buildDom() {
     // console.log(url);
     const sectionLightBox = document.createElement("section");
     sectionLightBox.classList.add("lightbox");
     sectionLightBox.setAttribute("aria-label", "lightbox gallery");
     sectionLightBox.innerHTML = `<div role="dialog" class="lightbox__container" aria-modal="true">
                         <button class="lightbox__container--close">fermer</button>
+                        <span class="sr-only">close</span>
                         <button class="lightbox__container--prev">précédent</button>
+                        <span class="sr-only">Previous</span>
                         <button class="lightbox__container--next">suivant</button>
+                        <span class="sr-only">Next</span>
                         <div class="lightbox__container--media">
-                            <h2 class="card-title">${url}</h2>;
                         </div>
                       </div>`;
     sectionLightBox
