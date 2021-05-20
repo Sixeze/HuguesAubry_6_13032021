@@ -1,14 +1,14 @@
 .form-bground {
     display: none;
     position: fixed;
-    z-index: 100;
+    z-index: 10;
     left: 0;
     top: 0;
     width: 100%;
     height: 100vh;
     overflow-y: scroll;
     background-color: $opacity-bg-color;
-    transition: .2 s;
+    transition: .2s;
 
     .content {
         margin: 5% auto;

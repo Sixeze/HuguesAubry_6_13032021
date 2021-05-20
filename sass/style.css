@@ -147,7 +147,7 @@ ul {
   width: 16px;
   height: 10px;
   background-image: url(../../media/logo/arrowDown.png);
-  background-size: no-repeat;
+  background-repeat: no-repeat;
 }
 
 .sort-select.arrow:after {
@@ -181,15 +181,15 @@ ul {
 .form-bground {
   display: none;
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
   background-color: #c4c4c460;
-  -webkit-transition: .2 s;
-  transition: .2 s;
+  -webkit-transition: .2s;
+  transition: .2s;
 }
 
 .form-bground .content {
@@ -393,7 +393,7 @@ ul {
 .lightbox__container--prev, .lightbox__container--next {
   position: absolute;
   border: none;
-  background: url(../../media/logo/arrowleft.svg) center center/30px 48px no-repeat;
+  background: url(../media/logo/arrowleft.svg) center center/30px 48px no-repeat;
   top: 0px;
   right: 0px;
   margin-top: 0px;
@@ -414,7 +414,7 @@ ul {
   border: none;
   width: 30px;
   height: 30px;
-  background: url(../../media/logo/crossClose.svg) center center/100% 100% no-repeat transparent;
+  background: url(../media/logo/crossClose.svg) center center/100% 100% no-repeat transparent;
   z-index: 12;
   top: 10px;
   right: 10px;
@@ -537,7 +537,7 @@ ul {
   font-weight: 700;
 }
 
-.main-banner {
+#main-banner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -550,17 +550,17 @@ ul {
           align-items: flex-start;
 }
 
-.main-banner .logo svg {
+#main-banner .logo svg {
   padding-left: 5px;
   width: 140px;
   height: auto;
 }
 
-.main-banner .main-navigation {
+#main-banner .main-navigation {
   padding-left: 30px;
 }
 
-.main-banner .main-navigation #tags {
+#main-banner .main-navigation #tags {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -571,11 +571,11 @@ ul {
   width: auto;
 }
 
-.main {
+#main {
   display: block;
 }
 
-.main h1 {
+#main h1 {
   position: absolute;
   top: 5px;
   right: .5%;
@@ -583,7 +583,7 @@ ul {
   font-size: 1.3em;
 }
 
-.main .photograph {
+#main .photograph {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -675,23 +675,23 @@ ul {
   #goToTop {
     right: 38vw;
   }
-  .main-banner {
+  #main-banner {
     padding: 10px 10px;
     margin-bottom: 40px;
   }
-  .main-banner .logo svg {
+  #main-banner .logo svg {
     width: 145px;
     height: auto;
   }
-  .main-banner .main-navigation {
+  #main-banner .main-navigation {
     padding-left: 40px;
   }
-  .main h1 {
+  #main h1 {
     top: 10px;
     right: 2%;
     font-size: 2em;
   }
-  .main .photograph {
+  #main .photograph {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-flow: row wrap;
@@ -713,20 +713,20 @@ ul {
   #goToTop {
     right: 44vw;
   }
-  .main-banner {
+  #main-banner {
     padding: 20px 20px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .main-banner .logo svg {
+  #main-banner .logo svg {
     width: 200px;
   }
-  .main-banner .main-navigation {
+  #main-banner .main-navigation {
     padding: 20px 10%;
   }
-  .main h1 {
+  #main h1 {
     top: 20px;
     font-size: 2.5em;
   }
@@ -736,13 +736,13 @@ ul {
   #goToTop {
     right: 46vw;
   }
-  .main-banner .main-navigation {
+  #main-banner .main-navigation {
     padding: 20px 16%;
   }
-  .main {
+  #main {
     position: relative;
   }
-  .main h1 {
+  #main h1 {
     top: -120px;
   }
   .photograph__card {
@@ -750,7 +750,7 @@ ul {
   }
 }
 
-.photographer-page {
+#photographer-page {
   width: 99%;
   margin: auto;
 }
@@ -1006,7 +1006,7 @@ ul {
     width: 40%;
   }
   .ph-info .ph-card__artist {
-    font-size: 4em;
+    font-size: 3.8em;
   }
   .ph-info .ph-card__information {
     margin-top: 0px;
@@ -1016,7 +1016,7 @@ ul {
     font-size: 1.4em;
   }
   .ph-info .ph-card__information .tagBox {
-    margin-top: 30px;
+    margin-top: 10px;
   }
   .ph-info .profil-picture {
     width: 200px;

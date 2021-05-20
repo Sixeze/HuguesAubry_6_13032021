@@ -23,7 +23,7 @@
 }
 
 //HEADER
-.main-banner {
+#main-banner {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -46,7 +46,7 @@
 }
 
 // Main
-.main {
+#main {
     display: block;
 
     h1 {
@@ -116,7 +116,7 @@
         right: 38vw;
     }
 
-    .main-banner {
+    #main-banner {
         padding: 10px 10px;
         margin-bottom: 40px;
 
@@ -130,7 +130,7 @@
         }
     }
 
-    .main {
+    #main {
         h1 {
             top: 10px;
             right: 2%;
@@ -155,7 +155,7 @@
         right: 44vw;
     }
 
-    .main-banner {
+    #main-banner {
         padding: 20px 20px;
         flex-direction: row;
 
@@ -168,7 +168,7 @@
         }
     }
 
-    .main {
+    #main {
         h1 {
             top: 20px;
             font-size: 2.5em;
@@ -181,13 +181,13 @@
         right: 46vw;
     }
 
-    .main-banner {
+    #main-banner {
         .main-navigation {
             padding: 20px 16%;
         }
     }
 
-    .main {
+    #main {
         position: relative;
 
         h1 {

@@ -14,18 +14,22 @@
   <body>
     <div class="block_page">
       <!-- ====== BANNER ====== -->
-      <header role="banner" class="main-banner">
-        <a href="./index.html" class="logo">
+      <header role="banner" id="main-banner">
+        <a
+          href="./index.html"
+          aria-label="link"
+          alt="Fisheye Home page"
+          class="logo"
+        >
           <svg
             role="img"
-            aria-labelledby="title"
-            width="140"
-            height="50"
+            aria-label="accueil"
+            width="130"
+            height="40"
             viewBox="0 0 200 50"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>Logo Rouge du site FishEye</title>
             <path
               d="M24.7206 0.911377V6.51034H6.31164V17.578H21.4333V22.9166H6.31164V39.1926H0V0.911377H24.7206Z"
               fill="#911C1C"
@@ -59,10 +63,10 @@
       </header>
 
       <!-- ====== MAIN PHOTOGRAPHER PAGE ====== -->
-      <main class="photographer-page">
+      <main role="main" id="photographer-page">
         <!-- Javascript Header photograph -->
 
-        <!-- ====== PORTOFOLIO ====== -->
+        <!-- ====== GALLERY & SELECT MENU ====== -->
         <section class="artist-portofolio">
           <nav aria-label="sort by" id="sortby">
             <label for="select-option">Trier par :</label>

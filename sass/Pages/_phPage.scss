@@ -1,5 +1,5 @@
 // page photographe
-.photographer-page {
+#photographer-page {
     width: 99%;
     margin: auto;
 }
@@ -217,7 +217,7 @@
             width: 40%;
 
             &__artist {
-                font-size: 4em;
+                font-size: 3.8em;
             }
 
 
@@ -231,7 +231,7 @@
                 }
 
                 .tagBox {
-                    margin-top: 30px;
+                    margin-top: 10px;
                 }
             }
         }
