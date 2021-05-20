@@ -43,7 +43,7 @@ class MediaFactory {
                         <aside class="artist-cards__information">
                             <h2 class="card-title">${this.title}</h2>
                             <p class="card-price">${this.price}€</p>
-                            <span class="card-likeNumbers" aria-label="like" role="button" tabindex="0">
+                            <span id="${this.id}" class="card-likeNumbers" change="false" aria-label="like" role="button" tabindex="0">
                                 <p class="like">${this.likes}</p>
                                 <i class="fas fa-heart red-heart"></i>
                             </span>
