@@ -10,96 +10,72 @@ fetch("./js/data.json")
     // console.log(photographer);
 
     // get dom Elments
-    const formBground = document.querySelector("div[class='form-bground']");
+    const formBground = document.querySelector("#dialog__form--bground");
 
-    formBground.innerHTML = `<div role="dialog" aria-labelledby="dialog-title"
-                                  class="content" aria-modal="true">
-                              <div class="title-form" role="document">
-                                <h2 id="dialog-title">Contactez-moi</h2>
-                                <span>${photographer.name}</span>
-                                <svg
-                                  role="button"
-                                  aria-label="fermer"
-                                  aria-labelledby="title"
-                                  data-dismiss="dialog"
-                                  width="42"
-                                  height="42"
-                                  viewBox="0 0 42 42"
-                                  fill="none"
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  id="cross-close"
-                                  tabindex="0"
-                                >
-                                  <title>fermer le formulaire</title>
-                                  <path
-                                    d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z"
-                                    fill="white"
-                                  />
-                                </svg>
-                              </div>
-                              <form method="POST" action="traitement.php" role="document">
-                                <div
-                                  role="group"
-                                  aria-labelledby="contact photographer"
-                                  class="form-content"
-                                >
-                                  <label for="prenom">Prénom</label>
-                                  <input
-                                    type="text"
-                                    name="prenom"
-                                    id="prenom"
-                                    class="input"
-                                    placeholder="votre prénom"
-                                  />
-                                  <label for="nom">Nom</label>
-                                  <input
-                                    type="text"
-                                    name="nom"
-                                    id="nom"
-                                    class="input"
-                                    placeholder="votre nom"
-                                  />
-                                  <label for="email">Email</label>
-                                  <input
-                                    type="text"
-                                    name="email"
-                                    id="email"
-                                    class="input"
-                                    placeholder="votre email pour vous répondre"
-                                  />
-                                  <label for="message">Votre message</label>
-                                  <textarea
-                                    name="message"
-                                    id="message"
-                                    class="input"
-                                    placeholder="vos demandes et besoins"
-                                  ></textarea>
-                                  <input
-                                    id="submitBtn"
-                                    class="modal-btn btn"
-                                    type="submit"
-                                    value="envoyer"
-                                  />
-                                </div>
+    formBground.innerHTML = `<div role="document" class="content">
+                                  <div class="title-form">
+                                      <h2 id="dialog-title">Contactez-moi</h2>
+                                      <span id="dialog-desc">${photographer.name}</span>
+                                      <button class="cross-close">fermer</button>
+                                  </div>
+                                  <form method="POST" action="traitement.php" role="document">
+                                  <div
+                                    role="group"
+                                    aria-label="contact photographer"
+                                    class="form-content"
+                                  >
+                                    <label for="prenom">Prénom</label>
+                                    <input
+                                      type="text"
+                                      name="prenom"
+                                      id="prenom"
+                                      class="input"
+                                      placeholder="votre prénom"
+                                    />
+                                    <label for="nom">Nom</label>
+                                    <input
+                                      type="text"
+                                      name="nom"
+                                      id="nom"
+                                      class="input"
+                                      placeholder="votre nom"
+                                    />
+                                    <label for="email">Email</label>
+                                    <input
+                                      type="text"
+                                      name="email"
+                                      id="email"
+                                      class="input"
+                                      placeholder="votre email pour vous répondre"
+                                    />
+                                    <label for="message">Votre message</label>
+                                    <textarea
+                                      name="message"
+                                      id="message"
+                                      class="input"
+                                      placeholder="vos demandes et besoins"
+                                    ></textarea>
+                                    <input
+                                      id="submitBtn"
+                                      class="modal-btn btn"
+                                      type="submit"
+                                      value="envoyer"
+                                    />
+                                  </div>
                               </form>
                             </div>`;
 
-    // ====== open and close form ======
+    // ====== Dom Element for formContact ======
     const contentDialogForm = document.querySelector("div[class='content']");
-    // console.log(contentDialogForm);
     const firstNameInput = document.getElementById("prenom");
-    const btnModal = document.getElementsByClassName("ph-contact btn")[0];
-    const mainBanner = document.querySelector(".main-banner");
-    const mainPage = document.querySelector(".photographer-page");
-
-    const closeModal = document.getElementById("cross-close");
+    const btnOpenModal = document.getElementsByClassName("ph-contact btn")[0];
+    const mainBanner = document.querySelector("#main-banner");
+    const mainPage = document.querySelector("#photographer-page");
+    const closeModal = document.querySelector(".cross-close");
     const sendBtn = document.querySelector("input[id='submitBtn']");
-    const focusOnBtnContact = document.querySelector(
-      "button[aria-haspopup='dialog']"
-    );
-    // console.log(focusOnBtnContact);
+
     // When the user clicks the button, open the modal
-    btnModal.addEventListener("click", (e) => {
+    btnOpenModal.addEventListener("click", (e) => {
       e.preventDefault();
       formBground.style.display = "block";
       formBground.style.display = "fixed";
@@ -136,7 +112,7 @@ fetch("./js/data.json")
       formBground.setAttribute("aria-hidden", "true");
       mainBanner.setAttribute("aria-hidden", "false");
       mainPage.setAttribute("aria-hidden", "false");
-      focusOnBtnContact.focus();
+      btnOpenModal.focus();
     }
 
     // error input value

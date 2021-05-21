@@ -48,11 +48,11 @@ fetch("./js/data.json")
         newArticle.innerHTML += `<a href="./photographerPage.html?dataph=${args[i].id}"
                                     class="photograph__card--link">
                                     <img src="media/PhotographersIDPhotos/${args[i].portrait}"
-                                    alt="Portrait représentant: ${args[i].name}"
+                                    alt="Portrait de ${args[i].name}"
                                     class="artist-pict">
-                                    <h2>${args[i].name}</h2></a>
+                                    <h2 aria-hidden="true">${args[i].name}</h2></a>
                                     <aside class="photograph__card--txt">
-                                    <strong>${args[i].city}/${args[i].country}</strong>
+                                    <strong>${args[i].city}, ${args[i].country}</strong>
                                     <p>${args[i].tagline}</p>
                                     <span>${args[i].price}€/jour</span>
                                     <ul class="tagBox"></ul></aside>`;

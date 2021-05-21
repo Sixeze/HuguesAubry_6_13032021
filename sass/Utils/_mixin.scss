@@ -1,7 +1,7 @@
 @mixin artist-profil-cards {
     width: 200px;
     height: 200px;
-    border: 1px solid $terciary-color;
+    filter: drop-shadow(0px 3px 3px rgba(68, 67, 67, 0.397));
     border-radius: 50%;
     object-fit: cover;
 }
