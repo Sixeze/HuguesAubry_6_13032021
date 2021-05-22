@@ -9,10 +9,19 @@ fetch("./js/data.json")
     const photographer = phData.photographers.find((p) => p.id == urlIdNumber);
     // console.log(photographer);
 
-    // get dom Elments
-    const formBground = document.querySelector("#dialog__form--bground");
+    // ====== Dom Elements for formContact ======
+    const blockPage = document.querySelector(".block_page");
+    const divDialogForm = document.createElement("div");
 
-    formBground.innerHTML = `<div role="document" class="content">
+    divDialogForm.setAttribute("role", "dialog");
+    divDialogForm.setAttribute("id", "dialog__form--bground");
+    divDialogForm.setAttribute("aria-labelledby", "dialog-title");
+    divDialogForm.setAttribute("aria-describedby", "dialog-desc");
+    divDialogForm.setAttribute("aria-modal", "true");
+    divDialogForm.setAttribute("aria-hidden", "true");
+    divDialogForm.setAttribute("tabindex", "-1");
+
+    divDialogForm.innerHTML = `<div role="document" class="content">
                                   <div class="title-form">
                                       <h2 id="dialog-title">Contactez-moi</h2>
                                       <span id="dialog-desc">${photographer.name}</span>
@@ -65,10 +74,13 @@ fetch("./js/data.json")
                               </form>
                             </div>`;
 
-    // ====== Dom Element for formContact ======
+    blockPage.appendChild(divDialogForm);
+
     const contentDialogForm = document.querySelector("div[class='content']");
     const firstNameInput = document.getElementById("prenom");
-    const btnOpenModal = document.getElementsByClassName("ph-contact btn")[0];
+    const btnOpenModal = document.querySelector(
+      "button[aria-haspopup='dialog']"
+    );
     const mainBanner = document.querySelector("#main-banner");
     const mainPage = document.querySelector("#photographer-page");
     const closeModal = document.querySelector(".cross-close");
@@ -77,15 +89,16 @@ fetch("./js/data.json")
     // When the user clicks the button, open the modal
     btnOpenModal.addEventListener("click", (e) => {
       e.preventDefault();
-      formBground.style.display = "block";
-      formBground.style.display = "fixed";
-      formBground.setAttribute("aria-hidden", "false");
+      divDialogForm.style.display = "block";
+      divDialogForm.style.display = "fixed";
+      divDialogForm.setAttribute("aria-hidden", "false");
       mainBanner.setAttribute("aria-hidden", "true");
       mainPage.setAttribute("aria-hidden", "true");
       firstNameInput.focus();
-      // console.log("la modal s'ouvre !");
+      console.log("la modal s'ouvre !");
       // debugger;
     });
+    console.log(btnOpenModal);
 
     contentDialogForm.addEventListener("keydown", (e) => {
       if (document.activeElement === closeModal) {
@@ -108,8 +121,8 @@ fetch("./js/data.json")
     });
 
     function closeModalAttr() {
-      formBground.style.display = "none";
-      formBground.setAttribute("aria-hidden", "true");
+      divDialogForm.style.display = "none";
+      divDialogForm.setAttribute("aria-hidden", "true");
       mainBanner.setAttribute("aria-hidden", "false");
       mainPage.setAttribute("aria-hidden", "false");
       btnOpenModal.focus();
@@ -221,5 +234,5 @@ fetch("./js/data.json")
         la demande du clients est : ${textArea.value}`
       );
     });
-  })
-  .catch((error) => console.log("Erreur : " + error));
+  });
+// .catch((error) => console.log("Erreur : " + error));

@@ -105,7 +105,7 @@ fetch("./js/data.json")
 
       totalLikesBox.innerHTML = `<span class="like-compt" aria-label="total like">${totalLikes}</span>
                                   <span class="sr-only">${totalLikes}</span>
-                                  <i class="fas fa-heart fa-1x blackHeart" aria-label="like"></i>
+                                  <i class="fas fa-heart fa-1.1x blackHeart" aria-label="like"></i>
                                   <span class="ratePerDay" aria-label="price per day">${photographer.price}€ / jour</span>
                                   <span class="sr-only">${photographer.price}</span>`;
 
