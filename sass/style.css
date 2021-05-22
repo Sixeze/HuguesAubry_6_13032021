@@ -745,6 +745,10 @@ ul {
     top: 20px;
     font-size: 2.5em;
   }
+  .photograph__card {
+    width: 30%;
+    max-width: 480px;
+  }
 }
 
 @media all and (min-width: 1920px) {
@@ -917,24 +921,26 @@ ul {
   color: #901C1C;
 }
 
-#show-media .artist-cards .artist-cards__information p {
-  font-size: 1.1em;
+#show-media .artist-cards .artist-cards__information .card-title {
+  width: 280px;
+  font-size: 1.3em;
+}
+
+#show-media .artist-cards .artist-cards__information .card-price,
+#show-media .artist-cards .artist-cards__information .card-likeNumbers {
+  margin-left: 6px;
+  font-size: 1em;
   font-weight: 600;
 }
 
-#show-media .artist-cards .artist-cards__information .card-title {
-  width: 320px;
-}
-
 #show-media .artist-cards .artist-cards__information .card-likeNumbers {
-  margin-left: 10px;
-  font-size: .9em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 #show-media .artist-cards .artist-cards__information .card-likeNumbers .fa-heart {
+  padding-top: 1px;
   font-size: 16px;
   margin-left: 5px;
 }
@@ -1013,6 +1019,20 @@ ul {
             justify-content: center;
     width: 420px;
   }
+  #show-media .artist-cards .artist-cards__information .card-title {
+    width: 300px;
+    font-size: 1.6em;
+  }
+  #show-media .artist-cards .artist-cards__information .card-price,
+  #show-media .artist-cards .artist-cards__information .card-likeNumbers {
+    margin-left: 10px;
+    font-size: 1.3em;
+  }
+  #show-media .artist-cards .artist-cards__information .card-likeNumbers .fa-heart {
+    padding-top: 2px;
+    font-size: 20px;
+    margin-left: 3px;
+  }
 }
 
 @media all and (min-width: 1440px) {
@@ -1068,9 +1088,12 @@ ul {
     -o-object-fit: cover;
        object-fit: cover;
     background-color: #C4C4C4;
-    max-width: 415px;
-    width: 420px;
+    max-width: 420px;
     height: 380px;
+  }
+  #show-media .artist-cards .artist-cards__information .card-price,
+  #show-media .artist-cards .artist-cards__information .card-likeNumbers {
+    margin-left: 12px;
   }
   .counter {
     position: fixed;
@@ -1085,17 +1108,19 @@ ul {
     bottom: 0px;
     right: 40px;
     z-index: 1;
-    width: 375px;
+    width: 360px;
     height: 50px;
     background-color: #DB8876;
+    padding: 0px 40px;
   }
   .counter .like-compt,
   .counter .ratePerDay {
+    margin-left: 20px;
     font-size: 1.5em;
   }
   .fa-heart {
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.4em;
     width: 20px;
     height: 20px;
     color: #901C1C;
@@ -1103,6 +1128,9 @@ ul {
   .blackHeart {
     color: black;
     cursor: none;
+    font-size: 1.5em;
+    width: 25px;
+    height: 25px;
   }
 }
 

@@ -103,21 +103,24 @@
             width: 370px;
             color: $primary-color;
 
-            p {
-                font-size: 1.1em;
+            .card-title {
+                width: 280px;
+                font-size: 1.3em;
+            }
+
+            .card-price,
+            .card-likeNumbers {
+                margin-left: 6px;
+                font-size: 1em;
                 font-weight: 600;
             }
 
-            .card-title {
-                width: 320px;
-            }
-
             .card-likeNumbers {
-                margin-left: 10px;
-                font-size: .9em;
+
                 display: flex;
 
                 .fa-heart {
+                    padding-top: 1px;
                     font-size: 16px;
                     margin-left: 5px;
                 }
@@ -203,6 +206,26 @@
             .artist-cards__information {
                 justify-content: center;
                 width: 420px;
+
+                .card-title {
+                    width: 300px;
+                    font-size: 1.6em;
+                }
+
+                .card-price,
+                .card-likeNumbers {
+                    margin-left: 10px;
+                    font-size: 1.3em;
+                }
+
+                .card-likeNumbers {
+
+                    .fa-heart {
+                        padding-top: 2px;
+                        font-size: 20px;
+                        margin-left: 3px;
+                    }
+                }
             }
         }
     }
@@ -264,9 +287,16 @@
             .artist-cards__video {
                 object-fit: cover;
                 background-color: $secondary-bg-color;
-                max-width: 415px;
-                width: 420px;
+                max-width: 420px;
                 height: 380px;
+            }
+
+            .artist-cards__information {
+
+                .card-price,
+                .card-likeNumbers {
+                    margin-left: 12px;
+                }
             }
         }
     }
@@ -280,12 +310,14 @@
         bottom: 0px;
         right: 40px;
         z-index: 1;
-        width: 375px;
+        width: 360px;
         height: 50px;
         background-color: $primary-bg-color;
+        padding: 0px 40px;
 
         .like-compt,
         .ratePerDay {
+            margin-left: 20px;
             font-size: 1.5em;
         }
     }
@@ -294,7 +326,7 @@
     // icone coeur fontawesome
     .fa-heart {
         cursor: pointer;
-        font-size: 1.2em;
+        font-size: 1.4em;
         width: 20px;
         height: 20px;
         color: $primary-color;
@@ -303,5 +335,8 @@
     .blackHeart {
         color: black;
         cursor: none;
+        font-size: 1.5em;
+        width: 25px;
+        height: 25px;
     }
 }

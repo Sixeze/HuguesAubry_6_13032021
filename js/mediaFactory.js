@@ -37,8 +37,8 @@ class MediaFactory {
     }
   }
   show() {
-    return `<article alt="medias" class="artist-cards">
-                        <a href="${this.srcFolder}" title="${this.title}" alt="${this.alt}" aria-label="link" aria-haspopup="dialog" aria-controls="dialog">
+    return `<article aria-label="medias" class="artist-cards">
+                        <a href="${this.srcFolder}" title="${this.title}" aria-label="link" aria-haspopup="dialog" aria-controls="dialog">
                                 ${this.media}</a>
                         <aside class="artist-cards__information">
                             <h2 class="card-title">${this.title}</h2>
