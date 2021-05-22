@@ -22,6 +22,7 @@
     bottom: 4vh;
     right: 30vw;
     height: 40px;
+    z-index: 8;
 }
 
 @media all and (min-width: 768px) {
@@ -36,5 +37,6 @@
         top: 30px;
         left: 580px;
         height: 70px;
+        z-index: auto;
     }
 }

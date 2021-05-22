@@ -25,10 +25,15 @@ class Lightbox {
           galleryForLightBox // param listMedia
         );
 
-        const btnClose = document.querySelector(
-          ".lightbox__container--close    "
-        );
-        btnClose.focus();
+        const btnClose = document.querySelector(".lightbox__container--close");
+        const mediaClicked = document.querySelector(".current-Media");
+        console.log(mediaClicked.tagName);
+        if (mediaClicked.tagName === "IMG") {
+          btnClose.focus();
+        } else if (mediaClicked.tagName === "VIDEO") {
+          mediaClicked.focus();
+        }
+
         document
           .querySelector("header[id='main-banner']")
           .setAttribute("aria-hidden", "true");
@@ -72,17 +77,15 @@ class Lightbox {
       .replace("media/artistsVideos/", "")
       .replace("media/artistsPictures/", "");
     if (/artistsPictures/.test(url)) {
-      mediaElement = `<img src="${url}" alt="${title}">
-                      <span class="sr-only">${title}</span>
-                      <h2 class="card-title">${title}</h2>`;
+      mediaElement = `<img src="${url}" alt="${title}" class="current-Media">
+                      <h2 class="card-title" aria-hidden="true">${title}</h2>`;
       this.url = url;
     }
     if (/artistsVideos/.test(url)) {
-      mediaElement = `<video preload="metadata" controls autoplay loop title="${title}">
-                          <source src="${url}" type="video/mp4" alt="">
+      mediaElement = `<video preload="metadata" controls autoplay loop title="${title}" class="current-Media">
+                          <source src="${url}" type="video/mp4" alt="${title}">
                       </video>
-                      <span class="sr-only">${title}</span>
-                      <h2 class="card-title">${title}</h2>`;
+                      <h2 class="card-title" aria-hidden="true">${title}</h2>`;
       this.url = url;
     }
     container.innerHTML = mediaElement;
@@ -93,6 +96,9 @@ class Lightbox {
    * @param {keyboardEvent} e
    */
   onKeyDown(e) {
+    let mediaClicked = document.querySelector(".current-Media");
+    let closeElt = document.querySelector(".lightbox__container--close");
+    let nextElt = document.querySelector(".lightbox__container--next");
     const keyCode = e.keyCode ? e.keyCode : e.which;
     if (keyCode == 27) {
       this.close(e);
@@ -100,6 +106,39 @@ class Lightbox {
       this.prev(e);
     } else if (keyCode == 39) {
       this.next(e);
+    }
+
+    if (mediaClicked.tagName === "IMG") {
+      if (keyCode === 9) {
+        if (e.shiftKey) {
+          if (document.activeElement === closeElt) {
+            e.preventDefault();
+            nextElt.focus();
+            console.log("go Next Focus");
+          }
+        } else {
+          if (document.activeElement === nextElt) {
+            e.preventDefault();
+            closeElt.focus();
+            console.log("go close Focus");
+          }
+        }
+      }
+    } else if (mediaClicked.tagName === "VIDEO") {
+      if (keyCode === 9) {
+        if (e.shiftKey) {
+          if (document.activeElement === closeElt) {
+            e.preventDefault();
+            mediaClicked.focus();
+            console.log("plop");
+          }
+        } else {
+          if (document.activeElement === mediaClicked) {
+            e.preventDefault();
+            mediaClicked.focus();
+          }
+        }
+      }
     }
   }
 
@@ -165,11 +204,8 @@ class Lightbox {
     sectionLightBox.setAttribute("aria-label", "lightbox gallery");
     sectionLightBox.innerHTML = `<div role="dialog" class="lightbox__container" aria-modal="true">
                         <button class="lightbox__container--close">fermer</button>
-                        <span class="sr-only">close</span>
                         <button class="lightbox__container--prev">précédent</button>
-                        <span class="sr-only">Previous</span>
                         <button class="lightbox__container--next">suivant</button>
-                        <span class="sr-only">Next</span>
                         <div class="lightbox__container--media">
                         </div>
                       </div>`;

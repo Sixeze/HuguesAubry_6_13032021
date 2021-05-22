@@ -27,11 +27,14 @@ fetch("./js/data.json")
       mainPHPage[0].prepend(newHeader);
       newHeader.setAttribute("class", "ph-info");
       newHeader.setAttribute("aria-label", "photographer information");
+      // newHeader.setAttribute("tabindex", "0");
       newHeader.innerHTML = `<article class="ph-card">
-                              <h1 class="ph-card__artist">${photographer.name}</h1>
+                              <h1 tabindex="0" class="ph-card__artist">${photographer.name}</h1>
+                              <span class="sr-only">${photographer.name}</span>
                               <aside class="ph-card__information">
-                                <h2 class="ph-card__information--city">${photographer.city}/${photographer.country}</h2>
-                                <h3 class="ph-card__information--tagline">${photographer.tagline}</h3>
+                                <h2 tabindex="0" class="ph-card__information--city">${photographer.city}, ${photographer.country}</h2>
+                                <span class="sr-only">${photographer.city}, ${photographer.country}</span>
+                                <h3 tabindex="0" class="ph-card__information--tagline">${photographer.tagline}</h3>
                                 <ul class="tagBox"></ul>
                               </aside>
                             </article>

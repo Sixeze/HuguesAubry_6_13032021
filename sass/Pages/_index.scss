@@ -27,6 +27,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: 20px;
 
     .logo svg {
         padding-left: 5px;
@@ -54,7 +55,7 @@
         top: 5px;
         right: .5%;
         color: $primary-color;
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
 
     .photograph {
@@ -67,17 +68,16 @@
 }
 
 .photograph__card {
-    border: 1px;
-    background-color: #FAFAFA;
+    // background-color: #FAFAFA;
     width: 99%;
     max-width: 420px;
-    height: 30em;
+    height: 400px;
     display: flex;
     flex-flow: column nowrap;
     margin-bottom: 2em;
 
     &--link {
-        height: 25em;
+        height: 22em;
         display: flex;
         flex-flow: column nowrap;
         justify-content: space-evenly;
@@ -89,7 +89,7 @@
 
         h2 {
             color: $secondary-color;
-            font-size: 2em;
+            font-size: 2.25em;
         }
     }
 
@@ -104,8 +104,13 @@
             font-size: 1em;
         }
 
+        p {
+            font-weight: 500;
+        }
+
         span {
-            color: $terciary-color;
+            color: #757575;
+            ;
             margin-bottom: 10px;
         }
     }
@@ -183,7 +188,7 @@
 
     #main-banner {
         .main-navigation {
-            padding: 20px 16%;
+            padding: 20px 0px 20px 6%;
         }
     }
 
@@ -191,7 +196,8 @@
         position: relative;
 
         h1 {
-            top: -120px
+            top: -120px;
+            right: 0px;
         }
     }
 
