@@ -986,7 +986,7 @@ ul {
   }
   .artist-portofolio #sortby label {
     height: 70px;
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 700;
     margin-left: 10px;
     line-height: 23.44px;
@@ -1068,7 +1068,7 @@ ul {
     right: 40px;
   }
   .artist-portofolio #sortby label {
-    margin-left: 80px;
+    margin-left: 4vw;
   }
   #show-media {
     -webkit-box-orient: horizontal;
@@ -1077,6 +1077,8 @@ ul {
             flex-flow: row wrap;
     -ms-flex-pack: distribute;
         justify-content: space-around;
+    margin: auto;
+    width: 95%;
   }
   #show-media .artist-cards {
     width: 30%;
