@@ -32,8 +32,9 @@ class Lightbox {
           btnClose.focus();
         } else if (mediaClicked.tagName === "VIDEO") {
           mediaClicked.focus();
+          console.log(mediaClicked.hotkeys);
         }
-
+        // pseudo = "-internal-media-controls-picture-in-picture-button";
         document
           .querySelector("header[id='main-banner']")
           .setAttribute("aria-hidden", "true");
@@ -114,26 +115,19 @@ class Lightbox {
           if (document.activeElement === closeElt) {
             e.preventDefault();
             nextElt.focus();
-            console.log("go Next Focus");
           }
         } else {
           if (document.activeElement === nextElt) {
             e.preventDefault();
             closeElt.focus();
-            console.log("go close Focus");
           }
         }
       }
     } else if (mediaClicked.tagName === "VIDEO") {
       if (keyCode === 9) {
+        console.log(document.activeElement);
         if (e.shiftKey) {
           if (document.activeElement === closeElt) {
-            e.preventDefault();
-            mediaClicked.focus();
-            console.log("plop");
-          }
-        } else {
-          if (document.activeElement === mediaClicked) {
             e.preventDefault();
             mediaClicked.focus();
           }
@@ -141,6 +135,14 @@ class Lightbox {
       }
     }
   }
+
+  // else {
+  //         let body = document.getElementsByTagName(body);
+  //         if (document.activeElement === mediaClicked) {
+  //           // e.preventDefault();
+  //           // closeElt.focus();
+  //         }
+  //       }
 
   /**
    * close lightbox to click svg X

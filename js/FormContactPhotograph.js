@@ -101,24 +101,35 @@ fetch("./js/data.json")
     console.log(btnOpenModal);
 
     contentDialogForm.addEventListener("keydown", (e) => {
-      if (document.activeElement === closeModal) {
-        e.preventDefault();
-        sendBtn.focus();
-      } else if (document.activeElement === sendBtn) {
-        e.preventDefault;
-        closeModal.focus();
+      const keyCode = e.keyCode ? e.keyCode : e.which;
+      if (keyCode === 9) {
+        if (e.shiftKey) {
+          if (document.activeElement === closeModal) {
+            e.preventDefault();
+            sendBtn.focus();
+          }
+        } else {
+          if (document.activeElement === sendBtn) {
+            e.preventDefault;
+            closeModal.focus();
+          }
+        }
+      }
+
+      if (keyCode === 27) {
+        closeModalAttr();
       }
     });
 
     // When the user clicks on <svg> (x), close the modal
     closeModal.addEventListener("click", closeModalAttr);
 
-    document.addEventListener("keydown", function (event) {
-      let nomTouche = event.key;
-      if (nomTouche === "Escape") {
-        closeModalAttr();
-      }
-    });
+    // document.addEventListener("keydown", function (event) {
+    //   let nomTouche = event.key;
+    //   if (nomTouche === "Escape") {
+    //     closeModalAttr();
+    //   }
+    // });
 
     function closeModalAttr() {
       divDialogForm.style.display = "none";

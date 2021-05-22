@@ -66,18 +66,13 @@ fetch("./js/data.json")
         "span.card-likeNumbers"
       );
       likeCountSpanElts.forEach((span) => {
-        span.addEventListener("click", counterLike);
-
-        span.addEventListener("keyDown", (e) => {
-          const keyCode = e.keyCode ? e.keyCode : e.which;
-          if (keyCode === "13") {
-            counterLike;
-          }
-        });
+        ["click", "keypress"].forEach((event) =>
+          span.addEventListener(event, counterLike)
+        );
 
         function counterLike() {
           let pLikes = span.childNodes[1];
-          console.log(pLikes);
+          console.log(span);
 
           let spanELement = mediaFilterArray.filter((elt) => elt.id == span.id);
           let spanLikes = document.querySelector(".like-compt");
@@ -87,10 +82,13 @@ fetch("./js/data.json")
             spanELement[0].likes++;
             spanLikes.textContent = ++spanNumber;
             span.change = true;
+            span.classList.add("liked");
+            // console.log(span.classList[1]);
           } else {
             spanELement[0].likes--;
             spanLikes.textContent = --spanNumber;
             span.change = false;
+            span.classList.remove("liked");
           }
 
           pLikes.textContent = spanELement[0].likes;
