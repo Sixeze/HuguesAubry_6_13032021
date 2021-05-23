@@ -5,7 +5,7 @@ fetch("./js/data.json")
     // Get data from json
     const artistData = phData.photographers;
 
-    // Recover DOM elements
+    // DOM elements
     const divToGoingTop = document.querySelector("#goToTop");
     const mainSection = document.getElementsByTagName("main");
     const mainContainerCards = document.createElement("div");
@@ -63,7 +63,7 @@ fetch("./js/data.json")
           const liTagElt = document.createElement("li");
           ulTagBox[i].appendChild(liTagElt);
           liTagElt.classList.add("tag-linked");
-          // change color of li selected
+          // change color for li selected
           if (arrayWithOnlyTagsSelected.includes(tagsData[t])) {
             liTagElt.classList.add("active");
           }

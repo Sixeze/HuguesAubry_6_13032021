@@ -1,25 +1,20 @@
-// import { MediaFactory } from "./mediaFactory";
-
 fetch("./js/data.json")
   .then((response) => response.json())
   .then((phData) => {
     // GET Params Number of URL
     const params = new URL(document.location).searchParams;
     const urlIdNumber = params.get("dataph");
-    // console.log(`l'id de la page est : ${urlIdNumber} `);
 
     // element tag to Dom
     const mainPHPage = document.getElementsByTagName("main");
 
     // analyse if URL parameter is same of photograph.id parameter
     const photographer = phData.photographers.find((p) => p.id == urlIdNumber);
-    // console.log(photographer);
 
     // filter Array
     const mediaFilterArray = phData.media.filter(
       (media) => media.photographerId == urlIdNumber
     );
-    // console.log(mediaFilterArray);
 
     // create HTML elements
     const createNewHeader = () => {
@@ -83,7 +78,6 @@ fetch("./js/data.json")
             spanLikes.textContent = ++spanNumber;
             span.change = true;
             span.classList.add("liked");
-            // console.log(span.classList[1]);
           } else {
             spanELement[0].likes--;
             spanLikes.textContent = --spanNumber;
@@ -106,8 +100,6 @@ fetch("./js/data.json")
                                   <i class="fas fa-heart fa-1.1x blackHeart" aria-label="like"></i>
                                   <span class="ratePerDay" aria-label="price per day">${photographer.price}€ / jour</span>
                                   <span class="sr-only">${photographer.price}</span>`;
-
-      // console.log(totalLikesBox);
     };
 
     const selectForSort = document.getElementsByTagName("select")[0];

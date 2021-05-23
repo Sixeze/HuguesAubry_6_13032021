@@ -7,7 +7,6 @@ fetch("./js/data.json")
 
     // analyse if URL parameter is same of photograph.id parameter
     const photographer = phData.photographers.find((p) => p.id == urlIdNumber);
-    // console.log(photographer);
 
     // ====== Dom Elements for formContact ======
     const blockPage = document.querySelector(".block_page");
@@ -86,7 +85,7 @@ fetch("./js/data.json")
     const closeModal = document.querySelector(".cross-close");
     const sendBtn = document.querySelector("input[id='submitBtn']");
 
-    // When the user clicks the button, open the modal
+    // When the user clicks button "contactez-moi", open modal
     btnOpenModal.addEventListener("click", (e) => {
       e.preventDefault();
       divDialogForm.style.display = "block";
@@ -95,11 +94,9 @@ fetch("./js/data.json")
       mainBanner.setAttribute("aria-hidden", "true");
       mainPage.setAttribute("aria-hidden", "true");
       firstNameInput.focus();
-      console.log("la modal s'ouvre !");
-      // debugger;
     });
-    console.log(btnOpenModal);
 
+    // comportement of Keypress action
     contentDialogForm.addEventListener("keydown", (e) => {
       const keyCode = e.keyCode ? e.keyCode : e.which;
       if (keyCode === 9) {
@@ -121,15 +118,7 @@ fetch("./js/data.json")
       }
     });
 
-    // When the user clicks on <svg> (x), close the modal
     closeModal.addEventListener("click", closeModalAttr);
-
-    // document.addEventListener("keydown", function (event) {
-    //   let nomTouche = event.key;
-    //   if (nomTouche === "Escape") {
-    //     closeModalAttr();
-    //   }
-    // });
 
     function closeModalAttr() {
       divDialogForm.style.display = "none";
@@ -181,7 +170,6 @@ fetch("./js/data.json")
       if (value !== "" && value.length >= 3 && nameRegex.test(value)) {
         return true;
       } else {
-        // console.log(false);
         return false;
       }
     }
@@ -198,7 +186,6 @@ fetch("./js/data.json")
 
     function displayError(nameCheck, error, errorMessages, input) {
       if (nameCheck === true) {
-        console.log(nameCheck);
         error.textContent = "";
         input.style.border = "4px solid green";
       } else {
@@ -245,5 +232,5 @@ fetch("./js/data.json")
         la demande du clients est : ${textArea.value}`
       );
     });
-  });
-// .catch((error) => console.log("Erreur : " + error));
+  })
+  .catch((error) => console.log("Erreur : " + error));

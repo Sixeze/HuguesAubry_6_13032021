@@ -85,19 +85,11 @@ ul {
 @media all and (min-width: 768px) {
   .link-tag,
   .tag-linked {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     height: 25px;
-    border: 1px solid #888888;
     border-radius: 20px;
-    margin-right: 10px;
-    padding-right: 5px;
-    padding-left: 5px;
   }
   .link-tag a,
   .tag-linked a {
-    color: #901C1C;
     font-size: 18px;
   }
 }
@@ -139,6 +131,12 @@ ul {
     left: 580px;
     height: 70px;
     z-index: auto;
+  }
+}
+
+@media screen and (orientation: landscape) and (max-width: 768px) {
+  .ph-contact {
+    right: 38vw;
   }
 }
 
@@ -542,6 +540,13 @@ ul {
   .lightbox__container--media h2 {
     font-size: 1em;
   }
+  .lightbox__container--prev, .lightbox__container--next {
+    width: 36px;
+  }
+  .lightbox__container--close {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 @-webkit-keyframes lightboxStart {
@@ -565,7 +570,8 @@ ul {
 #goToTop {
   display: none;
   position: fixed;
-  right: 28vw;
+  width: 100%;
+  left: 0px;
   top: 0px;
   z-index: 11;
 }
@@ -580,6 +586,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: auto;
   height: 28px;
   width: 185px;
   background: #DB8876;
@@ -730,9 +737,6 @@ ul {
 }
 
 @media all and (min-width: 768px) {
-  #goToTop {
-    right: 38vw;
-  }
   #main-banner {
     padding: 10px 10px;
     margin-bottom: 40px;
@@ -768,9 +772,6 @@ ul {
 }
 
 @media all and (min-width: 1440px) {
-  #goToTop {
-    right: 44vw;
-  }
   #main-banner {
     padding: 20px 20px;
     -webkit-box-orient: horizontal;
@@ -795,9 +796,6 @@ ul {
 }
 
 @media all and (min-width: 1920px) {
-  #goToTop {
-    right: 46vw;
-  }
   #main-banner .main-navigation {
     padding: 20px 0px 20px 6%;
   }
