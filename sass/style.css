@@ -526,7 +526,7 @@ ul {
   }
 }
 
-@media (orientation: landscape) and (max-width: 900px) {
+@media screen and (orientation: landscape) and (max-width: 768px) {
   .lightbox__container {
     min-width: 700px;
     max-height: 370px;
@@ -537,7 +537,7 @@ ul {
   .lightbox__container--media video,
   .lightbox__container--media img {
     max-width: 460px;
-    max-height: 330px;
+    max-height: 280px;
   }
   .lightbox__container--media h2 {
     font-size: 1em;
