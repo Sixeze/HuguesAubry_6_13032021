@@ -28,16 +28,16 @@ ul {
 .link-tag,
 .tag-linked {
     display: flex;
-    height: 22px;
+    height: 20px;
     border: 1px solid $terciary-color;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-right: 10px;
     padding-right: 5px;
     padding-left: 5px;
 
     a {
         color: $primary-color;
-        font-size: 16px;
+        font-size: 13px;
     }
 
     &:hover,
@@ -61,4 +61,24 @@ ul {
 
 .tagBox {
     height: 30px;
+}
+
+@media all and (min-width: 768px) {
+
+    .link-tag,
+    .tag-linked {
+        display: flex;
+        height: 25px;
+        border: 1px solid $terciary-color;
+        border-radius: 20px;
+        margin-right: 10px;
+        padding-right: 5px;
+        padding-left: 5px;
+
+        a {
+            color: $primary-color;
+            font-size: 18px;
+        }
+
+    }
 }

@@ -11,7 +11,7 @@
     width: 98%;
     height: auto;
     margin: auto;
-    background: $quaternary-color;
+    background: transparent;
     margin-bottom: 60px;
 
     .ph-card {
@@ -34,19 +34,19 @@
             margin-top: 5px;
 
             &--city {
-                font-size: 1.2em;
+                font-size: 1em;
                 color: $primary-color;
                 line-height: 31px;
             }
 
             &--tagline {
                 margin-top: 5px;
-                font-size: 1.2rem;
+                font-size: .9em;
                 color: $terciary-color;
             }
 
             .tagBox {
-                margin: 35px 0px 30px 0px;
+                margin: 40px 0px 30px 0px;
             }
         }
     }
@@ -55,15 +55,15 @@
         @include artist-profil-cards;
         position: absolute;
         top: 10px;
-        right: 15px;
-        width: 135px;
-        height: 135px;
+        right: 10px;
+        width: 120px;
+        height: 120px;
     }
 }
 
 // artist pictures
 .artist-portofolio {
-    width: 100%;
+    width: 99%;
     margin: auto;
 
     #sortby {
@@ -83,29 +83,30 @@
         flex-flow: column nowrap;
         justify-content: flex-start;
         align-items: center;
-        width: 99%;
-        max-width: 410px;
-        height: 335px;
+        margin: auto;
+        width: 92%;
+        max-width: 420px;
+        height: 270px;
         margin-bottom: 50px;
 
         .artist-cards__picture,
         .artist-cards__video {
             object-fit: cover;
             background-color: $secondary-bg-color;
-            max-width: 415px;
-            width: 370px;
-            height: 270px;
+            max-width: 335px;
+            width: 320px;
+            height: 210px;
         }
 
         .artist-cards__information {
             display: flex;
             align-items: center;
-            width: 370px;
+            width: 320px;
             color: $primary-color;
 
             .card-title {
                 width: 280px;
-                font-size: 1.3em;
+                font-size: 1.1em;
             }
 
             .card-price,
@@ -133,10 +134,11 @@
     display: none;
 }
 
-@media all and (min-width: 700px) {
+@media all and (min-width: 768px) {
     .ph-info {
         width: 90%;
         height: 280px;
+        background: $quaternary-color;
 
         .ph-card {
 
@@ -169,7 +171,7 @@
 
             label {
                 height: 70px;
-                font-size: 1em;
+                font-size: 1.2em;
                 font-weight: 700;
                 margin-left: 10px;
                 line-height: 23.44px;
@@ -194,18 +196,20 @@
 
     #show-media {
         .artist-cards {
-            max-width: 425px;
+            max-width: 410px;
+            width: 890%;
             height: 390px;
 
             .artist-cards__picture,
             .artist-cards__video {
-                width: 420px;
+                max-width: 400px;
+                width: 400px;
                 height: 320px;
             }
 
             .artist-cards__information {
                 justify-content: center;
-                width: 420px;
+                width: 400px;
 
                 .card-title {
                     width: 300px;
