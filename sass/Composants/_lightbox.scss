@@ -14,6 +14,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: auto;
         width: auto;
         min-width: auto;
         height: 100vh;
@@ -27,7 +28,7 @@
             img {
                 object-fit: contain;
                 min-width: 200px;
-                max-width: 300px;
+                max-width: 280px;
                 height: auto;
             }
 
@@ -42,12 +43,12 @@
         &--next {
             position: absolute;
             border: none;
-            background: url(../media/logo/arrowleft.svg) center center / 30px 48px no-repeat;
+            background: url(../media/logo/arrowleft.svg) center center / 100% 100% no-repeat;
             top: 0px;
             right: 0px;
             margin-top: 0px;
             height: 100%;
-            width: 30px;
+            width: 20px;
             z-index: 11;
         }
 
@@ -62,8 +63,8 @@
         &--close {
             position: absolute;
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             background: url(../media/logo/crossClose.svg) center center / 100% 100% no-repeat transparent;
             z-index: 12;
             top: 10px;
@@ -141,13 +142,14 @@
 @media all and (min-width: 1440px) {
     .lightbox {
         &__container {
+            min-width: 1300px;
 
             &--media {
 
                 video,
                 img {
-                    max-width: 1000px;
-                    max-height: 750px;
+                    max-width: 1300px;
+                    max-height: 800px;
                 }
 
                 h2 {
@@ -160,16 +162,39 @@
             &--next,
             &--close {
                 top: 24px;
-                right: 350px;
+                right: 100px;
             }
 
             &--prev {
-                left: 350px;
+                left: 100px;
             }
         }
     }
 }
 
+@media (orientation: landscape) and (max-width: 900px) {
+    .lightbox {
+        &__container {
+            min-width: 700px;
+            max-height: 370px;
+
+            &--media {
+                margin: auto;
+
+                video,
+                img {
+                    max-width: 460px;
+                    max-height: 330px;
+                }
+
+                h2 {
+                    font-size: 1em;
+                }
+
+            }
+        }
+    }
+}
 
 @keyframes lightboxStart {
     from {

@@ -43,9 +43,9 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 22px;
+  height: 20px;
   border: 1px solid #888888;
-  border-radius: 20px;
+  border-radius: 15px;
   margin-right: 10px;
   padding-right: 5px;
   padding-left: 5px;
@@ -54,7 +54,7 @@ ul {
 .link-tag a,
 .tag-linked a {
   color: #901C1C;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .link-tag:hover, .link-tag:focus,
@@ -82,6 +82,26 @@ ul {
   height: 30px;
 }
 
+@media all and (min-width: 768px) {
+  .link-tag,
+  .tag-linked {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 25px;
+    border: 1px solid #888888;
+    border-radius: 20px;
+    margin-right: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+  .link-tag a,
+  .tag-linked a {
+    color: #901C1C;
+    font-size: 18px;
+  }
+}
+
 .btn {
   border: none;
   width: 170px;
@@ -101,8 +121,8 @@ ul {
 .ph-contact {
   position: fixed;
   bottom: 4vh;
-  right: 30vw;
-  height: 40px;
+  right: 28%;
+  height: 35px;
   z-index: 8;
 }
 
@@ -191,7 +211,7 @@ ul {
   width: 100%;
   height: 100vh;
   overflow-y: scroll;
-  background-color: #c4c4c460;
+  background-color: #c4c4c4ed;
   -webkit-transition: .2s;
   transition: .2s;
 }
@@ -284,7 +304,7 @@ ul {
 }
 
 #dialog__form--bground .content .modal-btn {
-  margin: 10px 0px 50px 17%;
+  margin: 10px 0px 35px 15%;
   width: 220px;
   height: 40px;
 }
@@ -296,6 +316,7 @@ ul {
 
 @media all and (min-width: 768px) {
   #dialog__form--bground .content {
+    margin: 10px auto;
     width: 670px;
     padding-left: 35px;
   }
@@ -374,6 +395,7 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: auto;
   width: auto;
   min-width: auto;
   height: 100vh;
@@ -391,7 +413,7 @@ ul {
   -o-object-fit: contain;
      object-fit: contain;
   min-width: 200px;
-  max-width: 300px;
+  max-width: 280px;
   height: auto;
 }
 
@@ -404,12 +426,12 @@ ul {
 .lightbox__container--prev, .lightbox__container--next {
   position: absolute;
   border: none;
-  background: url(../media/logo/arrowleft.svg) center center/30px 48px no-repeat;
+  background: url(../media/logo/arrowleft.svg) center center/100% 100% no-repeat;
   top: 0px;
   right: 0px;
   margin-top: 0px;
   height: 100%;
-  width: 30px;
+  width: 20px;
   z-index: 11;
 }
 
@@ -423,8 +445,8 @@ ul {
 .lightbox__container--close {
   position: absolute;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background: url(../media/logo/crossClose.svg) center center/100% 100% no-repeat transparent;
   z-index: 12;
   top: 10px;
@@ -484,20 +506,41 @@ ul {
 }
 
 @media all and (min-width: 1440px) {
+  .lightbox__container {
+    min-width: 1300px;
+  }
   .lightbox__container--media video,
   .lightbox__container--media img {
-    max-width: 1000px;
-    max-height: 750px;
+    max-width: 1300px;
+    max-height: 800px;
   }
   .lightbox__container--media h2 {
     font-size: 2em;
   }
   .lightbox__container--prev, .lightbox__container--next, .lightbox__container--close {
     top: 24px;
-    right: 350px;
+    right: 100px;
   }
   .lightbox__container--prev {
-    left: 350px;
+    left: 100px;
+  }
+}
+
+@media (orientation: landscape) and (max-width: 900px) {
+  .lightbox__container {
+    min-width: 700px;
+    max-height: 370px;
+  }
+  .lightbox__container--media {
+    margin: auto;
+  }
+  .lightbox__container--media video,
+  .lightbox__container--media img {
+    max-width: 460px;
+    max-height: 330px;
+  }
+  .lightbox__container--media h2 {
+    font-size: 1em;
   }
 }
 
@@ -786,7 +829,7 @@ ul {
   width: 98%;
   height: auto;
   margin: auto;
-  background: #FAFAFA;
+  background: transparent;
   margin-bottom: 60px;
 }
 
@@ -824,19 +867,19 @@ ul {
 }
 
 .ph-info .ph-card__information--city {
-  font-size: 1.2em;
+  font-size: 1em;
   color: #901C1C;
   line-height: 31px;
 }
 
 .ph-info .ph-card__information--tagline {
   margin-top: 5px;
-  font-size: 1.2rem;
+  font-size: .9em;
   color: #888888;
 }
 
 .ph-info .ph-card__information .tagBox {
-  margin: 35px 0px 30px 0px;
+  margin: 40px 0px 30px 0px;
 }
 
 .ph-info .profil-picture {
@@ -849,13 +892,13 @@ ul {
      object-fit: cover;
   position: absolute;
   top: 10px;
-  right: 15px;
-  width: 135px;
-  height: 135px;
+  right: 10px;
+  width: 120px;
+  height: 120px;
 }
 
 .artist-portofolio {
-  width: 100%;
+  width: 99%;
   margin: auto;
 }
 
@@ -894,9 +937,10 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 99%;
-  max-width: 410px;
-  height: 335px;
+  margin: auto;
+  width: 92%;
+  max-width: 420px;
+  height: 270px;
   margin-bottom: 50px;
 }
 
@@ -905,9 +949,9 @@ ul {
   -o-object-fit: cover;
      object-fit: cover;
   background-color: #C4C4C4;
-  max-width: 415px;
-  width: 370px;
-  height: 270px;
+  max-width: 335px;
+  width: 320px;
+  height: 210px;
 }
 
 #show-media .artist-cards .artist-cards__information {
@@ -917,13 +961,13 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 370px;
+  width: 320px;
   color: #901C1C;
 }
 
 #show-media .artist-cards .artist-cards__information .card-title {
   width: 280px;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 #show-media .artist-cards .artist-cards__information .card-price,
@@ -949,10 +993,11 @@ ul {
   display: none;
 }
 
-@media all and (min-width: 700px) {
+@media all and (min-width: 768px) {
   .ph-info {
     width: 90%;
     height: 280px;
+    background: #FAFAFA;
   }
   .ph-info .ph-card__artist {
     font-size: 3em;
@@ -986,7 +1031,7 @@ ul {
   }
   .artist-portofolio #sortby label {
     height: 70px;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 700;
     margin-left: 10px;
     line-height: 23.44px;
@@ -1005,19 +1050,21 @@ ul {
     border-color: transparent transparent #fff transparent;
   }
   #show-media .artist-cards {
-    max-width: 425px;
+    max-width: 410px;
+    width: 890%;
     height: 390px;
   }
   #show-media .artist-cards .artist-cards__picture,
   #show-media .artist-cards .artist-cards__video {
-    width: 420px;
+    max-width: 400px;
+    width: 400px;
     height: 320px;
   }
   #show-media .artist-cards .artist-cards__information {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 420px;
+    width: 400px;
   }
   #show-media .artist-cards .artist-cards__information .card-title {
     width: 300px;

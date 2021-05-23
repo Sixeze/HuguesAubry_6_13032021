@@ -75,7 +75,7 @@
         }
 
         .modal-btn {
-            margin: 10px 0px 50px 17%;
+            margin: 10px 0px 35px 15%;
             width: 220px;
             height: 40px;
         }
@@ -91,6 +91,7 @@
 @media all and (min-width: 768px) {
     #dialog__form--bground {
         .content {
+            margin: 10px auto;
             width: 670px;
             padding-left: 35px;
 
