@@ -2,7 +2,8 @@
 #goToTop {
     display: none;
     position: fixed;
-    right: 28vw;
+    width: 100%;
+    left: 0px;
     top: 0px;
     z-index: 11;
 
@@ -10,6 +11,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: auto;
         height: 28px;
         width: 185px;
         background: #DB8876;
@@ -116,10 +118,6 @@
 }
 
 @media all and (min-width: 768px) {
-    #goToTop {
-        right: 38vw;
-    }
-
     #main-banner {
         padding: 10px 10px;
         margin-bottom: 40px;
@@ -155,10 +153,6 @@
 }
 
 @media all and (min-width: 1440px) {
-    #goToTop {
-        right: 44vw;
-    }
-
     #main-banner {
         padding: 20px 20px;
         flex-direction: row;
@@ -186,10 +180,6 @@
 }
 
 @media all and (min-width: 1920px) {
-    #goToTop {
-        right: 46vw;
-    }
-
     #main-banner {
         .main-navigation {
             padding: 20px 0px 20px 6%;

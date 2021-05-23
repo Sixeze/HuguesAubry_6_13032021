@@ -14,7 +14,6 @@ class Lightbox {
       medialink.getAttribute("href")
     );
 
-    // console.log(galleryForLightBox);
     getMediaLinks.forEach((medialink) =>
       medialink.addEventListener("click", (e) => {
         e.preventDefault();
@@ -27,14 +26,11 @@ class Lightbox {
 
         const btnClose = document.querySelector(".lightbox__container--close");
         const mediaClicked = document.querySelector(".current-Media");
-        console.log(mediaClicked.tagName);
         if (mediaClicked.tagName === "IMG") {
           btnClose.focus();
         } else if (mediaClicked.tagName === "VIDEO") {
           mediaClicked.focus();
-          console.log(mediaClicked.hotkeys);
         }
-        // pseudo = "-internal-media-controls-picture-in-picture-button";
         document
           .querySelector("header[id='main-banner']")
           .setAttribute("aria-hidden", "true");
@@ -109,40 +105,20 @@ class Lightbox {
       this.next(e);
     }
 
-    if (mediaClicked.tagName === "IMG") {
-      if (keyCode === 9) {
-        if (e.shiftKey) {
-          if (document.activeElement === closeElt) {
-            e.preventDefault();
-            nextElt.focus();
-          }
-        } else {
-          if (document.activeElement === nextElt) {
-            e.preventDefault();
-            closeElt.focus();
-          }
+    if (keyCode === 9) {
+      if (e.shiftKey) {
+        if (document.activeElement === closeElt) {
+          e.preventDefault();
+          nextElt.focus();
         }
-      }
-    } else if (mediaClicked.tagName === "VIDEO") {
-      if (keyCode === 9) {
-        console.log(document.activeElement);
-        if (e.shiftKey) {
-          if (document.activeElement === closeElt) {
-            e.preventDefault();
-            mediaClicked.focus();
-          }
+      } else {
+        if (document.activeElement === nextElt) {
+          e.preventDefault();
+          closeElt.focus();
         }
       }
     }
   }
-
-  // else {
-  //         let body = document.getElementsByTagName(body);
-  //         if (document.activeElement === mediaClicked) {
-  //           // e.preventDefault();
-  //           // closeElt.focus();
-  //         }
-  //       }
 
   /**
    * close lightbox to click svg X
@@ -175,7 +151,6 @@ class Lightbox {
       m = this.listMedia.length;
     }
     this.showMediaLoaded(this.listMedia[m - 1]);
-    // debugger;
   }
 
   /**
@@ -188,28 +163,22 @@ class Lightbox {
     if (m == this.listMedia.length - 1) {
       m = -1;
     }
-    // console.log([m]);
-    // console.log(this.listMedia.length - 1);
+
     this.showMediaLoaded(this.listMedia[m + 1]);
-    // debugger;
   }
 
   /**
-   * @method
-   * @param {string} url href de l'image
    * @returns elementHTML  // <section class="lightbox" aria-label="lightbox gallery"> <== sectionLightBox ==>
    */
   buildDom() {
-    // console.log(url);
     const sectionLightBox = document.createElement("section");
     sectionLightBox.classList.add("lightbox");
     sectionLightBox.setAttribute("aria-label", "lightbox gallery");
     sectionLightBox.innerHTML = `<div role="dialog" class="lightbox__container" aria-modal="true">
                         <button class="lightbox__container--close">fermer</button>
                         <button class="lightbox__container--prev">précédent</button>
+                        <div class="lightbox__container--media"></div>
                         <button class="lightbox__container--next">suivant</button>
-                        <div class="lightbox__container--media">
-                        </div>
                       </div>`;
     sectionLightBox
       .querySelector(".lightbox__container--close")
