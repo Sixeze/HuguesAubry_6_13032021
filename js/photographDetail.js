@@ -108,7 +108,6 @@ fetch("./js/data.json")
       const mediaSortResult = mediaFilterArray.filter(
         (media) => media.sortResult
       );
-      console.log(mediaSortResult);
 
       switch (this.value) {
         case "0":
@@ -118,15 +117,12 @@ fetch("./js/data.json")
           sortResult = mediaFilterArray.sort(
             (a, b) => Date.parse(b.date) - Date.parse(a.date)
           );
-          console.log(mediaFilterArray);
-          console.log(sortResult.url);
 
           break;
         case "2":
           sortResult = mediaFilterArray.sort((a, b) =>
             a.alt.localeCompare(b.alt)
           );
-          console.log(mediaFilterArray);
           break;
       }
       showMedia(...sortResult);
