@@ -30,20 +30,22 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 20px;
+    padding: 20px 10px;
 
     .logo svg {
-        padding-left: 5px;
-        width: 140px;
+        padding-left: 10px;
+        width: 130px;
         height: auto;
     }
 
     .main-navigation {
-        padding-left: 30px;
+        margin-top: 10px;
 
         #tags {
+            margin: auto;
             display: flex;
             flex-flow: row wrap;
-            width: auto;
+            width: 90%;
         }
     }
 }
@@ -54,10 +56,12 @@
 
     h1 {
         position: absolute;
-        top: 5px;
-        right: .5%;
+        top: 32px;
+        right: 6%;
         color: $primary-color;
-        font-size: 1.2em;
+        font-size: 1em;
+        font-weight: 400;
+        line-height: 18px;
     }
 
     .photograph {
@@ -119,24 +123,25 @@
 
 @media all and (min-width: 768px) {
     #main-banner {
-        padding: 10px 10px;
         margin-bottom: 40px;
 
-        .logo svg {
-            width: 145px;
-            height: auto;
-        }
-
         .main-navigation {
-            padding-left: 40px;
+            margin-top: 10px;
+            margin-left: 30px;
+
+            #tags {
+                margin: auto;
+                display: flex;
+                flex-flow: row wrap;
+                width: 100%;
+            }
         }
     }
 
     #main {
         h1 {
-            top: 10px;
             right: 2%;
-            font-size: 2em;
+            font-size: 1.3em;
         }
 
         .photograph {
@@ -148,27 +153,62 @@
     }
 
     .photograph__card {
-        width: 420px;
+        max-width: 320px;
+        width: 320px;
+        height: 400px;
     }
 }
+
+@media all and (min-width: 1024px) {
+    #main-banner {
+        flex-direction: row;
+
+        .logo svg {
+            width: 160px;
+        }
+
+        .main-navigation {
+            width: 70%;
+            margin-left: 0px;
+
+            #tags {
+                margin: auto;
+                display: flex;
+                flex-flow: row nowrap;
+                width: 100%;
+            }
+        }
+
+    }
+
+    .photograph__card {
+        max-width: 335px;
+        // width: 335px;
+        height: 400px;
+
+    }
+}
+
 
 @media all and (min-width: 1440px) {
     #main-banner {
         padding: 20px 20px;
-        flex-direction: row;
+
 
         .logo svg {
             width: 200px;
+            padding-top: 10px;
         }
 
         .main-navigation {
-            padding: 20px 10%;
+            width: 60%;
+            padding: 20px 0px 15px 0px;
         }
     }
 
     #main {
         h1 {
-            top: 20px;
+            top: 50px;
             font-size: 2.5em;
         }
     }
@@ -182,7 +222,7 @@
 @media all and (min-width: 1920px) {
     #main-banner {
         .main-navigation {
-            padding: 20px 0px 20px 6%;
+            padding: 20px 0px 15px 6%;
         }
     }
 
@@ -190,7 +230,7 @@
         position: relative;
 
         h1 {
-            top: -120px;
+            top: -110px;
             right: 0px;
         }
     }
