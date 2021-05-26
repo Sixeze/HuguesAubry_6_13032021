@@ -436,7 +436,7 @@ ul {
     -o-object-fit: contain;
        object-fit: contain;
     max-width: 880px;
-    max-height: 650px;
+    max-height: 580px;
   }
   .lightbox__container--media h2 {
     line-height: 31px;
