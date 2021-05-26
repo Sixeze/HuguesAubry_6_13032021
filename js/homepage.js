@@ -112,7 +112,6 @@ fetch("./js/data.json")
           let tagSelected =
             window.event.target.textContent.replace("#", "") ||
             window.event.target.innerText.replace("#", "");
-          console.log(tagSelected);
 
           // if not include "tag", push it prototype array, else remove same element
           if (arrayWithOnlyTagsSelected.includes(tagSelected)) {
@@ -123,10 +122,8 @@ fetch("./js/data.json")
             aTagElt.parentElement.classList.remove("active");
           } else {
             arrayWithOnlyTagsSelected.push(tagSelected);
-            console.log("push");
             aTagElt.parentElement.classList.add("active");
           }
-          console.log(arrayWithOnlyTagsSelected);
 
           // create a new array for each arrayWithOnlyTagsSelected[tagSelected], with only artistCard with tagSelected
           let newArtistDatas = [];

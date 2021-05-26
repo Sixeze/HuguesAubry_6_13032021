@@ -67,7 +67,6 @@ fetch("./js/data.json")
 
         function counterLike() {
           let pLikes = span.childNodes[1];
-          console.log(span);
 
           let spanELement = mediaFilterArray.filter((elt) => elt.id == span.id);
           let spanLikes = document.querySelector(".like-compt");
