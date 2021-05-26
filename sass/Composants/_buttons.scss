@@ -20,7 +20,7 @@
 .ph-contact {
     position: fixed;
     bottom: 4vh;
-    right: 28%;
+    right: 25%;
     height: 35px;
     z-index: 8;
 }
@@ -31,13 +31,19 @@
     }
 }
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1024px) {
     .ph-contact {
         position: absolute;
-        top: 30px;
-        left: 580px;
+        top: 40px;
+        left: 430px;
         height: 70px;
         z-index: auto;
+    }
+}
+
+@media all and (min-width: 1440px) {
+    .ph-contact {
+        left: 580px;
     }
 }
 

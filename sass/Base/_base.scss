@@ -18,10 +18,9 @@ a {
 ul {
     list-style-type: none;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    width: auto;
 }
 
 // #TAG CONFIG
@@ -31,17 +30,18 @@ ul {
     height: 20px;
     border: 1px solid $terciary-color;
     border-radius: 15px;
-    margin-right: 10px;
-    padding-right: 5px;
-    padding-left: 5px;
+    margin: 0px 10px 8px 0px;
+    padding: 0px 5px;
 
     a {
         color: $primary-color;
-        font-size: 13px;
+        font-size: .8em;
+        font-weight: 500;
+        line-height: 16px;
+        margin: auto;
     }
 
-    &:hover,
-    &:focus {
+    &:hover {
         border: none;
         background-color: $primary-color;
 
@@ -56,6 +56,7 @@ ul {
 
     a {
         color: $quaternary-color;
+        font-weight: 500;
     }
 }
 
@@ -67,12 +68,10 @@ ul {
 
     .link-tag,
     .tag-linked {
-        height: 25px;
-        border-radius: 20px;
+        height: 22px;
 
         a {
-            font-size: 18px;
+            font-size: 13px;
         }
-
     }
 }

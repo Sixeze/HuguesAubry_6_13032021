@@ -27,15 +27,14 @@ ul {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: auto;
 }
 
 .link-tag,
@@ -46,27 +45,27 @@ ul {
   height: 20px;
   border: 1px solid #888888;
   border-radius: 15px;
-  margin-right: 10px;
-  padding-right: 5px;
-  padding-left: 5px;
+  margin: 0px 10px 8px 0px;
+  padding: 0px 5px;
 }
 
 .link-tag a,
 .tag-linked a {
   color: #901C1C;
-  font-size: 13px;
+  font-size: .8em;
+  font-weight: 500;
+  line-height: 16px;
+  margin: auto;
 }
 
-.link-tag:hover, .link-tag:focus,
-.tag-linked:hover,
-.tag-linked:focus {
+.link-tag:hover,
+.tag-linked:hover {
   border: none;
   background-color: #901C1C;
 }
 
-.link-tag:hover a, .link-tag:focus a,
-.tag-linked:hover a,
-.tag-linked:focus a {
+.link-tag:hover a,
+.tag-linked:hover a {
   color: #FAFAFA;
 }
 
@@ -76,6 +75,7 @@ ul {
 
 .active a {
   color: #FAFAFA;
+  font-weight: 500;
 }
 
 .tagBox {
@@ -85,12 +85,11 @@ ul {
 @media all and (min-width: 768px) {
   .link-tag,
   .tag-linked {
-    height: 25px;
-    border-radius: 20px;
+    height: 22px;
   }
   .link-tag a,
   .tag-linked a {
-    font-size: 18px;
+    font-size: 13px;
   }
 }
 
@@ -113,7 +112,7 @@ ul {
 .ph-contact {
   position: fixed;
   bottom: 4vh;
-  right: 28%;
+  right: 25%;
   height: 35px;
   z-index: 8;
 }
@@ -124,13 +123,19 @@ ul {
   }
 }
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1024px) {
   .ph-contact {
     position: absolute;
-    top: 30px;
-    left: 580px;
+    top: 40px;
+    left: 430px;
     height: 70px;
     z-index: auto;
+  }
+}
+
+@media all and (min-width: 1440px) {
+  .ph-contact {
+    left: 580px;
   }
 }
 
@@ -138,66 +143,6 @@ ul {
   .ph-contact {
     right: 38vw;
   }
-}
-
-.sort-menu {
-  position: relative;
-}
-
-.sort-menu select {
-  display: block;
-}
-
-.sort-select,
-.dropdown-menu div {
-  color: #FAFAFA;
-  padding: 20px 20px;
-  border: 1px solid #fff;
-  border-color: transparent transparent #fff transparent;
-  font-size: 1.2em;
-  background-color: #901C1C;
-  width: 170px;
-  height: 60px;
-  cursor: pointer;
-}
-
-.sort-select:after {
-  position: absolute;
-  content: "";
-  top: 28px;
-  left: 135px;
-  width: 16px;
-  height: 10px;
-  background-image: url(../../media/logo/arrowDown.png);
-  background-repeat: no-repeat;
-}
-
-.sort-select.arrow:after {
-  background-image: url(../../media/logo/arrowUp.png);
-}
-
-.dropdown-menu {
-  position: absolute;
-  background-color: #901C1C;
-  top: 100%;
-  width: 170px;
-  height: auto;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
-
-.dropdown-hide {
-  display: none;
-}
-
-.dropdown-menu div:hover,
-.same-Sort-selected {
-  background-color: #a58181c5;
-}
-
-.same-Sort-selected {
-  display: none;
 }
 
 #dialog__form--bground {
@@ -238,7 +183,7 @@ ul {
 
 #dialog__form--bground .content .title-form h2,
 #dialog__form--bground .content .title-form span {
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 2.2em;
   font-weight: 500;
 }
@@ -248,8 +193,8 @@ ul {
   cursor: pointer;
   border: none;
   background: url(../media/logo/formClose.svg) center center/100% 100% no-repeat transparent;
-  width: 30px;
-  height: 30px;
+  width: 18px;
+  height: 18px;
   z-index: 10;
   top: 10px;
   right: 10px;
@@ -272,7 +217,7 @@ ul {
 }
 
 #dialog__form--bground .content .form-content .input {
-  margin-top: 8px;
+  margin-top: 0px;
   width: 95%;
   height: 50px;
   font-size: 2em;
@@ -336,16 +281,16 @@ ul {
     font-size: 2em;
   }
   #dialog__form--bground .content .form-content .input {
-    margin-top: 8px;
+    margin-top: 0px;
     width: 600px;
-    height: 70px;
+    height: 68px;
     font-size: 2em;
   }
   #dialog__form--bground .content .form-content #message {
     width: 600px;
     height: 180px;
     margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
   #dialog__form--bground .content .form-content input::-webkit-input-placeholder,
   #dialog__form--bground .content .form-content textarea::-webkit-input-placeholder {
@@ -364,7 +309,7 @@ ul {
     font-size: 1.2em;
   }
   #dialog__form--bground .content .modal-btn {
-    margin: 20px 0px 50px 15px;
+    margin: 20px 0px 50px 0px;
     width: 170px;
     height: 70px;
   }
@@ -418,7 +363,9 @@ ul {
 .lightbox__container--media h2 {
   color: #901C1C;
   font-size: 1em;
-  text-align: center;
+  text-align: start;
+  font-weight: 400;
+  line-height: 18px;
 }
 
 .lightbox__container--prev, .lightbox__container--next {
@@ -492,7 +439,7 @@ ul {
     max-height: 650px;
   }
   .lightbox__container--media h2 {
-    font-size: 1.5em;
+    line-height: 31px;
   }
   .lightbox__container--prev, .lightbox__container--next {
     width: 50px;
@@ -511,9 +458,6 @@ ul {
   .lightbox__container--media img {
     max-width: 1300px;
     max-height: 800px;
-  }
-  .lightbox__container--media h2 {
-    font-size: 2em;
   }
   .lightbox__container--prev, .lightbox__container--next, .lightbox__container--close {
     top: 24px;
@@ -610,19 +554,21 @@ ul {
       -ms-flex-align: start;
           align-items: flex-start;
   margin-bottom: 20px;
+  padding: 20px 10px;
 }
 
 #main-banner .logo svg {
-  padding-left: 5px;
-  width: 140px;
+  padding-left: 10px;
+  width: 130px;
   height: auto;
 }
 
 #main-banner .main-navigation {
-  padding-left: 30px;
+  margin-top: 10px;
 }
 
 #main-banner .main-navigation #tags {
+  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -630,7 +576,7 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  width: auto;
+  width: 90%;
 }
 
 #main {
@@ -639,10 +585,12 @@ ul {
 
 #main h1 {
   position: absolute;
-  top: 5px;
-  right: .5%;
+  top: 32px;
+  right: 6%;
   color: #901C1C;
-  font-size: 1.2em;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 18px;
 }
 
 #main .photograph {
@@ -738,20 +686,26 @@ ul {
 
 @media all and (min-width: 768px) {
   #main-banner {
-    padding: 10px 10px;
     margin-bottom: 40px;
   }
-  #main-banner .logo svg {
-    width: 145px;
-    height: auto;
-  }
   #main-banner .main-navigation {
-    padding-left: 40px;
+    margin-top: 10px;
+    margin-left: 30px;
+  }
+  #main-banner .main-navigation #tags {
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    width: 100%;
   }
   #main h1 {
-    top: 10px;
     right: 2%;
-    font-size: 2em;
+    font-size: 1.3em;
   }
   #main .photograph {
     -webkit-box-orient: horizontal;
@@ -767,26 +721,57 @@ ul {
     margin: auto;
   }
   .photograph__card {
-    width: 420px;
+    max-width: 320px;
+    width: 320px;
+    height: 400px;
   }
 }
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1024px) {
   #main-banner {
-    padding: 20px 20px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
   }
   #main-banner .logo svg {
-    width: 200px;
+    width: 160px;
   }
   #main-banner .main-navigation {
-    padding: 20px 10%;
+    width: 70%;
+    margin-left: 0px;
+  }
+  #main-banner .main-navigation #tags {
+    margin: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+    width: 100%;
+  }
+  .photograph__card {
+    max-width: 335px;
+    height: 400px;
+  }
+}
+
+@media all and (min-width: 1440px) {
+  #main-banner {
+    padding: 20px 20px;
+  }
+  #main-banner .logo svg {
+    width: 200px;
+    padding-top: 10px;
+  }
+  #main-banner .main-navigation {
+    width: 60%;
+    padding: 20px 0px 15px 0px;
   }
   #main h1 {
-    top: 20px;
+    top: 50px;
     font-size: 2.5em;
   }
   .photograph__card {
@@ -797,13 +782,13 @@ ul {
 
 @media all and (min-width: 1920px) {
   #main-banner .main-navigation {
-    padding: 20px 0px 20px 6%;
+    padding: 20px 0px 15px 6%;
   }
   #main {
     position: relative;
   }
   #main h1 {
-    top: -120px;
+    top: -110px;
     right: 0px;
   }
   .photograph__card {
@@ -828,7 +813,7 @@ ul {
   height: auto;
   margin: auto;
   background: transparent;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .ph-info .ph-card {
@@ -844,7 +829,7 @@ ul {
 }
 
 .ph-info .ph-card__artist {
-  font-size: 2em;
+  font-size: 2.25em;
   line-height: 40px;
   color: #D3573C;
   margin-top: 5px;
@@ -868,16 +853,27 @@ ul {
   font-size: 1em;
   color: #901C1C;
   line-height: 31px;
+  font-weight: 400;
 }
 
 .ph-info .ph-card__information--tagline {
   margin-top: 5px;
   font-size: .9em;
   color: #888888;
+  line-height: 23px;
+  font-weight: 400;
 }
 
 .ph-info .ph-card__information .tagBox {
-  margin: 40px 0px 30px 0px;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: 35px 0px 30px 0px;
+  width: 300px;
+}
+
+.ph-info .ph-card__information .tagBox a {
+  font-size: .8em;
 }
 
 .ph-info .profil-picture {
@@ -938,8 +934,7 @@ ul {
   margin: auto;
   width: 92%;
   max-width: 420px;
-  height: 270px;
-  margin-bottom: 50px;
+  height: 240px;
 }
 
 #show-media .artist-cards .artist-cards__picture,
@@ -949,7 +944,7 @@ ul {
   background-color: #C4C4C4;
   max-width: 335px;
   width: 320px;
-  height: 210px;
+  height: 190px;
 }
 
 #show-media .artist-cards .artist-cards__information {
@@ -965,20 +960,17 @@ ul {
 
 #show-media .artist-cards .artist-cards__information .card-title {
   width: 280px;
-  font-size: 1.1em;
-}
-
-#show-media .artist-cards .artist-cards__information .card-price,
-#show-media .artist-cards .artist-cards__information .card-likeNumbers {
-  margin-left: 6px;
   font-size: 1em;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 #show-media .artist-cards .artist-cards__information .card-likeNumbers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 1em;
+  font-weight: 500;
+  margin-right: 5px;
 }
 
 #show-media .artist-cards .artist-cards__information .card-likeNumbers .fa-heart {
@@ -994,7 +986,6 @@ ul {
 @media all and (min-width: 768px) {
   .ph-info {
     width: 90%;
-    height: 280px;
     background: #FAFAFA;
   }
   .ph-info .ph-card__artist {
@@ -1006,6 +997,12 @@ ul {
   }
   .ph-info .ph-card__information--tagline {
     margin-top: 0px;
+  }
+  .ph-info .ph-card__information .tagBox {
+    width: auto;
+  }
+  .ph-info .ph-card__information .tagBox a {
+    font-size: 1em;
   }
   .ph-info .profil-picture {
     width: 200px;
@@ -1049,13 +1046,13 @@ ul {
   }
   #show-media .artist-cards {
     max-width: 410px;
-    width: 890%;
+    width: 80%;
     height: 390px;
   }
   #show-media .artist-cards .artist-cards__picture,
   #show-media .artist-cards .artist-cards__video {
-    max-width: 400px;
-    width: 400px;
+    max-width: 380px;
+    width: 360px;
     height: 320px;
   }
   #show-media .artist-cards .artist-cards__information {
@@ -1068,9 +1065,7 @@ ul {
     width: 300px;
     font-size: 1.6em;
   }
-  #show-media .artist-cards .artist-cards__information .card-price,
   #show-media .artist-cards .artist-cards__information .card-likeNumbers {
-    margin-left: 10px;
     font-size: 1.3em;
   }
   #show-media .artist-cards .artist-cards__information .card-likeNumbers .fa-heart {
@@ -1080,9 +1075,9 @@ ul {
   }
 }
 
-@media all and (min-width: 1440px) {
+@media all and (min-width: 1024px) {
   .ph-info {
-    height: auto;
+    margin-bottom: 30px;
   }
   .ph-info .ph-card {
     margin: 20px 0px 0px 40px;
@@ -1094,9 +1089,13 @@ ul {
   .ph-info .ph-card__information {
     margin-top: 0px;
   }
-  .ph-info .ph-card__information--city, .ph-info .ph-card__information--tagline {
-    margin-top: 20px;
-    font-size: 1.4em;
+  .ph-info .ph-card__information--city {
+    margin-top: 5px;
+    font-size: 1.5em;
+  }
+  .ph-info .ph-card__information--tagline {
+    margin-top: 5px;
+    font-size: 1.2em;
   }
   .ph-info .ph-card__information .tagBox {
     margin-top: 10px;
@@ -1109,7 +1108,6 @@ ul {
     border-radius: 50%;
     -o-object-fit: cover;
        object-fit: cover;
-    top: 30px;
     right: 40px;
   }
   .artist-portofolio #sortby label {
@@ -1123,24 +1121,38 @@ ul {
     -ms-flex-pack: distribute;
         justify-content: space-around;
     margin: auto;
-    width: 95%;
+    width: 100%;
   }
   #show-media .artist-cards {
+    max-width: 410px;
+    height: 370px;
     width: 30%;
-    height: 450px;
-    margin-bottom: 20px;
+    height: 360px;
+    margin-bottom: 0px;
   }
   #show-media .artist-cards .artist-cards__picture,
   #show-media .artist-cards .artist-cards__video {
-    -o-object-fit: cover;
-       object-fit: cover;
-    background-color: #C4C4C4;
-    max-width: 420px;
-    height: 380px;
+    max-width: 320px;
+    height: 280px;
   }
-  #show-media .artist-cards .artist-cards__information .card-price,
+  #show-media .artist-cards .artist-cards__information {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 320px;
+  }
+  #show-media .artist-cards .artist-cards__information .card-title {
+    width: 300px;
+    font-size: 1.5em;
+  }
   #show-media .artist-cards .artist-cards__information .card-likeNumbers {
-    margin-left: 12px;
+    margin-left: 10px;
+    font-size: 1.5em;
+  }
+  #show-media .artist-cards .artist-cards__information .card-likeNumbers .fa-heart {
+    padding-top: 5px;
+    font-size: 18px;
+    margin-left: 3px;
   }
   .counter {
     position: fixed;
@@ -1167,7 +1179,7 @@ ul {
   }
   .fa-heart {
     cursor: pointer;
-    font-size: 1.4em;
+    font-size: 1.3em;
     width: 20px;
     height: 20px;
     color: #901C1C;
@@ -1178,6 +1190,27 @@ ul {
     font-size: 1.5em;
     width: 25px;
     height: 25px;
+  }
+}
+
+@media all and (min-width: 1440px) {
+  #show-media {
+    width: 95%;
+  }
+  #show-media .artist-cards {
+    height: 390px;
+  }
+  #show-media .artist-cards .artist-cards__picture,
+  #show-media .artist-cards .artist-cards__video {
+    max-width: 350px;
+    height: 300px;
+  }
+  #show-media .artist-cards .artist-cards__information {
+    width: 350px;
+  }
+  #show-media .artist-cards .artist-cards__information .card-price,
+  #show-media .artist-cards .artist-cards__information .card-likeNumbers {
+    margin-left: 12px;
   }
 }
 
@@ -1202,7 +1235,7 @@ ul {
     width: 99%;
   }
   .block_page {
-    width: 70%;
+    width: 65%;
     margin: auto;
   }
 }

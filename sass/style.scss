@@ -6,7 +6,6 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
 @import "./Utils/mixin";
 @import "./Base/base";
 @import "./Composants/buttons";
-@import "./Composants/dropdown";
 @import "./Composants/formulaire";
 @import "./Composants/lightbox";
 @import "./Pages/index";
@@ -38,7 +37,7 @@ n'avez pas besoin de concevoir pour cette taille d'écran".*/
     }
 
     .block_page {
-        width: 70%;
+        width: 65%;
         margin: auto;
     }
 }

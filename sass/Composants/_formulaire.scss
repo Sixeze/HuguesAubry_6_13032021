@@ -25,7 +25,7 @@
 
             h2,
             span {
-                margin-top: 10px;
+                margin-top: 5px;
                 font-size: 2.2em;
                 font-weight: 500;
             }
@@ -35,8 +35,8 @@
                 cursor: pointer;
                 border: none;
                 background: url(../media/logo/formClose.svg) center center / 100% 100% no-repeat transparent;
-                width: 30px;
-                height: 30px;
+                width: 18px;
+                height: 18px;
                 z-index: 10;
                 top: 10px;
                 right: 10px;
@@ -56,7 +56,7 @@
             }
 
             .input {
-                margin-top: 8px;
+                margin-top: 0px;
                 width: 95%;
                 height: 50px;
                 font-size: 2em;
@@ -120,9 +120,9 @@
                 }
 
                 .input {
-                    margin-top: 8px;
+                    margin-top: 0px;
                     width: 600px;
-                    height: 70px;
+                    height: 68px;
                     font-size: 2em;
                 }
 
@@ -130,7 +130,7 @@
                     width: 600px;
                     height: 180px;
                     margin-top: 10px;
-                    margin-bottom: 40px;
+                    margin-bottom: 10px;
                 }
 
                 input::placeholder,
@@ -140,7 +140,7 @@
             }
 
             .modal-btn {
-                margin: 20px 0px 50px 15px;
+                margin: 20px 0px 50px 0px;
                 width: 170px;
                 height: 70px;
             }
